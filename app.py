@@ -327,6 +327,25 @@ def confirm_cloud_submission(key):
     )
 
 
+def cloud_uploads_allowed(key):
+    confirmed = confirm_cloud_submission(key)
+    if not confirmed:
+        st.info("Confirm there is no PHI present before uploading documents for a cloud model.")
+
+    return confirmed
+
+
+def upload_widget_key(base_key, cloud_confirmed):
+    if st.session_state.selected_model_source == "cloud":
+        return f"{base_key}_cloud_allowed" if cloud_confirmed else f"{base_key}_cloud_blocked"
+
+    return f"{base_key}_local"
+
+
+def upload_widget_disabled(cloud_confirmed):
+    return st.session_state.selected_model_source == "cloud" and not cloud_confirmed
+
+
 # LLM settings sidebar
 st.sidebar.header("LLM Settings")
 available_local_models = discover_local_ollama_models()
@@ -435,9 +454,11 @@ def uploaded_file_to_oncotree_input(uploaded_file):
 with file_tab:
     st.subheader("Classify from uploaded file")
 
+    file_cloud_confirmed = cloud_uploads_allowed("file_cloud_phi_confirm")
     uploaded_file = st.file_uploader("Upload pathology report or test result",
                                      type = ["txt", "pdf", "docx", "json"],
-                                     key = "uploaded_report_file")
+                                     key = upload_widget_key("uploaded_report_file", file_cloud_confirmed),
+                                     disabled = upload_widget_disabled(file_cloud_confirmed))
     if uploaded_file is not None:
         uploaded_bytes = uploaded_file.getvalue()
         pdf_md = None
@@ -493,8 +514,6 @@ with file_tab:
                     st.error(f"Error loading JSON file: {e}")
                 
         
-    file_cloud_confirmed = confirm_cloud_submission("file_cloud_phi_confirm")
-
     if st.button("Classify", key = "classify_file"):
         input_record = None
 
@@ -647,14 +666,14 @@ with batch_tab:
     if IS_VM_ENVIRONMENT:
         st.info(f"Batch uploads are limited to {VM_BATCH_FILE_LIMIT} files.")
 
+    batch_cloud_confirmed = cloud_uploads_allowed("batch_cloud_phi_confirm")
     batch_files = st.file_uploader(
         "Upload reports",
         type=["txt", "pdf", "docx", "json"],
         accept_multiple_files=True,
-        key="batch_uploaded_files",
+        key=upload_widget_key("batch_uploaded_files", batch_cloud_confirmed),
+        disabled=upload_widget_disabled(batch_cloud_confirmed),
     )
-
-    batch_cloud_confirmed = confirm_cloud_submission("batch_cloud_phi_confirm")
 
     if st.button("Run batch classification", key="classify_batch"):
         if not validate_model_selection():
