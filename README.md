@@ -75,6 +75,25 @@ The app supports:
 - local Ollama models
 - Ollama Cloud models
 
+## Accepted Inputs And Behavior
+
+The Streamlit app has three input modes:
+
+- **File Upload** accepts one `.pdf`, `.txt`, `.docx`, or `.json` file.
+- **Form Upload** accepts manual text entry and does not require a document upload.
+- **Batch Upload** accepts multiple `.pdf`, `.txt`, `.docx`, and `.json` files.
+
+Uploaded report files are handled as follows:
+
+- `.pdf` files are displayed in the app and converted to text before parsing.
+- `.txt` files are read as UTF-8 text, with invalid characters replaced.
+- `.docx` files are converted to text before parsing.
+- `.json` files must be either OncoTree input JSON or Tempus v3.3+ JSON.
+
+For `.pdf`, `.txt`, and `.docx` files, the selected LLM is used first to parse the report into the OncoTree input JSON fields, then the Java OncoTree classifier runs on that JSON. For accepted `.json` files, the app skips report parsing and sends the normalized JSON directly to the classifier.
+
+When a cloud model is selected, the PHI confirmation appears before document upload. File and batch upload controls are disabled until the user confirms there is no PHI present, so documents cannot be successfully uploaded for cloud processing before that confirmation. The same PHI confirmation is required before manual form classification with a cloud model.
+
 ## Input JSON Format
 
 The classifier expects one JSON record per case:
@@ -107,5 +126,4 @@ python batch_classify.py \
 ```
 
 ## Notes
-s
 - The Java classifier and USeq resources originate from the Huntsman Cancer Institute OncoTree/USeq tooling.
