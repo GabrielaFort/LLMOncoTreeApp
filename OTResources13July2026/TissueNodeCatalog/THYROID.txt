@@ -1,0 +1,60 @@
+oncotree_code : THYROID
+parent_oncotree_code : TISSUE
+children_oncotree_codes : OAT; THAP; WDTC; HTAT; THHC; THME; THPD
+key_phrases : GLAND, THYROID; Head and Neck, Thyroid; Thyroid Cancer; Thyroid Gland; Thyroid structure (body structure); Total Thyroid; thyroid
+descriptions : An endocrine gland located at the base of the neck that produces and secretes thyroxine and other hormones. Thyroxine is important for metabolic control.
+
+oncotree_code : OAT
+parent_oncotree_code : THYROID
+children_oncotree_codes : 
+key_phrases : Oncocytic Adenoma of the Thyroid; Thyroid Cancer
+descriptions : 
+
+oncotree_code : THAP
+parent_oncotree_code : THYROID
+children_oncotree_codes : 
+key_phrases : ATC; Anaplastic Carcinoma of Thyroid Gland; Anaplastic Carcinoma of the Thyroid Gland; Anaplastic Follicular Cell Derived Thyroid Carcinoma; Anaplastic Follicular Cell Derived Thyroid Gland Carcinoma; Anaplastic Thyroid Cancer; Anaplastic Thyroid Carcinoma; Anaplastic Thyroid Gland Carcinoma; Anaplastic thyroid carcinoma; Dedifferentiated Thyroid Gland Carcinoma; Metaplastic Thyroid Gland Carcinoma; Pleomorphic Thyroid Gland Carcinoma; Sarcomatoid Thyroid Gland Carcinoma; Thyroid Gland Anaplastic Carcinoma; Thyroid Gland Carcinosarcoma; Thyroid Gland Giant Cell Carcinoma; Thyroid Gland Metaplastic Carcinoma; Thyroid Gland Pleomorphic Carcinoma; Thyroid Gland Sarcomatoid Carcinoma; Thyroid Gland Spindle Cell Carcinoma; Thyroid Gland Undifferentiated (Anaplastic) Carcinoma; Undifferentiated (Anaplastic) Thyroid Gland Cancer; Undifferentiated (Anaplastic) Thyroid Gland Carcinoma; Undifferentiated Carcinoma of Thyroid Gland; Undifferentiated Carcinoma of the Thyroid Gland; Undifferentiated Thyroid Carcinoma; Undifferentiated Thyroid Gland Carcinoma; Undifferentiated Thyroid Tumor; anaplastic thyroid cancer
+descriptions : A primary carcinoma of the thyroid gland composed of undifferentiated cells.  The malignant cells demonstrate evidence of epithelial differentiation, either by immunohistochemistry or electron microscopic studies. Microscopically, in the majority of cases there is a mixture of spindle, epithelioid, and giant cells. The vast majority of the patients present with a rapidly enlarging neck mass. The clinical course is usually aggressive.
+
+oncotree_code : WDTC
+parent_oncotree_code : THYROID
+children_oncotree_codes : THFO; THPA
+key_phrases : Differentiated Thyroid Gland Cancer; Follicular/Papillary Thyroid Gland Carcinoma; Thyroid Gland Differentiated Carcinoma; Thyroid Gland Papillary and Follicular Carcinoma; Thyroid Gland Well Differentiated Carcinoma; Well Differentiated Thyroid Carcinoma; Well Differentiated Thyroid Gland Carcinoma; Well-Differentiated Thyroid Cancer
+descriptions : An adenocarcinoma that arises from the thyroid gland and shows extensive evidence of follicular cell differentiation.  According to the nuclear features of the malignant follicular cells, it is classified either as papillary or follicular carcinoma.
+
+oncotree_code : THFO
+parent_oncotree_code : WDTC
+children_oncotree_codes : 
+key_phrases : CARCINOMA, FOLLICULAR CELL, MALIGNANT; FTC; Follicular Cancer of Thyroid Gland; Follicular Cancer of the Thyroid Gland; Follicular Carcinoma of Thyroid Gland; Follicular Carcinoma of the Thyroid Gland; Follicular Thyroid Cancer; Follicular Thyroid Carcinoma; Follicular Thyroid Gland Carcinoma; Follicular adenocarcinoma, well differentiated; Follicular carcinoma, NOS; Follicular carcinoma, well differentiated; Follicular thyroid carcinoma; Thyroid Follicular Carcinoma; Thyroid Gland Follicular Cancer; Thyroid Gland Follicular Carcinoma; Well-Differentiated Follicular Adenocarcinoma; Well-Differentiated Follicular Carcinoma; Well-differentiated Follicular Adenocarcinoma; Well-differentiated Follicular Carcinoma; follicular thyroid cancer
+descriptions : A differentiated adenocarcinoma arising from the follicular cells of the thyroid gland.  The nuclear features which characterize the thyroid gland papillary carcinoma are absent.  Radiation exposure is a risk factor and it comprises approximately 10% to 15% of thyroid cancers.  Clinically, it usually presents as a solitary mass in the thyroid gland.  It is generally unifocal and thickly encapsulated and shows invasion of the capsule or the vessels.  Diagnostic procedures include thyroid ultrasound and fine needle biopsy.
+
+oncotree_code : HTAT
+parent_oncotree_code : THYROID
+children_oncotree_codes : 
+key_phrases : HTA; HTT; Hyalinizing Trabecular Adenoma of Thyroid; Hyalinizing Trabecular Adenoma of the Thyroid; PLAT; Paraganglioma-like Adenoma; Thyroid Cancer; Thyroid Gland Hyalinizing Trabecular Tumor; Thyroid Hyalinizing Trabecular Adenoma; Trabecular adenoma
+descriptions : A rare, circumscribed or encapsulated tumor arising from the follicular cells of the thyroid gland.  It is characterized by a trabecular growth pattern and hyalinized stroma formation.  The vast majority of cases have a benign clinical course.
+
+oncotree_code : THHC
+parent_oncotree_code : THYROID
+children_oncotree_codes : 
+key_phrases : Hurthle Cell Carcinoma of Thyroid Gland; Hurthle Cell Carcinoma of the Thyroid Gland; Hurthle Cell Thyroid Cancer; Hurthle Cell Thyroid Gland Carcinoma; Oncocytic Carcinoma of Thyroid; Oncocytic Carcinoma of the Thyroid; Thyroid Gland Hurthle Cell Carcinoma; Thyroid Gland Oncocytic Carcinoma; Thyroid Gland Oncocytic Follicular Carcinoma; Thyroid Hurthle Cell Carcinoma; Thyroid Oncocytic Carcinoma
+descriptions : A follicular carcinoma of the thyroid gland, characterized by the presence of large cells with eosinophilic granular cytoplasm and pleomorphic nuclei with prominent, eosinophilic nucleoli.  The nuclear features that characterize the papillary carcinomas of the thyroid gland are absent.
+
+oncotree_code : THME
+parent_oncotree_code : THYROID
+children_oncotree_codes : 
+key_phrases : C Cell Carcinoma; C cell carcinoma; C-Cell Carcinoma; CARCINOMA, C-CELL, MALIGNANT; MTC; Medullary Carcinoma of Thyroid Gland; Medullary Carcinoma of the Thyroid Gland; Medullary Thyroid Cancer; Medullary Thyroid Carcinoma; Medullary Thyroid Gland Carcinoma; Medullary thyroid carcinoma; Parafollicular Cell Carcinoma; Parafollicular cell carcinoma; Thyroid Gland Medullary Cancer; Thyroid Gland Medullary Carcinoma; Thyroid Gland Neuroendocrine Carcinoma; Thyroid Medullary Carcinoma; medullary thyroid cancer
+descriptions : A neuroendocrine carcinoma arising from the C-cells of the thyroid gland. It is closely associated with multiple endocrine neoplasia syndromes. Approximately 10% to 20% of medullary thyroid carcinomas are familial. Patients usually present with a thyroid nodule that is painless and firm. In the majority of cases nodal involvement is present at diagnosis. Surgery is the preferred treatment for both primary lesions and recurrences. This carcinoma is generally not very sensitive to radiation and almost unresponsive to chemotherapy.
+
+oncotree_code : THPA
+parent_oncotree_code : WDTC
+children_oncotree_codes : 
+key_phrases : PTC; Papillary Cancer of Thyroid Gland; Papillary Cancer of the Thyroid Gland; Papillary Carcinoma of Thyroid Gland; Papillary Carcinoma of the Thyroid Gland; Papillary Thyroid Cancer; Papillary Thyroid Carcinoma, NOS; Papillary Thyroid Gland Carcinoma; Papillary carcinoma of thyroid; Papillary thyroid carcinoma; Thyroid Gland Papillary Cancer; Thyroid Gland Papillary Carcinoma; Thyroid Papillary Carcinoma; papillary thyroid cancer
+descriptions : A differentiated adenocarcinoma arising from the follicular cells of the thyroid gland.  Radiation exposure is a risk factor and it is the most common malignant thyroid lesion, comprising 75% to 80% of all thyroid cancers in iodine sufficient countries.  Diagnostic procedures include thyroid ultrasound and fine needle biopsy.  Microscopically, the diagnosis is based on the distinct characteristics of the malignant cells, which include enlargement, oval shape, elongation, and overlapping of the nuclei.  The nuclei also display clearing or have a ground glass appearance.
+
+oncotree_code : THPD
+parent_oncotree_code : THYROID
+children_oncotree_codes : 
+key_phrases : Insular Carcinoma; Insular carcinoma; PDTC; Poorly Differentiated Carcinoma of Thyroid Gland; Poorly Differentiated Carcinoma of the Thyroid Gland; Poorly Differentiated Thyroid Cancer; Poorly Differentiated Thyroid Carcinoma; Poorly Differentiated Thyroid Gland Cancer; Poorly Differentiated Thyroid Gland Carcinoma; Thyroid Gland Poorly Differentiated Carcinoma
+descriptions : A follicular-derived thyroid gland carcinoma that is histologically poorly differentiated and has high-grade features.
+

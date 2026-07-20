@@ -1,0 +1,60 @@
+# Pull from https://www.icd10data.com/search?s=C62.90
+C14.8	Malignant neoplasm of overlapping sites of lip, oral cavity and pharynx
+C15	Malignant neoplasm of esophagus
+C15.9	Malignant neoplasm of esophagus, unspecified
+C16	Malignant neoplasm of stomach
+C16.0	Malignant neoplasm of cardia
+C16.9	Malignant neoplasm of stomach, unspecified
+C17	Malignant neoplasm of small intestine
+C17.9	Malignant neoplasm of small intestine, unspecified
+C18.1	Malignant neoplasm of appendix
+C21.1	Malignant neoplasm of anal canal
+C22.0	Liver cell carcinoma
+C22.1	Intrahepatic bile duct carcinoma
+C23	Malignant neoplasm of gallbladder
+C24.1	Malignant neoplasm of ampulla of Vater
+C24.9	Malignant neoplasm of biliary tract, unspecified
+C25	Malignant neoplasm of pancreas
+C25.9	Malignant neoplasm of pancreas, unspecified
+C34	Malignant neoplasm of bronchus and lung
+C34.9	Malignant neoplasm of unspecified part of bronchus or lung
+C37	Malignant neoplasm of thymus
+C40-C41	Malignant neoplasms of bone and articular cartilage
+C41.9	Malignant neoplasm of bone and articular cartilage, unspecified
+C43	Malignant melanoma of skin
+C43.9	Malignant melanoma of skin, unspecified
+C44.90	Unspecified malignant neoplasm of skin, unspecified
+C44.91	Basal cell carcinoma of skin, unspecified
+C44.92	Squamous cell carcinoma of skin, unspecified
+C49.9	Malignant neoplasm of connective and soft tissue, unspecified
+C4A.9	Merkel cell carcinoma, unspecified
+C50.9	Malignant neoplasm of breast of unspecified site
+C56.9	Malignant neoplasm of unspecified ovary
+C60	Malignant neoplasm of penis
+C60.9	Malignant neoplasm of penis, unspecified
+C61	Malignant neoplasm of prostate
+C62.90	Malignant neoplasm of unspecified testis
+C64.9	Malignant neoplasm of unspecified kidney, except renal pelvis
+C67	Malignant neoplasm of bladder
+C67.9	Malignant neoplasm of bladder, unspecified
+C72.9	Malignant neoplasm of central nervous system, unspecified
+C73	Malignant neoplasm of thyroid gland
+C74.00	Malignant neoplasm of cortex of unspecified adrenal gland
+C80.1	Malignant (primary) neoplasm, unspecified
+C81-C96	Malignant neoplasms of lymphoid, hematopoietic and related tissue
+C85.10	Unspecified B-cell lymphoma
+C91	Lymphoid leukemia
+C91.9	Lymphoid leukemia
+C91.90	Lymphoid leukemia
+C96.9	Malignant neoplasm of lymphoid, hematopoietic and related tissue, unspecified
+D37.8	Neoplasm of uncertain behavior of other specified digestive organs
+D38.1	Neoplasm of uncertain behavior of trachea, bronchus and lung
+D40.0	Neoplasm of uncertain behavior of prostate
+D40.10	Neoplasm of uncertain behavior of unspecified testis
+D41.00	Neoplasm of uncertain behavior of unspecified kidney
+D48.9	Neoplasm of uncertain behavior, unspecified
+D49.0	Neoplasm of unspecified behavior of digestive system
+D49.3	Neoplasm of unspecified behavior of breast
+D49.4	Neoplasm of unspecified behavior of bladder
+D49.5	Neoplasm of unspecified behavior of other genitourinary organs
+D49.59	Neoplasm of unspecified behavior of other genitourinary organ

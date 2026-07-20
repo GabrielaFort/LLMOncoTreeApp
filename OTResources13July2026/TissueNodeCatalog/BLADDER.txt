@@ -1,0 +1,108 @@
+oncotree_code : BLADDER
+parent_oncotree_code : TISSUE
+children_oncotree_codes : BLSC; URMM; UPA; UTUC; IMTB; IUP; SRCBC; BLAD; BLCA; SCBC; UCA; URCA; SCB
+key_phrases : Bladder, NOS; Bladder/Urinary Tract Cancer; URINARY BLADDER; Urinary Bladder; Urinary System, Bladder; Urinary bladder structure (body structure); urinary bladder; vesica urinaria
+descriptions : The distensible sac-like organ that functions as a reservoir of urine, collecting from the kidneys and eliminating via the urethra.
+
+oncotree_code : BLSC
+parent_oncotree_code : BLADDER
+children_oncotree_codes : 
+key_phrases : Bladder Cancer; Bladder Squamous Cell Cancer; Epidermoid Carcinoma of Bladder; Epidermoid Carcinoma of Urinary Bladder; Epidermoid Carcinoma of the Bladder; Epidermoid Carcinoma of the Urinary Bladder; Squamous Cell Carcinoma of Bladder; Squamous Cell Carcinoma of Urinary Bladder; Squamous Cell Carcinoma of the Bladder; Squamous Cell Carcinoma of the Urinary Bladder; Urinary Bladder Epidermoid Carcinoma; Urinary Bladder Squamous Cell Carcinoma
+descriptions : A squamous cell carcinoma of the bladder arising from metaplastic epithelium.  It represents less than 10% of bladder carcinomas.  The exception is the Middle East along the Nile Valley, where it represents the most common form of carcinoma because of the endemic nature of schistosomiasis.  Bladder squamous cell carcinoma is often associated with long-standing chronic inflammation of the bladder and usually has a poor prognosis.  The diagnosis of squamous cell carcinoma of the bladder should be reserved for those tumors that are predominantly keratin forming.
+
+oncotree_code : URMM
+parent_oncotree_code : BLADDER
+children_oncotree_codes : 
+key_phrases : Mucosal Melanoma of the Urethra
+descriptions : 
+
+oncotree_code : UPA
+parent_oncotree_code : BLADDER
+children_oncotree_codes : 
+key_phrases : Bladder Cancer; Urothelial Papilloma
+descriptions : 
+
+oncotree_code : UTUC
+parent_oncotree_code : BLADDER
+children_oncotree_codes : 
+key_phrases : Bladder Cancer; Renal Pelvis and Ureter TCC; Renal Pelvis and Ureter Transitional Cell Cancer; Renal Pelvis and Ureter Transitional Cell Carcinoma; Renal Pelvis and Ureter Urothelial Cancer; Renal Pelvis and Ureter Urothelial Carcinoma; TCC of Renal Pelvis and Ureter; TCC of the Renal Pelvis and Ureter; Transitional Cell Cancer of Renal Pelvis and Ureter; Transitional Cell Cancer of the Renal Pelvis and Ureter; Transitional Cell Carcinoma of Renal Pelvis and Ureter; Upper Tract Urothelial Carcinoma; Upper Urinary Tract Urothelial Carcinoma; Urothelial Carcinoma of the Renal Pelvis and Ureter; Urothelial Carcinoma of the Upper Urinary Tract
+descriptions : A urothelial carcinoma that arises from the renal pelvis and ureter.
+
+oncotree_code : UA
+parent_oncotree_code : URCA
+children_oncotree_codes : 
+key_phrases : Bladder Cancer; Bladder Urachal Adenocarcinoma
+descriptions : A rare bladder adenocarcinoma that develops from the urachal remnant.
+
+oncotree_code : IMTB
+parent_oncotree_code : BLADDER
+children_oncotree_codes : 
+key_phrases : Bladder Cancer; Inflammatory Myofibroblastic Bladder Tumor; Inflammatory Myofibroblastic Neoplasm of Bladder; Inflammatory Myofibroblastic Neoplasm of Urinary Bladder; Inflammatory Myofibroblastic Neoplasm of the Bladder; Inflammatory Myofibroblastic Neoplasm of the Urinary Bladder; Inflammatory Myofibroblastic Tumor of Bladder; Inflammatory Myofibroblastic Tumor of Urinary Bladder; Inflammatory Myofibroblastic Tumor of the Bladder; Inflammatory Myofibroblastic Tumor of the Urinary Bladder; Urinary Bladder Inflammatory Myofibroblastic Neoplasm; Urinary Bladder Inflammatory Myofibroblastic Tumor
+descriptions : An intermediate fibroblastic neoplasm that arises from the bladder and is characterized by the presence of spindle-shaped fibroblasts and myofibroblasts, and a chronic inflammatory infiltrate composed of eosinophils, lymphocytes, and plasma cells.
+
+oncotree_code : USCC
+parent_oncotree_code : UCA
+children_oncotree_codes : 
+key_phrases : Bladder Cancer; Epidermoid Carcinoma of Urethra; Epidermoid Carcinoma of the Urethra; Squamous Cell Carcinoma of Urethra; Squamous Cell Carcinoma of the Urethra; Urethra Epidermoid Carcinoma; Urethra Squamous Cell Carcinoma; Urethral Epidermoid Carcinoma; Urethral Squamous Cell Cancer; Urethral Squamous Cell Carcinoma
+descriptions : A well differentiated, moderately differentiated, or poorly differentiated squamous cell carcinoma that arises from the male or female urethra.
+
+oncotree_code : IUP
+parent_oncotree_code : BLADDER
+children_oncotree_codes : 
+key_phrases : Bladder Cancer; Inverted Urothelial Papilloma
+descriptions : 
+
+oncotree_code : SRCBC
+parent_oncotree_code : BLADDER
+children_oncotree_codes : 
+key_phrases : Bladder Cancer; Infiltrating Bladder Urothelial Carcinoma, Lymphoma-Like/Plasmacytoid Variant; Infiltrating Bladder Urothelial Carcinoma, Plasmacytoid Variant; Invasive Bladder Lymphoma-Like/Plasmacytoid Urothelial Carcinoma; Invasive Bladder Plasmacytoid Urothelial Carcinoma; Invasive Bladder Urothelial Carcinoma, Lymphoma-Like/Plasmacytoid Variant; Invasive Bladder Urothelial Carcinoma, Plasmacytoid Variant; Plasmacytoid/Signet Ring Cell Bladder Carcinoma
+descriptions : Invasive bladder urothelial carcinoma characterized by the presence of malignant cells with plasmacytoid features.
+
+oncotree_code : BLAD
+parent_oncotree_code : BLADDER
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma of Bladder; Adenocarcinoma of Urinary Bladder; Adenocarcinoma of the Bladder; Adenocarcinoma of the Urinary Bladder; Bladder Adenocarcinoma Excluding Clear Cell Adenocarcinoma and Endometrioid Adenocarcinoma; Bladder Cancer; Urinary Bladder Adenocarcinoma
+descriptions : A rare adenocarcinoma arising from metaplastic bladder epithelium. It is frequently associated with long-standing local irritation. The majority of cases originate from the trigone and the posterior wall of the bladder. This group does not include clear cell and endometrioid adenocarcinomas.
+
+oncotree_code : BLCA
+parent_oncotree_code : BLADDER
+children_oncotree_codes : 
+key_phrases : Bladder Cancer; Bladder Urothelial Cancer; Transitional Cell Carcinoma of the Urinary Bladder; Urinary Bladder Transitional Cell Carcinoma; Urinary Bladder Urothelial Carcinoma; Urothelial Carcinoma of the Urinary Bladder
+descriptions : A carcinoma that arises from the urothelial lining of the bladder.  It is the most common morphologic type of urinary bladder carcinoma. It usually affects males in their sixth and seventh decades of life.  Hematuria is the most common symptom at presentation. Pathologic stage is the strongest predictor of survival.
+
+oncotree_code : SCBC
+parent_oncotree_code : BLADDER
+children_oncotree_codes : 
+key_phrases : Bladder Small Cell Carcinoma; Bladder Small Cell Neuroendocrine Cancer; Bladder Small Cell Neuroendocrine Carcinoma; Small Cell Bladder Cancer; Small Cell Neuroendocrine Carcinoma of Urinary Bladder; Small Cell Neuroendocrine Carcinoma of the Urinary Bladder
+descriptions : A small cell neuroendocrine carcinoma arising from the bladder.
+
+oncotree_code : UAD
+parent_oncotree_code : UCA
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma of Urethra; Adenocarcinoma of the Urethra; Bladder Cancer; Urethra Adenocarcinoma; Urethral Adenocarcinoma
+descriptions : An adenocarcinoma that arises from the male or female urethra.
+
+oncotree_code : UCA
+parent_oncotree_code : BLADDER
+children_oncotree_codes : USCC; UAD; UCU
+key_phrases : Bladder Cancer; Carcinoma of Urethra; Carcinoma of the Urethra; Urethra Carcinoma; Urethral Cancer; Urethral Carcinoma; urethral cancer
+descriptions : A carcinoma that arises from the urethra. Morphologically, the tumors are similar to those described in the bladder.
+
+oncotree_code : UCU
+parent_oncotree_code : UCA
+children_oncotree_codes : 
+key_phrases : Bladder Cancer; Urethral Urothelial Carcinoma
+descriptions : 
+
+oncotree_code : URCA
+parent_oncotree_code : BLADDER
+children_oncotree_codes : UA
+key_phrases : Bladder Cancer; Bladder Urachal Cancer; Bladder Urachal Carcinoma
+descriptions : A rare variant of carcinoma of the urachal remnant of bladder.
+
+oncotree_code : SCB
+parent_oncotree_code : BLADDER
+children_oncotree_codes : 
+key_phrases : Bladder Cancer; Bladder Carcinosarcoma; Infiltrating Bladder Urothelial Carcinoma Sarcomatoid Variant; Infiltrating Bladder Urothelial Carcinoma, Sarcomatoid Variant; Invasive Bladder Sarcomatoid Urothelial Carcinoma; Invasive Bladder Urothelial Carcinoma, Sarcomatoid Variant; Sarcomatoid Carcinoma of the Urinary Bladder
+descriptions : An invasive urothelial carcinoma of the bladder that exhibits spindle cell sarcomatoid features.
+

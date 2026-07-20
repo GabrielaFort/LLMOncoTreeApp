@@ -1,0 +1,84 @@
+oncotree_code : VULVA
+parent_oncotree_code : TISSUE
+children_oncotree_codes : VA; VGCT; VMA; VMM; VPDC; VSC
+key_phrases : External Genitalia; Vulva, NOS; Vulva/Vagina; Vulval structure (body structure); Vulvar/Vaginal Cancer; female pudendum; mammalian vulva; puboperineal region; pudendum femininum
+descriptions : The external, visible part of the female genitalia surrounding the urethral and vaginal opening. The vulva includes the clitoris and inner as well as outer labia.
+
+oncotree_code : VYST
+parent_oncotree_code : VGCT
+children_oncotree_codes : 
+key_phrases : Germ Cell Tumor; Vaginal Endodermal Sinus Neoplasm; Vaginal Endodermal Sinus Tumor; Vaginal Yolk Sac Neoplasm; Vaginal Yolk Sac Tumor
+descriptions : A rare yolk sac tumor that arises from the vagina.
+
+oncotree_code : VOEC
+parent_oncotree_code : VGCT
+children_oncotree_codes : 
+key_phrases : Embryonal Carcinoma; Germ Cell Tumor
+descriptions : 
+
+oncotree_code : VDYS
+parent_oncotree_code : VGCT
+children_oncotree_codes : 
+key_phrases : DYSGERMINOMA, MALIGNANT; Dysgerminoma of Ovary; Dysgerminoma of the Ovary; Germ Cell Tumor; Ovarian Dysgerminoma; Ovarian dysgerminoma
+descriptions : A malignant germ cell tumor arising from the ovary.  Morphologically, it is identical to seminoma and consists of a monotonous population of germ cells with abundant pale cytoplasm and uniform nuclei.  The stroma invariably contains chronic inflammatory cells, mostly T-lymphocytes. It responds to chemotherapy or radiotherapy and the prognosis relates to the tumor stage.
+
+oncotree_code : VA
+parent_oncotree_code : VULVA
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma of Vagina; Adenocarcinoma of the Vagina; Vagina Adenocarcinoma; Vaginal Adenocarcinoma; Vaginal Cancer
+descriptions : An adenocarcinoma arising from the vagina.  Morphologic variants include the clear cell, endometrioid, mesonephric, and mucinous adenocarcinoma.
+
+oncotree_code : VGCT
+parent_oncotree_code : VULVA
+children_oncotree_codes : VYST; VOEC; VDYS; VIMT; VMGCT; VMT; VPE
+key_phrases : Germ Cell Tumor of the Vulva
+descriptions : 
+
+oncotree_code : VIMT
+parent_oncotree_code : VGCT
+children_oncotree_codes : 
+key_phrases : Embryonal teratoma; Germ Cell Tumor; Grade 2 Teratoma; Immature Teratoma; Immature teratoma, NOS
+descriptions : A teratoma characterized by the presence of an extensive component of immature, fetal-type tissues.
+
+oncotree_code : VMGCT
+parent_oncotree_code : VGCT
+children_oncotree_codes : 
+key_phrases : Combined Germ Cell Neoplasm; Combined Germ Cell Tumor; Mixed Germ Cell Neoplasm; Mixed Germ Cell Tumor
+descriptions : A malignant germ cell tumor characterized by the presence of at least two different germ cell tumor components. The different germ cell tumor components include choriocarcinoma, embryonal carcinoma, yolk sac tumor, teratoma, and seminoma. It occurs in the ovary, testis, and extragonadal sites including central nervous system and mediastinum.
+
+oncotree_code : VMA
+parent_oncotree_code : VULVA
+children_oncotree_codes : 
+key_phrases : Mucinous Adenocarcinoma of the Vulva/Vagina; Vaginal Mucinous Adenocarcinoma; Vulvar Carcinoma
+descriptions : A rare adenocarcinoma that arises from the vagina with histologic features resembling cervical mucinous adenocarcinoma.
+
+oncotree_code : VMM
+parent_oncotree_code : VULVA
+children_oncotree_codes : 
+key_phrases : Melanoma of Vagina; Melanoma of the Vagina; Mucosal Melanoma of the Vulva/Vagina; Vaginal Melanoma
+descriptions : A primary malignant neoplasm of the vagina composed of malignant melanocytes.
+
+oncotree_code : VMT
+parent_oncotree_code : VGCT
+children_oncotree_codes : 
+key_phrases : Germ Cell Tumor; Grade 0 Teratoma; Mature Teratoma
+descriptions : A teratoma which may be cystic; it is composed entirely of well differentiated, adult-type mature tissues, without evidence of fetal-type immature tissues (grade 0 teratoma).
+
+oncotree_code : VPDC
+parent_oncotree_code : VULVA
+children_oncotree_codes : 
+key_phrases : Poorly Differentiated Vaginal Carcinoma; Vaginal Cancer
+descriptions : 
+
+oncotree_code : VPE
+parent_oncotree_code : VGCT
+children_oncotree_codes : 
+key_phrases : Germ Cell Tumor; Polyembryoma
+descriptions : 
+
+oncotree_code : VSC
+parent_oncotree_code : VULVA
+children_oncotree_codes : 
+key_phrases : Squamous Cell Carcinoma of the Vulva/Vagina; Vaginal Cancer; Vaginal Squamous Cell Cancer, NOS; Vaginal Squamous Cell Carcinoma, NOS; Vaginal Squamous Cell Carcinoma, Not Otherwise Specified
+descriptions : Vaginal squamous cell carcinoma in which information on the p16 immunohistochemistry or HPV testing status is not available.
+

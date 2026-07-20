@@ -1,0 +1,96 @@
+oncotree_code : PANCREAS
+parent_oncotree_code : TISSUE
+children_oncotree_codes : SPN; PAAD; PB; PAAC; PACT; PANEC; PANET; PAASC; UCP
+key_phrases : Gastrointestinal Tract, Pancreas; Pancreas, NOS; Pancreatic Cancer; Pancreatic structure (body structure)
+descriptions : An organ behind the lower part of the stomach that is the shape of a fish and about the size of a hand. It is a compound gland composed of both exocrine and endocrine tissues. The endocrine pancreas makes insulin so that the body can use glucose (sugar) for energy. The exocrine pancreas makes enzymes that help the body digest food. Spread all over the pancreas are areas called the Islets of Langerhans. The cells in these areas each have a special purpose. The alpha cells make glucagon, which raises the level of glucose in the blood; the beta cells make insulin; the delta cells make somatostatin. There are also PP cells and D1 cells, about which little is known.
+
+oncotree_code : MCN
+parent_oncotree_code : PACT
+children_oncotree_codes : 
+key_phrases : Pancreatic Cancer; Pancreatic Mucinous Cystic Neoplasm; Pancreatic Mucinous-Cystic Neoplasm
+descriptions : A cystic epithelial neoplasm that arises from the exocrine pancreas and affects almost exclusively females. It is characterized by the presence of columnar mucin-producing epithelial cells and ovarian-type stroma formation. This category includes non-invasive pancreatic mucinous-cystic neoplasms (low-or high-grade) and pancreatic mucinous-cystic neoplasms with an associated invasive carcinoma.
+
+oncotree_code : IOPN
+parent_oncotree_code : PACT
+children_oncotree_codes : 
+key_phrases : Intraductal Oncocytic Papillary Neoplasm; Pancreatic Cancer
+descriptions : 
+
+oncotree_code : SPN
+parent_oncotree_code : PANCREAS
+children_oncotree_codes : 
+key_phrases : Pancreatic Cancer; Solid Pseudopapillary Neoplasm of the Pancreas; Solid Pseudopapillary Tumor of the Pancreas
+descriptions : A low-grade malignant neoplasm that arises from the exocrine pancreas. It is characterized by the presence of uniform cells that form solid and pseudopapillary patterns, cystic changes, and hemorrhage. Perineural invasion, vascular invasion, and invasion into surrounding tissues may be present. It usually presents as an encapsulated, solitary, and lobulated pancreatic mass. It is usually found incidentally during physical examination or it may present with abdominal discomfort and pain. It occurs predominantly in young women. Complete removal of the tumor is curative in the majority of cases.
+
+oncotree_code : PAAD
+parent_oncotree_code : PANCREAS
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma - pancreas; Adenocarcinoma of Pancreas; Adenocarcinoma of the Pancreas; Adenocarcinoma of the pancreas; Pancreas Adenocarcinoma; Pancreatic Adenocarcinoma; Pancreatic Cancer
+descriptions : An adenocarcinoma which arises from the exocrine pancreas.  Ductal adenocarcinoma and its variants are the most common types of pancreatic adenocarcinoma.
+
+oncotree_code : PB
+parent_oncotree_code : PANCREAS
+children_oncotree_codes : 
+key_phrases : Pancreatic Cancer; Pancreatoblastoma
+descriptions : A rare malignant epithelial neoplasm arising from the pancreas. The vast majority of cases occur during childhood. It is characterized by acinar differentiation, the formation of squamoid corpuscles, and the formation of stromal bands. Patients may present with an abdominal mass. Symptoms include pain, weight loss, and diarrhea. It may metastasize to lymph nodes, liver, and distant anatomic sites. Children who do not have metastatic disease at the time of diagnosis usually have a favorable clinical outcome when treated with a combination of surgery and chemotherapy. However, children with metastatic disease at presentation or adult patients usually have a poor prognosis.
+
+oncotree_code : PAAC
+parent_oncotree_code : PANCREAS
+children_oncotree_codes : 
+key_phrases : Acinar Cell Adenocarcinoma of Pancreas; Acinar Cell Adenocarcinoma of the Pancreas; Acinar Cell Carcinoma of Pancreas; Acinar Cell Carcinoma of the Pancreas; Pancreas Acinar Cell Adenocarcinoma; Pancreatic Acinar Cell Adenocarcinoma; Pancreatic Acinar Cell Cancer; Pancreatic Acinar Cell Carcinoma; Pancreatic Cancer
+descriptions : An adenocarcinoma arising from the pancreas.  It is characterized by the presence of relatively uniform malignant cells which form acinar patterns.  It usually occurs during adulthood.  Signs and symptoms include abdominal pain, weight loss, nausea, and diarrhea.  It may metastasize to regional lymph nodes and the liver.  A minority of patients develop lipase hypersecretion syndrome.  This syndrome may be seen in patients with liver metastases and it is characterized by excessive secretion of lipase in the serum, polyarthralgia, and subcutaneous fat necrosis.
+
+oncotree_code : PACT
+parent_oncotree_code : PANCREAS
+children_oncotree_codes : MCN; IOPN; ITPN; IPMN; PSC
+key_phrases : Cystic Tumor of the Pancreas; Pancreatic Cancer; Pancreatic Mucinous Cystic Neoplasm; Pancreatic Mucinous-Cystic Neoplasm
+descriptions : A cystic epithelial neoplasm that arises from the exocrine pancreas and affects almost exclusively females. It is characterized by the presence of columnar mucin-producing epithelial cells and ovarian-type stroma formation. This category includes non-invasive pancreatic mucinous-cystic neoplasms (low-or high-grade) and pancreatic mucinous-cystic neoplasms with an associated invasive carcinoma.
+
+oncotree_code : OSGCT
+parent_oncotree_code : UCP
+children_oncotree_codes : 
+key_phrases : Osteoclastic Giant Cell Tumor; Pancreatic Cancer
+descriptions : 
+
+oncotree_code : ITPN
+parent_oncotree_code : PACT
+children_oncotree_codes : 
+key_phrases : Intraductal Tubulopapillary Neoplasm; Pancreatic Cancer
+descriptions : 
+
+oncotree_code : IPMN
+parent_oncotree_code : PACT
+children_oncotree_codes : 
+key_phrases : Intraductal Papillary Mucinous Neoplasm; Pancreatic Cancer; Pancreatic IPMN; Pancreatic Intraductal Papillary-Mucinous Neoplasm; Pancreatic Intraductal Papillary-Mucinous Tumor
+descriptions : A usually slow-growing epithelial neoplasm with ductal differentiation that arises from the exocrine pancreas and grows mostly within the pancreatic ducts. Grossly, it is characterized by the presence of intraductal masses. Morphologically, there is proliferation of mucin-producing cells within the pancreatic ducts, intraductal accumulation of mucin, and a papillary growth pattern. It may be associated with the presence of an invasive carcinoma. It usually occurs in older patients. Signs and symptoms include epigastric pain, weight loss, jaundice, chronic pancreatitis, and diabetes mellitus.
+
+oncotree_code : PANEC
+parent_oncotree_code : PANCREAS
+children_oncotree_codes : 
+key_phrases : Pancreatic Cancer; Pancreatic Neuroendocrine Carcinoma
+descriptions : 
+
+oncotree_code : PANET
+parent_oncotree_code : PANCREAS
+children_oncotree_codes : 
+key_phrases : Islet Cell Tumor; Islet cell tumors - pancreas; Islet cell tumors of the pancreas; PanNET; Pancreatic Cancer; Pancreatic NET; Pancreatic Neuroendocrine Tumor; Pancreatic Well Differentiated Neuroendocrine Neoplasm; Pancreatic Well-Differentiated Neuroendocrine Neoplasm; Well Differentiated Pancreatic Endocrine Neoplasm; Well Differentiated Pancreatic Neuroendocrine Neoplasm; Well-Differentiated Pancreatic Endocrine Neoplasm; Well-Differentiated Pancreatic Neuroendocrine Neoplasm; islet cell tumor
+descriptions : A well-differentiated, low-, intermediate-, or high-grade neoplasm with neuroendocrine differentiation that arises from the islet cells of the pancreas. According to the presence or absence of clinical syndromes that result from hormone hypersecretion, pancreatic neuroendocrine tumors are classified either as functional or nonfunctional.
+
+oncotree_code : PAASC
+parent_oncotree_code : PANCREAS
+children_oncotree_codes : 
+key_phrases : Adenosquamous Carcinoma of Pancreas; Adenosquamous Carcinoma of the Pancreas; Adenosquamous carcinoma; Pancreatic Adenoacanthoma; Pancreatic Adenosquamous Cancer; Pancreatic Adenosquamous Carcinoma; Pancreatic Cancer; Pancreatic Mixed Squamous and Adenocarcinoma; Pancreatic Mucoepidermoid Carcinoma
+descriptions : A carcinoma that arises from the pancreas showing both ductal and squamous differentiation.  The squamous component should represent at least 30% of the malignant cellular infiltrate.  The prognosis is usually worse than that of ductal adenocarcinoma.
+
+oncotree_code : PSC
+parent_oncotree_code : PACT
+children_oncotree_codes : 
+key_phrases : Pancreatic Cancer; Pancreatic Serous Cystadenoma; Serous Cystadenoma of Pancreas; Serous Cystadenoma of the Pancreas
+descriptions : A benign, non-metastasizing cystic epithelial neoplasm arising from the exocrine pancreas. It is composed of glycogen-rich epithelial cells that produce a watery fluid. Signs and symptoms include abdominal mass, abdominal pain, nausea, vomiting, and weight loss.
+
+oncotree_code : UCP
+parent_oncotree_code : PANCREAS
+children_oncotree_codes : OSGCT
+key_phrases : Pancreatic Cancer; Pancreatic Carcinosarcoma; Pancreatic Undifferentiated Carcinoma; Pleomorphic Large Cell Pancreatic Carcinoma; Sarcomatoid Pancreatic Carcinoma; Spindle Cell Pancreatic Carcinoma; Undifferentiated (Anaplastic) Pancreatic Carcinoma; Undifferentiated Carcinoma of Pancreas; Undifferentiated Carcinoma of the Pancreas; Undifferentiated Pancreatic Carcinoma; Undifferentiated carcinoma
+descriptions : A carcinoma that arises from the pancreas and is characterized by the presence of malignant cells that do not show differentiation. The prognosis is poor.
+

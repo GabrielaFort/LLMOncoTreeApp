@@ -1,0 +1,30 @@
+oncotree_code : THYMUS
+parent_oncotree_code : TISSUE
+children_oncotree_codes : TET; TNET
+key_phrases : Reticuloendothelial System, Thymus; THYMUS; Thymic Cancer; Thymus Gland; Thymus gland structure (body structure); thymus organ
+descriptions : A bi-lobed organ surrounded by a connective tissue capsule. It is located in the upper anterior portion of the chest, behind the sternum. It is composed predominantly of lymphocytes and fewer epithelial cells. Connective tissue septa separate the lobes into lobules. The lobules contain an outer portion (cortical zone) which is rich in lymphocytes and an inner portion (medullary zone) which is rich in epithelial cells. It is an organ essential for the development of the immune system. Its function is the maturation of the progenitor lymphoid cells to thymocytes and subsequently to mature T-cells. It reaches its greatest weight at puberty and subsequently begins to involute.
+
+oncotree_code : THYC
+parent_oncotree_code : TET
+children_oncotree_codes : 
+key_phrases : Thymic Carcinoma (Excluding Well Differentiated Thymic Carcinoma); Thymic Carcinoma Excluding Well Differentiated Thymic Carcinoma; Thymic Tumor; Thymoma Type C; Thymus Carcinoma; thymic carcinoma; type C thymoma
+descriptions : A diverse group of carcinomas of the thymus gland, previously known as thymoma type C.  It includes morphologic variants derived from purely epithelial cells, as well as from cells with neuroendocrine differentiation.
+
+oncotree_code : THYM
+parent_oncotree_code : TET
+children_oncotree_codes : 
+key_phrases : Thymic Tumor; Thymoma, NOS
+descriptions : A neoplasm arising from the epithelial cells of the thymus.  Although thymomas are usually encapsulated tumors, they may invade the capsule and infiltrate the surrounding tissues or even metastasize to distant anatomic sites.  The following morphologic subtypes are currently recognized: type A, type B, type AB, metaplastic, micronodular, microscopic, and sclerosing thymoma.  Thymomas type B are further subdivided into types B1, B2, and B3. Thymoma type B3 usually has the most aggressive clinical course.
+
+oncotree_code : TET
+parent_oncotree_code : THYMUS
+children_oncotree_codes : THYC; THYM
+key_phrases : Epithelial Neoplasm of Thymus; Epithelial Neoplasm of the Thymus; Epithelial Tumor of Thymus; Epithelial Tumor of the Thymus; Thymic Epithelial Neoplasm; Thymic Epithelial Tumor; Thymic Epithelium Neoplasm; Thymic Tumor; Thymus Epithelial Neoplasm; Thymus Epithelial Tumor
+descriptions : An epithelial neoplasm that affects the thymus gland. This category includes thymomas, carcinomas, and neuroendocrine neoplasms.
+
+oncotree_code : TNET
+parent_oncotree_code : THYMUS
+children_oncotree_codes : 
+key_phrases : Thymic Neuroendocrine Tumor; Thymic Tumor
+descriptions : 
+

@@ -1,0 +1,60 @@
+oncotree_code : PNS
+parent_oncotree_code : TISSUE
+children_oncotree_codes : GN; GNBL; NBL; NST
+key_phrases : Peripheral Nervous System Cancer
+descriptions : That part of the nervous system consisting of the nerves and neurons that reside or extend outside the central nervous system.
+
+oncotree_code : GN
+parent_oncotree_code : PNS
+children_oncotree_codes : 
+key_phrases : Ganglioneuroma; Peripheral Nervous System
+descriptions : 
+
+oncotree_code : MPNST
+parent_oncotree_code : NST
+children_oncotree_codes : 
+key_phrases : MPNST, NOS; Malig. periph. nerve sheath tum.; Malignant Neurilemmoma; Malignant Peripheral Nerve Sheath Neoplasm; Malignant Peripheral Nerve Sheath Tumor; Malignant Peripheral Nerve Sheath Tumour; Malignant Schwannoma; Neurilemoma, malignant; Neurofibrosarcoma, Malignant; Neurogenic sarcoma; SCHWANNOMA, MALIGNANT
+descriptions : An uncommon, highly aggressive malignant tumor, arising from the peripheral nerves and affecting mostly adults in their third to sixth decades of life.  It usually occurs in medium-sized and large nerves of the buttock, thigh, upper arm, or the paraspinal region.  It may be associated with neurofibromatosis 1 (NF1).
+
+oncotree_code : GNBL
+parent_oncotree_code : PNS
+children_oncotree_codes : 
+key_phrases : GANGLIONEUROBLASTOMA, MALIGNANT; Ganglioneuroblastoma; Peripheral Nervous System
+descriptions : A malignant neuroblastic tumor characterized by the presence of neuroblastic cells, ganglion cells, and a stroma with Schwannian differentiation constituting more than fifty-percent of the tumor volume.  There are two histologic subtypes identified: ganglioneuroblastoma, intermixed and ganglioneuroblastoma, nodular.
+
+oncotree_code : NFIB
+parent_oncotree_code : NST
+children_oncotree_codes : 
+key_phrases : NEUROFIBROMA, BENIGN; Nerve Sheath Tumor; Neurofibroma (WHO Grade I); Neurofibroma, NOS
+descriptions : An intraneural or extraneural neoplasm arising from nerve tissues and neural sheaths. It is composed of perineurial-like fibroblasts and Schwann cells. It usually presents as a localized cutaneous lesion and less often as a circumscribed peripheral nerve mass. Patients with neurofibromatosis type 1 present with multiple masses. Neurofibromas which arise from major nerves and plexiform neurofibromas are precursor lesions to malignant peripheral nerve sheath tumors.
+
+oncotree_code : NBL
+parent_oncotree_code : PNS
+children_oncotree_codes : 
+key_phrases : NEUROBLASTOMA, MALIGNANT; Neural Crest Tumor, Malignant; Neuroblastoma (NBL); Neuroblastoma (Schwannian Stroma-Poor); Neuroblastoma (Schwannian Stroma-poor); Neuroblastoma, NOS; Peripheral Nervous System
+descriptions : A malignant neuroblastic tumor characterized by the presence of neuroblastic cells, the absence of ganglion cells, and the absence of a prominent Schwannian stroma formation.
+
+oncotree_code : MSCHW
+parent_oncotree_code : SCHW
+children_oncotree_codes : 
+key_phrases : Melanocytic Neurilemmoma; Melanocytic Schwannoma; Melanotic Neurilemmoma; Melanotic Neurinoma; Melanotic Schwannoma; Nerve Sheath Tumor; Pigmented Neurilemmoma; Pigmented Schwannoma; Pigmented schwannoma
+descriptions : A rare circumscribed, non-encapsulated and grossly pigmented nerve sheath tumor. It is composed of cells with the immunophenotypic and electron microscopic features of Schwann cells which contain melanosomes and are positive for melanoma markers. It usually involves spinal nerve roots but may occur in other locations. It may be associated with PRKAR1A gene mutation and Carney complex. Malignant behavior has been reported in a significant number of patients.
+
+oncotree_code : CSCHW
+parent_oncotree_code : SCHW
+children_oncotree_codes : 
+key_phrases : Cellular Neurilemmoma; Cellular Neurinoma; Cellular Schwannoma; Nerve Sheath Tumor
+descriptions : A morphologic variant of schwannoma characterized by hypercellularity, Antoni A pattern, and the absence of well-formed Verocay bodies.
+
+oncotree_code : NST
+parent_oncotree_code : PNS
+children_oncotree_codes : MPNST; NFIB; SCHW
+key_phrases : Neoplasm of Nerve Sheath; Neoplasm of the Nerve Sheath; Nerve Sheath Neoplasm; Nerve Sheath Tumors; Tumor of Nerve Sheath
+descriptions : A benign or malignant neoplasm arising from the perineural cells in the sheaths surrounding the nerves. Representative examples include neurofibroma, schwannoma, and malignant peripheral nerve sheath tumor.
+
+oncotree_code : SCHW
+parent_oncotree_code : NST
+children_oncotree_codes : MSCHW; CSCHW
+key_phrases : Benign Neurilemmoma; Benign Schwannoma; Nerve Sheath Tumor; Neurinoma; SCHWANNOMA, BENIGN; Schwannoma (WHO Grade I); Schwannoma (Who Grade I); Schwannoma, NOS
+descriptions : A benign, usually encapsulated slow growing tumor composed of Schwann cells.  It affects peripheral and cranial nerves.  It recurs infrequently and only rare cases associated with malignant transformation have been reported.
+

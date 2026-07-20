@@ -1,0 +1,144 @@
+oncotree_code : STOMACH
+parent_oncotree_code : TISSUE
+children_oncotree_codes : EPDCA; SMN; GINETES; EGC; ESCC; ESMM
+key_phrases : Esophageal/Stomach Cancer; Esophagus/Stomach; Gastric; Gastrointestinal Tract, Stomach; Stomach structure (body structure); Stomach, NOS
+descriptions : The primary organ of food digestion. It is located under the diaphragm, between the liver and the spleen as well as between the esophagus and the small intestine.
+
+oncotree_code : STSC
+parent_oncotree_code : EGC
+children_oncotree_codes : 
+key_phrases : Esophagogastric Cancer; Gastric Oat Cell Carcinoma; Gastric Small Cell Carcinoma; Gastric Small Cell Neuroendocrine Carcinoma; Oat Cell Carcinoma of Stomach; Oat Cell Carcinoma of the Stomach; Small Cell Carcinoma of Stomach; Small Cell Carcinoma of the Stomach
+descriptions : An aggressive high-grade carcinoma with neuroendocrine differentiation that arises from the stomach and is composed of malignant small cells. The mitotic count is more than 20 per 2 mm2 and/or the Ki-67 index is more than 20%.
+
+oncotree_code : TSTAD
+parent_oncotree_code : STAD
+children_oncotree_codes : 
+key_phrases : Esophagogastric Cancer; Gastric Tubular Adenocarcinoma; Tubular Adenocarcinoma of Stomach; Tubular Adenocarcinoma of the Stomach; Tubular Stomach Adenocarcinoma; Tubular adenocarcinoma
+descriptions : A variant of gastric adenocarcinoma characterized by prominent dilated or slit-like tubules.
+
+oncotree_code : USTAD
+parent_oncotree_code : EGC
+children_oncotree_codes : SSRCC; SPDAC
+key_phrases : Anaplastic Carcinoma of Stomach; Anaplastic Carcinoma of the Stomach; Anaplastic Gastric Carcinoma; Esophagogastric Cancer; Gastric Undifferentiated Carcinoma; Undifferentiated Carcinoma of Stomach; Undifferentiated Carcinoma of the Stomach; Undifferentiated Gastric (Stomach) Cancer; Undifferentiated Gastric Carcinoma; Undifferentiated Stomach Adenocarcinoma
+descriptions : A carcinoma that arises from the stomach and is characterized by the absence of microscopic features of glandular or squamous differentiation.
+
+oncotree_code : EPDCA
+parent_oncotree_code : STOMACH
+children_oncotree_codes : 
+key_phrases : Esophageal Poorly Differentiated Carcinoma; Esophagogastric Cancer
+descriptions : 
+
+oncotree_code : SMN
+parent_oncotree_code : STOMACH
+children_oncotree_codes : 
+key_phrases : Esophagogastric Cancer; Smooth Muscle Neoplasm, NOS
+descriptions : 
+
+oncotree_code : SSRCC
+parent_oncotree_code : USTAD
+children_oncotree_codes : 
+key_phrases : Esophagogastric Cancer; Gastric Signet Ring Cell Adenocarcinoma; Gastric Signet-Ring Cell Adenocarcinoma; Poorly cohesive carcinoma, including signet ring cell carcinoma; Signet Ring Cell Adenocarcinoma of Stomach; Signet Ring Cell Adenocarcinoma of the Stomach; Signet Ring Cell Carcinoma of the Stomach; Signet Ring Cell Gastric Adenocarcinoma; Signet Ring Cell Stomach Adenocarcinoma
+descriptions : A poorly cohesive gastric adenocarcinoma characterized by malignant cells containing intracytoplasmic mucin.
+
+oncotree_code : PSTAD
+parent_oncotree_code : STAD
+children_oncotree_codes : 
+key_phrases : Esophagogastric Cancer; Gastric Papillary Adenocarcinoma; Papillary Adenocarcinoma of Stomach; Papillary Adenocarcinoma of the Stomach; Papillary Stomach Adenocarcinoma; Papillary adenocarcinoma
+descriptions : A variant of gastric adenocarcinoma with exophytic growth and elongated finger-like processes lined by cylindrical or cuboidal cells supported by fibrovascular connective tissue cores.
+
+oncotree_code : GEJ
+parent_oncotree_code : EGC
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma - GEJ; Adenocarcinoma of Cardioesophageal Junction; Adenocarcinoma of Gastroesophageal Junction; Adenocarcinoma of the Cardioesophageal Junction; Adenocarcinoma of the EG Junction; Adenocarcinoma of the Esophagogastric Junction; Adenocarcinoma of the GE Junction; Adenocarcinoma of the Gastroesophageal Junction; Adenocarcinoma of the gastroesophageal junction; Esophagogastric Cancer; Gastroesophageal Junction Adenocarcinoma
+descriptions : An adenocarcinoma that arises from and straddles the junction of the stomach and esophagus. The category of adenocarcinomas of the gastroesophageal junction also includes the majority of adenocarcinomas previously called gastric cardia adenocarcinomas. Squamous cell carcinomas that affect or cross the junction of the stomach and esophagus are classified as carcinomas of the distal esophagus. Adenocarcinoma of the gastroesophageal junction occurs more often in Caucasian middle aged and elderly males. Clinical signs and symptoms include dysphagia, abdominal pain, and weight loss. The prognosis depends on the completeness of the surgical resection, the number of lymph nodes involved by cancer, and the presence or absence of postoperative complications. The presence of TP53 mutations indicates worse prognosis.
+
+oncotree_code : GINETES
+parent_oncotree_code : STOMACH
+children_oncotree_codes : HGNES; HGNEE; SWDNET
+key_phrases : Esophagogastric Cancer; Gastrointestinal Neuroendocrine Tumors of the Esophagus/Stomach
+descriptions : 
+
+oncotree_code : EGC
+parent_oncotree_code : STOMACH
+children_oncotree_codes : STSC; USTAD; GEJ; GRC; ESCA; STAD; STAS
+key_phrases : Adenocarcinoma - GEJ; Adenocarcinoma of Cardioesophageal Junction; Adenocarcinoma of Gastroesophageal Junction; Adenocarcinoma of the Cardioesophageal Junction; Adenocarcinoma of the EG Junction; Adenocarcinoma of the Esophagogastric Junction; Adenocarcinoma of the GE Junction; Adenocarcinoma of the Gastroesophageal Junction; Adenocarcinoma of the gastroesophageal junction; Esophagogastric Adenocarcinoma; Esophagogastric Cancer; Gastroesophageal Junction Adenocarcinoma
+descriptions : An adenocarcinoma that arises from and straddles the junction of the stomach and esophagus. The category of adenocarcinomas of the gastroesophageal junction also includes the majority of adenocarcinomas previously called gastric cardia adenocarcinomas. Squamous cell carcinomas that affect or cross the junction of the stomach and esophagus are classified as carcinomas of the distal esophagus. Adenocarcinoma of the gastroesophageal junction occurs more often in Caucasian middle aged and elderly males. Clinical signs and symptoms include dysphagia, abdominal pain, and weight loss. The prognosis depends on the completeness of the surgical resection, the number of lymph nodes involved by cancer, and the presence or absence of postoperative complications. The presence of TP53 mutations indicates worse prognosis.
+
+oncotree_code : HGNES
+parent_oncotree_code : GINETES
+children_oncotree_codes : 
+key_phrases : Gastrointestinal Neuroendocrine Tumors of the Esophagus/Stomach; High-Grade Neuroendocrine Carcinoma of the Stomach
+descriptions : 
+
+oncotree_code : HGNEE
+parent_oncotree_code : GINETES
+children_oncotree_codes : 
+key_phrases : Gastrointestinal Neuroendocrine Tumors of the Esophagus/Stomach; High-Grade Neuroendocrine Carcinoma of the Esophagus
+descriptions : 
+
+oncotree_code : MSTAD
+parent_oncotree_code : STAD
+children_oncotree_codes : 
+key_phrases : Esophagogastric Cancer; Gastric Mucinous Adenocarcinoma; Mucinous (Colloid) adenocarcinoma; Mucinous Adenocarcinoma of Stomach; Mucinous Adenocarcinoma of the Stomach; Mucinous Gastric Adenocarcinoma; Mucinous Stomach Adenocarcinoma
+descriptions : A variant of gastric adenocarcinoma with more than half of the tumor containing extracellular mucinous pools.
+
+oncotree_code : GRC
+parent_oncotree_code : EGC
+children_oncotree_codes : 
+key_phrases : Esophagogastric Cancer; Gastric Remnant Adenocarcinoma
+descriptions : 
+
+oncotree_code : SWDNET
+parent_oncotree_code : GINETES
+children_oncotree_codes : 
+key_phrases : Gastric NET; Gastric Neuroendocrine Tumor; Gastric Well Differentiated Neuroendocrine Neoplasm; Gastric Well-Differentiated Neuroendocrine Neoplasm; Gastrointestinal Neuroendocrine Tumor; Well-Differentiated Neuroendocrine Tumors of the Stomach
+descriptions : A well-differentiated, low-, intermediate-, or high-grade neoplasm with neuroendocrine differentiation that arises from the stomach.
+
+oncotree_code : ESCA
+parent_oncotree_code : EGC
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma - esophagus; Adenocarcinoma of Esophagus; Adenocarcinoma of the Esophagus; Adenocarcinoma of the esophagus; Esophageal Adenocarcinoma; Esophagogastric Cancer; Esophagus Adenocarcinoma
+descriptions : A malignant tumor with glandular differentiation arising predominantly from Barrett mucosa in the lower third of the esophagus.  Rare examples of esophageal adenocarcinoma deriving from ectopic gastric mucosa in the upper esophagus have also been reported.  Grossly, esophageal adenocarcinomas are similar to esophageal squamous cell carcinomas.  Microscopically, adenocarcinomas arising in the setting of Barrett esophagus are typically papillary and/or tubular.  The prognosis is poor.
+
+oncotree_code : ESCC
+parent_oncotree_code : STOMACH
+children_oncotree_codes : 
+key_phrases : ESCC; Esophageal Epidermoid Carcinoma; Esophageal SCC; Esophageal Squamous Cell Cancer; Esophageal Squamous Cell Carcinoma; Esophagogastric Cancer; Esophagus SCC; Esophagus Squamous Cell Carcinoma; SCC of Esophagus; SCC of the Esophagus; Squamous Cell Carcinoma of Esophagus; Squamous Cell Carcinoma of the Esophagus; Squamous cell car. - esophagus; Squamous cell carcinoma of the esophagus
+descriptions : A squamous cell carcinoma arising from the esophagus.  It is associated with a long history of tobacco and alcohol abuse and is exceedingly rare before the age of 30.  The median age is around 65 in both males and females.  It is located mostly in the middle and lower third of the esophagus.  Grossly, polypoid, ulcerated, plaque-like and occult lesions have been described.  The microscopic features are the same as in other squamous cell carcinomas.  Any degree of differentiation may occur, and variation within a single tumor is common.  The prognosis is poor.
+
+oncotree_code : ISTAD
+parent_oncotree_code : STAD
+children_oncotree_codes : 
+key_phrases : Esophagogastric Cancer; Gastric Intestinal Type Adenocarcinoma; Gastric Intestinal-Type Adenocarcinoma; Intestinal Adenocarcinoma of Stomach; Intestinal Adenocarcinoma of the Stomach; Intestinal Gastric Adenocarcinoma; Intestinal Stomach Adenocarcinoma; Intestinal Type Stomach Adenocarcinoma
+descriptions : An adenocarcinoma of the stomach arising on a background of intestinal metaplasia.  Microscopically, it is characterized by a glandular pattern and it closely resembles a colonic adenocarcinoma.
+
+oncotree_code : STAD
+parent_oncotree_code : EGC
+children_oncotree_codes : TSTAD; PSTAD; MSTAD; ISTAD; DSTAD
+key_phrases : Adenocarcinoma - stomach; Adenocarcinoma of Stomach; Adenocarcinoma of the Stomach; Adenocarcinoma of the stomach; Esophagogastric Cancer; Gastric (Stomach) Adenocarcinoma; Gastric Adenocarcinoma, NOS; STAD; Stomach Adenocarcinoma
+descriptions : An adenocarcinoma arising from the stomach glandular epithelium. Gastric adenocarcinoma is primarily a disease of older individuals.  It most commonly develops after a long period of atrophic gastritis and is strongly associated with Helicobacter pylori infection. The lack of early symptoms often delays the diagnosis of gastric cancer. The majority of patients present with advanced tumors which have poor rates of curability. Microscopically, two important histologic types of gastric adenocarcinoma are recognized: the intestinal and diffuse type. The overall prognosis of gastric adenocarcinomas is poor, even in patients who receive a "curative" resection (adapted from Sternberg's Surgical Pathology, 3rd ed., 1999).
+
+oncotree_code : STAS
+parent_oncotree_code : EGC
+children_oncotree_codes : 
+key_phrases : Adenosquamous Carcinoma of Stomach; Adenosquamous Carcinoma of the Stomach; Esophagogastric Cancer; Gastric (Stomach) Adenosquamous Cancer; Gastric Adenosquamous Carcinoma
+descriptions : A carcinoma that arises from the stomach and is characterized by the presence of malignant cells with glandular and squamous differentiation.
+
+oncotree_code : ESMM
+parent_oncotree_code : STOMACH
+children_oncotree_codes : 
+key_phrases : Esophageal Melanoma; Esophagus Melanoma; Melanoma of Esophagus; Mucosal Melanoma of the Esophagus
+descriptions : A melanoma affecting the esophageal wall.  Melanoma in the esophagus is more commonly metastatic than primary.  Primary melanomas of the esophagus are polypoid and clinically aggressive.  (WHO, 2000)
+
+oncotree_code : SPDAC
+parent_oncotree_code : USTAD
+children_oncotree_codes : 
+key_phrases : Esophagogastric Cancer; Poorly Differentiated Carcinoma of the Stomach
+descriptions : 
+
+oncotree_code : DSTAD
+parent_oncotree_code : STAD
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma of Linitis Plastica Type; Adenocarcinoma of the Linitis Plastica Type; Diffuse Adenocarcinoma of Stomach; Diffuse Adenocarcinoma of the Stomach; Diffuse Gastric Adenocarcinoma; Diffuse Stomach Adenocarcinoma; Diffuse Type Stomach Adenocarcinoma; Esophagogastric Cancer; Gastric Diffuse Adenocarcinoma
+descriptions : An adenocarcinoma arising from the stomach.  Microscopically, it is characterized by the presence of a diffuse infiltrate, composed of individual adenocarcinoma cells or groups of adenocarcinoma cells in a fibrous or mucoid stroma.  Many cells contain mucin droplets, producing a signet-ring configuration.
+

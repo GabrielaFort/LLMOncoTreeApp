@@ -1,0 +1,144 @@
+oncotree_code : CERVIX
+parent_oncotree_code : TISSUE
+children_oncotree_codes : CEAS; CEAD; CABC; CACC; CELI; CENE; CERMS; CESC; CEAIS; VGCE; MCCE; CEGCC; SCCE
+key_phrases : CERVIX; Cervical Cancer; Cervix Uteri; Cervix uteri structure (body structure); Genital System, Female, Cervix; Uterine Cervix; Uterus, Cervix; canalis cervicis uteri; caudal segment of uterus; cervical canal of uterus; neck of uterus; uterine cervix
+descriptions : The lower part of the uterus occupying the region between the isthmus of the uterus and the vagina. It is divided into supravaginal and vaginal portions.
+
+oncotree_code : CEAS
+parent_oncotree_code : CERVIX
+children_oncotree_codes : 
+key_phrases : Adenosquamous Cell Carcinoma of Cervix Uteri; Adenosquamous Cell Carcinoma of Uterine Cervix; Adenosquamous Cell Carcinoma of the Cervix Uteri; Adenosquamous Cell Carcinoma of the Uterine Cervix; Cervical Adenosquamous Cancer; Cervical Adenosquamous Carcinoma; Cervical Adenosquamous Cell Carcinoma; Cervical Cancer; Cervix Uteri Adenosquamous Cell Carcinoma; Uterine Cervix Adenosquamous Cell Carcinoma
+descriptions : An uncommon carcinoma arising from the cervix.  It is composed of malignant glandular epithelial cells and malignant squamous epithelial cells.
+
+oncotree_code : CEAD
+parent_oncotree_code : CERVIX
+children_oncotree_codes : CECC; CEEN; ECAD; CEMU; CEMN; CESE; CEVG
+key_phrases : Adenocarcinoma - cervix; Adenocarcinoma of Cervix Uteri; Adenocarcinoma of Uterine Cervix; Adenocarcinoma of the Cervix Uteri; Adenocarcinoma of the Uterine Cervix; Adenocarcinoma of the cervix; Carcinoma of Endocervix; Carcinoma of the Endocervix; Cervical Adenocarcinoma; Cervical Cancer; Cervix Uteri Adenocarcinoma; Endocervical Adenocarcinoma; Endocervical Cancer; Endocervical Carcinoma; Uterine Cervix Adenocarcinoma
+descriptions : An adenocarcinoma arising from the endocervical glandular epithelium. It is classified as either human papillomavirus-related or human papillomavirus-independent adenocarcinoma. Histologic variants include usual-type, mucinous, mesonephric, serous, clear cell, and endometrioid adenocarcinoma.
+
+oncotree_code : CECC
+parent_oncotree_code : CEAD
+children_oncotree_codes : 
+key_phrases : Cervical Cancer; Cervical Clear Cell Adenocarcinoma; Cervical Clear Cell Carcinoma; Cervix Uteri Clear Cell Adenocarcinoma; Cervix Uteri Clear Cell Carcinoma; Clear Cell Adenocarcinoma of Cervix Uteri; Clear Cell Adenocarcinoma of Uterine Cervix; Clear Cell Adenocarcinoma of the Cervix Uteri; Clear Cell Adenocarcinoma of the Uterine Cervix; Clear Cell Carcinoma of Cervix Uteri; Clear Cell Carcinoma of Uterine Cervix; Clear Cell Carcinoma of the Cervix Uteri; Clear Cell Carcinoma of the Uterine Cervix; HPV- Independent Cervical Adenocarcinoma, Clear Cell Type; HPV- Independent Cervical Adenocarcinoma, Clear Cell-Type; Human Papillomavirus-Independent Cervical Adenocarcinoma, Clear Cell Type; Human Papillomavirus-Independent Cervical Adenocarcinoma, Clear Cell-Type; Uterine Cervix Clear Cell Adenocarcinoma; Uterine Cervix Clear Cell Carcinoma
+descriptions : Cervical adenocarcinoma not associated with human papillomavirus infection and characterized by the presence of clear and hobnail cells. It is associated with in utero exposure to diethylstilbestrol (DES).
+
+oncotree_code : CEEN
+parent_oncotree_code : CEAD
+children_oncotree_codes : 
+key_phrases : Cervical Cancer; Cervical Endometrioid Carcinoma; Endometrioid Adenocarcinoma; Endometrioid adenocarcinoma, NOS; Endometrioid carcinoma, NOS
+descriptions : An adenocarcinoma characterized by the presence of malignant glandular epithelial cells resembling endometrial cells. It can arise from the uterine body, ovary, fallopian tube, cervix, vagina, and uterine ligament.
+
+oncotree_code : CABC
+parent_oncotree_code : CERVIX
+children_oncotree_codes : 
+key_phrases : Cervical Adenoid Basal Cancer; Cervical Adenoid Basal Carcinoma; Cervical Cancer
+descriptions : A rare low grade carcinoma that arises from the cervix. It is characterized by the presence of nests of basaloid cells with focal glandular formations.
+
+oncotree_code : CACC
+parent_oncotree_code : CERVIX
+children_oncotree_codes : 
+key_phrases : Adenoid Cystic Carcinoma of Cervix Uteri; Adenoid Cystic Carcinoma of Uterine Cervix; Adenoid Cystic Carcinoma of the Cervix Uteri; Adenoid Cystic Carcinoma of the Uterine Cervix; Cervical Adenoid Cystic Cancer; Cervical Adenoid Cystic Carcinoma; Cervical Cancer; Cervix Uteri Adenoid Cystic Carcinoma; Uterine Cervix Adenoid Cystic Carcinoma
+descriptions : A rare carcinoma that arises from the cervix. It is characterized by the presence of cystic spaces surrounded by palisaded epithelial cells. The cystic spaces contain eosinophilic hyaline material or mucin. Nuclear pleomorphism, necrotic changes, and a high mitotic rate are also present.
+
+oncotree_code : CELI
+parent_oncotree_code : CERVIX
+children_oncotree_codes : 
+key_phrases : Cervical Cancer; Cervical Leiomyosarcoma
+descriptions : 
+
+oncotree_code : ECAD
+parent_oncotree_code : CEAD
+children_oncotree_codes : 
+key_phrases : Carcinoma of Endocervix; Carcinoma of the Endocervix; Cervical Cancer; Endocervical Adenocarcinoma; Endocervical Cancer; Endocervical Carcinoma
+descriptions : A carcinoma that arises from the endocervix.
+
+oncotree_code : ICEMU
+parent_oncotree_code : CEMU
+children_oncotree_codes : 
+key_phrases : Cervical Cancer; Cervical Mucinous Adenocarcinoma, Intestinal Type; Cervical Mucinous Adenocarcinoma, Intestinal Variant; Cervical Mucinous Adenocarcinoma, Intestinal-Type; Intestinal Type Mucinous Carcinoma
+descriptions : A cervical mucinous adenocarcinoma that resembles a large intestinal adenocarcinoma.
+
+oncotree_code : CENE
+parent_oncotree_code : CERVIX
+children_oncotree_codes : 
+key_phrases : Cervical Cancer; Cervical Large Cell Neuroendocrine Carcinoma; Cervical Neuroendocrine Tumor
+descriptions : A rare aggressive neuroendocrine carcinoma that arises from the cervix and is characterized by the presence of malignant cells with abundant cytoplasm, large nuclei, and prominent nucleoli.
+
+oncotree_code : CEMU
+parent_oncotree_code : CEAD
+children_oncotree_codes : ICEMU; GCEMU; SCEMU
+key_phrases : ADENOCARCINOMA, MUCINOUS, MALIGNANT; Cervical Cancer; Colloid Adenocarcinoma; Colloid Carcinoma; Colloid adenocarcinoma; Colloid carcinoma; Gelatinous Adenocarcinoma; Gelatinous Carcinoma; Gelatinous adenocarcinoma; Gelatinous carcinoma; Mucinous Adenocarcinoma; Mucinous Carcinoma; Mucinous carcinoma; Mucoid Adenocarcinoma; Mucoid Carcinoma; Mucoid adenocarcinoma; Mucoid carcinoma; Mucous Adenocarcinoma; Mucous Carcinoma; Mucous adenocarcinoma; Mucous carcinoma; mucinous carcinoma
+descriptions : An invasive adenocarcinoma composed of malignant glandular cells that contain intracytoplasmic mucin. Often, the infiltrating glandular structures are associated with mucoid stromal formation. It may arise from the large and small intestine, appendix, stomach, lung, ovary, breast, corpus uteri, cervix, vagina, and salivary gland.
+
+oncotree_code : CEMN
+parent_oncotree_code : CEAD
+children_oncotree_codes : 
+key_phrases : Cervical Cancer; Mesonephric Carcinoma
+descriptions : 
+
+oncotree_code : CERMS
+parent_oncotree_code : CERVIX
+children_oncotree_codes : 
+key_phrases : Cervical Cancer; Cervical Rhabdomyosarcoma
+descriptions : 
+
+oncotree_code : CESE
+parent_oncotree_code : CEAD
+children_oncotree_codes : 
+key_phrases : Cervical Cancer; Cervical Serous Carcinoma
+descriptions : 
+
+oncotree_code : CESC
+parent_oncotree_code : CERVIX
+children_oncotree_codes : 
+key_phrases : Cervical Cancer; Cervical Squamous Cell Cancer; Cervical Squamous Cell Carcinoma, Not Otherwise Specified; Cervix Uteri Squamous Cell Carcinoma; Squamous Cell Carcinoma of Cervix Uteri; Squamous Cell Carcinoma of Uterine Cervix; Squamous Cell Carcinoma of the Cervix Uteri; Squamous Cell Carcinoma of the Uterine Cervix; Squamous cervical cancer; Uterine Cervix Squamous Cell Carcinoma
+descriptions : A squamous cell carcinoma arising from the cervical epithelium. It usually evolves from a precancerous cervical lesion. Increased numbers of sexual partners and human papillomavirus (HPV) infection are risk factors for cervical squamous cell carcinoma. Survival is most closely related to the stage of disease at the time of diagnosis.
+
+oncotree_code : GCEMU
+parent_oncotree_code : CEMU
+children_oncotree_codes : 
+key_phrases : Cervical Cancer; Gastric Type Mucinous Carcinoma
+descriptions : 
+
+oncotree_code : CEAIS
+parent_oncotree_code : CERVIX
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma in situ of Cervix Uteri; Adenocarcinoma in situ of Uterine Cervix; Adenocarcinoma in situ of the Cervix Uteri; Adenocarcinoma in situ of the Uterine Cervix; Cervical Adenocarcinoma In Situ; Cervical Cancer; Cervix Uteri Adenocarcinoma in situ; Uterine Cervix Adenocarcinoma in situ
+descriptions : Stage 0 includes: (Tis, N0, M0). Tis: Carcinoma in situ. N0: No regional lymph node metastasis.  M0: No distant metastasis. FIGO no longer includes stage 0. (AJCC 7th ed.)
+
+oncotree_code : CEVG
+parent_oncotree_code : CEAD
+children_oncotree_codes : 
+key_phrases : Cervical Adenocarcinoma, Villoglandular Variant; Cervical Cancer; Cervical Villoglandular Adenocarcinoma; Cervical Villoglandular Carcinoma
+descriptions : A cervical adenocarcinoma characterized by the presence of a prominent villoglandular pattern.
+
+oncotree_code : VGCE
+parent_oncotree_code : CERVIX
+children_oncotree_codes : 
+key_phrases : Cervical Adenocarcinoma, Villoglandular Variant; Cervical Cancer; Cervical Villoglandular Adenocarcinoma; Cervical Villoglandular Carcinoma; Villoglandular Adenocarcinoma of the Cervix
+descriptions : A cervical adenocarcinoma characterized by the presence of a prominent villoglandular pattern.
+
+oncotree_code : MCCE
+parent_oncotree_code : CERVIX
+children_oncotree_codes : 
+key_phrases : Cervical Cancer; Mixed Cervical Carcinoma
+descriptions : 
+
+oncotree_code : CEGCC
+parent_oncotree_code : CERVIX
+children_oncotree_codes : 
+key_phrases : Cervical Adenosquamous Carcinoma, Glassy Cell Variant; Cervical Cancer; Cervical Poorly Differentiated Adenosquamous Carcinoma; Glassy Cell Carcinoma of the Cervix
+descriptions : A poorly differentiated variant of adenosquamous carcinoma that arises from the cervix. It is characterized by the presence of large malignant cells with ground glass cytoplasm and stromal eosinophilic infiltrates.
+
+oncotree_code : SCEMU
+parent_oncotree_code : CEMU
+children_oncotree_codes : 
+key_phrases : Cervical Cancer; Cervical Mucinous Adenocarcinoma, Signet Ring Cell Type; Cervical Mucinous Adenocarcinoma, Signet Ring Cell Variant; Cervical Mucinous Adenocarcinoma, Signet Ring Cell-Type; Cervical Mucinous Adenocarcinoma, Signet-Ring Cell Type; Signet Ring Mucinous Carcinoma
+descriptions : A rare cervical mucinous adenocarcinoma characterized by the presence of signet ring cells.
+
+oncotree_code : SCCE
+parent_oncotree_code : CERVIX
+children_oncotree_codes : 
+key_phrases : Cervical Cancer; Cervical Small Cell Cancer; Cervical Small Cell Carcinoma; Cervical Small Cell Neuroendocrine Carcinoma; Cervix Uteri Small Cell Carcinoma; Small Cell Carcinoma of Cervix Uteri; Small Cell Carcinoma of Uterine Cervix; Small Cell Carcinoma of the Cervix Uteri; Small Cell Carcinoma of the Uterine Cervix; Uterine Cervix Small Cell Carcinoma
+descriptions : A small cell neuroendocrine carcinoma arising from the cervix.
+

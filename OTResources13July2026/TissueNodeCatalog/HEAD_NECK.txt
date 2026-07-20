@@ -1,0 +1,216 @@
+oncotree_code : HEAD_NECK
+parent_oncotree_code : TISSUE
+children_oncotree_codes : HNMUCM; HNSC; OHNCA; NPC; PTH; SACA; SBL
+key_phrases : H and N; Head & Neck; Head and Neck Cancer; craniocervical region
+descriptions : For oncology, an area of the body generally construed to comprise the base of skull and facial bones, sinuses, orbits, salivary glands, oral cavity, oropharynx, larynx, thyroid, facial and neck musculature and lymph nodes draining these areas.
+
+oncotree_code : ACCC
+parent_oncotree_code : SACA
+children_oncotree_codes : 
+key_phrases : Acinar Adenocarcinoma; Acinar Carcinoma; Acinar Cell Adenocarcinoma; Acinar Cell Carcinoma; Acinar adenocarcinoma; Acinar carcinoma; Acinic Cell Adenocarcinoma; Acinic Cell Carcinoma; Acinic cell adenocarcinoma; CARCINOMA, ACINAR CELL, MALIGNANT; Salivary Gland Cancer
+descriptions : A malignant glandular epithelial neoplasm consisting of secretory cells forming acinar patterns. Representative examples include the acinar cell carcinoma of the pancreas and the acinar adenocarcinoma of the prostate gland.
+
+oncotree_code : MUCC
+parent_oncotree_code : SACA
+children_oncotree_codes : 
+key_phrases : MEC; Mucoepidermoid Carcinoma; Mucoepidermoid tumor; Salivary Gland Cancer
+descriptions : A carcinoma morphologically characterized the presence of cuboidal mucous cells, goblet-like mucous cells, squamoid cells, cystic changes, and a fibrotic stromal formation. It can occur in several anatomic sites, including parotid gland, oral cavity, paranasal sinus, skin, breast, lung, larynx, and lacrimal ducts. It is classified as low or high grade.
+
+oncotree_code : SGO
+parent_oncotree_code : SACA
+children_oncotree_codes : 
+key_phrases : Oncocytoma of Salivary Gland; Oncocytoma of the Salivary Gland; Oxyphilic Adenoma of Salivary Gland; Oxyphilic Adenoma of the Salivary Gland; Salivary Gland Cancer; Salivary Gland Oncocytoma; Salivary Gland Oxyphilic Adenoma
+descriptions : A rare benign epithelial neoplasm composed of oncocytes, which are large cells with a large amount of granular eosinophilic cytoplasm containing numerous tightly-packed mitochondria.  Approximately 85% to 90% occur in the parotid gland; most of the remainder occur in the submandibular gland. The peak incidence is in the seventh through ninth decades of life. In almost all cases, swelling is the only complaint of the patient.
+
+oncotree_code : EMYOCA
+parent_oncotree_code : OHNCA
+children_oncotree_codes : 
+key_phrases : Epithelial-Myoepithelial Carcinoma; Head and Neck Cancer
+descriptions : A malignant neoplasm which occurs mostly in the major salivary glands (most frequently in the parotid gland), but also in the minor salivary glands of the oral mucosa and the tracheobronchial tree. It is characterized by the presence of ductal structures which are lined by an inner layer of cuboidal epithelial-type cells and an outer layer of myoepithelial cells with clear or eosinophilic cytoplasm.
+
+oncotree_code : LXSC
+parent_oncotree_code : HNSC
+children_oncotree_codes : 
+key_phrases : Epidermoid Carcinoma of Larynx; Epidermoid Carcinoma of the Larynx; Head and Neck Cancer; Laryngeal Conventional Squamous Cell Carcinoma; Laryngeal Epidermoid Carcinoma; Laryngeal Squamous Cell Carcinoma; Laryngeal Throat Squamous Cell Cancer; Larynx Epidermoid Carcinoma; Larynx Squamous Cell Carcinoma; Squamous Cell Carcinoma of Larynx; Squamous Cell Carcinoma of the Larynx
+descriptions : A squamous cell carcinoma that arises from the larynx.  It is the most common histologic type of laryngeal carcinoma.  It can arise from the glottis, supraglottic area, or it can be transglottic.  Glottic squamous cell carcinoma is the most frequent laryngeal carcinoma in the United States.  The symptoms, clinical behavior and the prognosis depend on the site of origin within the larynx.
+
+oncotree_code : HNNE
+parent_oncotree_code : OHNCA
+children_oncotree_codes : 
+key_phrases : Head and Neck Cancer; Head and Neck Neuroendocrine Carcinoma
+descriptions : 
+
+oncotree_code : SNA
+parent_oncotree_code : OHNCA
+children_oncotree_codes : 
+key_phrases : Head and Neck Cancer; Sinonasal Adenocarcinoma
+descriptions : 
+
+oncotree_code : HNMUCM
+parent_oncotree_code : HEAD_NECK
+children_oncotree_codes : 
+key_phrases : Head and Neck Mucosal Melanoma
+descriptions : 
+
+oncotree_code : ODGC
+parent_oncotree_code : OHNCA
+children_oncotree_codes : CCOC
+key_phrases : Head and Neck Cancer; Malignant Odontogenic Neoplasm; Malignant Odontogenic Tumor; ODONTOMA, MALIGNANT; Odontogenic Carcinoma; Odontogenic tumor, malignant
+descriptions : A rare neoplasm arising from tooth-forming tissues. It occurs in the maxillofacial skeleton or the gingiva. Symptoms include swelling, pain, bleeding, mobility of affected teeth, and oral mucosa ulcerations. It may metastasize to lymph nodes and distant anatomic sites early.
+
+oncotree_code : HNSCUP
+parent_oncotree_code : HNSC
+children_oncotree_codes : 
+key_phrases : Head and Neck Cancer; Head and Neck Squamous Cell Carcinoma of Unknown Primary
+descriptions : 
+
+oncotree_code : SNSC
+parent_oncotree_code : HNSC
+children_oncotree_codes : 
+key_phrases : Head and Neck Cancer; Non-Keratinizing Sinonasal Squamous Cell Carcinoma; Ringertz Carcinoma; Schneiderian carcinoma; Sinonasal Cylindrical Cell Carcinoma; Sinonasal Non-Keratinizing Squamous Cell Carcinoma; Sinonasal Schneiderian Carcinoma; Sinonasal Transitional Cell Carcinoma
+descriptions : A squamous cell carcinoma of the sinonasal tract characterized by a plexiform or ribbon-like growth pattern, cytological atypia, and lack of histological evidence of keratinization.
+
+oncotree_code : PTHC
+parent_oncotree_code : PTH
+children_oncotree_codes : 
+key_phrases : Parathyroid Cancer; Parathyroid Carcinoma
+descriptions : 
+
+oncotree_code : HNSC
+parent_oncotree_code : HEAD_NECK
+children_oncotree_codes : LXSC; HNSCUP; SNSC; OPHSC; HPHSC; OCSC
+key_phrases : HNSCC; Head and Neck Cancer; Head and Neck Squamous Cell Carcinoma; Head and neck squamous cell carcinoma, NOS; SCCHN; Squamous Cell Carcinoma of Head and Neck; Squamous Cell Carcinoma of the Head and Neck; squamous cell carcinoma of the head and neck
+descriptions : A squamous cell carcinoma that arises from any of the following anatomic sites: lip and oral cavity, nasal cavity, paranasal sinuses, pharynx, larynx, and salivary glands.
+
+oncotree_code : NMCHN
+parent_oncotree_code : OHNCA
+children_oncotree_codes : 
+key_phrases : Carcinoma with t(15;19)(q13;p13.1) Translocation; Head and Neck Cancer; Midline Carcinoma of Children and Young Adults with NUT Rearrangement; Midline carcinoma of children and young adults with NUT rearrangement; NMC; NUT Carcinoma; NUT Midline Carcinoma of the Head and Neck; NUT midline carcinoma; Nuclear Protein in Testis (NUT) Midline Carcinoma; Nuclear Protein in Testis Midline Carcinoma
+descriptions : A rare, highly aggressive and lethal carcinoma that affects children and young adults.  It arises from midline epithelial structures, most commonly the head, neck, and mediastinum.  It is a poorly differentiated carcinoma and is characterized by mutations and rearrangement of the NUT gene.  A balanced translocation t(15;19) is present that results in the creation of a fusion gene involving the NUT gene, most commonly BRD4-NUT fusion gene.
+
+oncotree_code : PADA
+parent_oncotree_code : SACA
+children_oncotree_codes : 
+key_phrases : Pleomorphic Adenoma; Salivary Gland Cancer
+descriptions : 
+
+oncotree_code : SNUC
+parent_oncotree_code : OHNCA
+children_oncotree_codes : 
+key_phrases : Head and Neck Cancer; Sinonasal Anaplastic Carcinoma; Sinonasal Undifferentiated Carcinoma; Undifferentiated Sinonasal Cancer
+descriptions : A rare, highly aggressive carcinoma that arises from the sinonasal tract.  It is characterized by the presence of small to medium size malignant cells.  The prognosis is poor.
+
+oncotree_code : CCOC
+parent_oncotree_code : ODGC
+children_oncotree_codes : 
+key_phrases : Clear Cell Ameloblastoma; Clear Cell Odontogenic Carcinoma; Clear Cell Odontogenic Tumor; Clear cell odontogenic tumor; Head and Neck Cancer
+descriptions : A usually aggressive malignant neoplasm arising from tooth-forming tissues. It more often affects older females and more frequently occurs in the mandible. It is characterized by the presence of malignant epithelial cells with clear cytoplasm and a fibrotic stroma formation. It may recur and metastasize. Metastases may occur in the lymph nodes, lungs, and bones. Treatment of choice is resection with clean margins.
+
+oncotree_code : SDCA
+parent_oncotree_code : SACA
+children_oncotree_codes : 
+key_phrases : Carcinoma of Salivary Duct; Carcinoma of the Salivary Duct; High Grade Salivary Duct Carcinoma; SDC; Salivary Gland Cancer
+descriptions : An aggressive, high grade adenocarcinoma that arises from the salivary glands. It usually affects elderly males and presents as a rapidly enlarging mass. It metastasizes to regional lymph nodes and distant anatomic sites.
+
+oncotree_code : ACYC
+parent_oncotree_code : SACA
+children_oncotree_codes : 
+key_phrases : Adenocystic Carcinoma; Adenocystic carcinoma; Adenoid Cystic Carcinoma; Cylindroid Adenocarcinoma; Salivary Gland Cancer; adenoid cystic cancer
+descriptions : A malignant tumor arising from the epithelial cells.  Microscopically, the neoplastic epithelial cells form cylindrical spatial configurations (cribriform or classic type of adenoid cystic carcinoma), cordlike structures (tubular type of adenoid cystic carcinoma), or solid structures (basaloid variant of adenoid cystic carcinoma).  Adenoid cystic carcinomas mostly occur in the salivary glands.  Other primary sites of involvement include the lacrimal gland, the larynx, and the lungs.  Adenoid cystic carcinomas spread along nerve sheaths, resulting in severe pain, and they tend to recur.  Lymph node metastases are unusual; hematogenous tumor spread is characteristic.
+
+oncotree_code : OPHSC
+parent_oncotree_code : HNSC
+children_oncotree_codes : 
+key_phrases : Head and Neck Cancer; Oropharynx Squamous Cell Carcinoma
+descriptions : 
+
+oncotree_code : OSACA
+parent_oncotree_code : SACA
+children_oncotree_codes : 
+key_phrases : Salivary Carcinoma, Other; Salivary Gland Cancer
+descriptions : 
+
+oncotree_code : HNMASC
+parent_oncotree_code : SACA
+children_oncotree_codes : 
+key_phrases : Mammary Analogue Secretory Carcinoma of Salivary Gland Origin; Salivary Gland Cancer
+descriptions : 
+
+oncotree_code : BCAC
+parent_oncotree_code : SACA
+children_oncotree_codes : 
+key_phrases : Basal Cell Adenocarcinoma; Salivary Gland Cancer
+descriptions : 
+
+oncotree_code : ASCT
+parent_oncotree_code : OHNCA
+children_oncotree_codes : 
+key_phrases : Adenosquamous Carcinoma of the Tongue; Head and Neck Cancer
+descriptions : 
+
+oncotree_code : PAC
+parent_oncotree_code : SACA
+children_oncotree_codes : 
+key_phrases : Polymorphous Adenocarcinoma; Salivary Gland Cancer
+descriptions : 
+
+oncotree_code : OHNCA
+parent_oncotree_code : HEAD_NECK
+children_oncotree_codes : EMYOCA; HNNE; SNA; ODGC; NMCHN; SNUC; ASCT
+key_phrases : Head and Neck Cancer; Head and Neck Carcinoma, Other
+descriptions : 
+
+oncotree_code : CAEXPA
+parent_oncotree_code : SACA
+children_oncotree_codes : 
+key_phrases : Carcinoma ex Pleomorphic Adenoma; Salivary Gland Cancer
+descriptions : 
+
+oncotree_code : HPHSC
+parent_oncotree_code : HNSC
+children_oncotree_codes : 
+key_phrases : Epidermoid Carcinoma of Hypopharynx; Epidermoid Carcinoma of the Hypopharynx; Head and Neck Cancer; Hypopharyngeal Conventional Squamous Cell Carcinoma; Hypopharyngeal Epidermoid Carcinoma; Hypopharyngeal Squamous Cell Carcinoma; Hypopharyngeal Throat Squamous Cell Cancer; Hypopharynx Squamous Cell Carcinoma; Squamous Cell Carcinoma of Hypopharynx; Squamous Cell Carcinoma of the Hypopharynx
+descriptions : A squamous cell carcinoma arising from the hypopharynx.  Signs and symptoms include dysphagia, hemoptysis, and the presence of a neck mass.
+
+oncotree_code : NPC
+parent_oncotree_code : HEAD_NECK
+children_oncotree_codes : 
+key_phrases : Cancer of Nasopharynx; Cancer of the Nasopharynx; Carcinoma of Nasopharynx; Carcinoma of the Nasopharynx; Head and Neck Cancer; NPC; Nasopharyngeal Cancer; Nasopharyngeal Carcinoma; Nasopharyngeal Throat Cancer; Nasopharynx Cancer; nasopharyngeal cancer
+descriptions : A carcinoma arising from the nasopharyngeal epithelium.  It includes the following types: keratinizing squamous cell carcinoma, nonkeratinizing carcinoma (differentiated and undifferentiated), basaloid squamous cell carcinoma, and papillary adenocarcinoma.
+
+oncotree_code : PTH
+parent_oncotree_code : HEAD_NECK
+children_oncotree_codes : PTHC
+key_phrases : Parathyroid Cancer
+descriptions : 
+
+oncotree_code : SAAD
+parent_oncotree_code : SACA
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma of Salivary Gland; Adenocarcinoma of the Salivary Gland; Salivary Adenocarcinoma; Salivary Gland Adenocarcinoma; Salivary Gland Cancer
+descriptions : An adenocarcinoma arising from the salivary gland.  It includes the salivary gland polymorphous low grade adenocarcinoma, salivary gland oncocytic carcinoma, salivary gland mucinous adenocarcinoma, salivary gland low grade cribriform cystadenocarcinoma, salivary gland cystadenocarcinoma, salivary gland basal cell adenocarcinoma, salivary gland acinic cell carcinoma, salivary duct carcinoma, and salivary gland adenocarcinoma not otherwise specified.
+
+oncotree_code : OCSC
+parent_oncotree_code : HNSC
+children_oncotree_codes : 
+key_phrases : Head and Neck Cancer; Mouth SCC; Mouth Squamous Cell Carcinoma; OSCC; Oral Cavity SCC; Oral Cavity Squamous Cell Cancer; Oral Cavity Squamous Cell Carcinoma; SCC of Mouth; SCC of Oral Cavity; SCC of the Mouth; SCC of the Oral Cavity; Squamous Cell Carcinoma of Mouth; Squamous Cell Carcinoma of Oral Cavity; Squamous Cell Carcinoma of the Mouth; Squamous Cell Carcinoma of the Oral Cavity
+descriptions : A squamous cell carcinoma arising from the oral cavity. It affects predominantly adults in their fifth and sixth decades of life and is associated with alcohol and tobacco use. Human papillomavirus is present in approximately half of the cases. It is characterized by a tendency to metastasize early to the lymph nodes. When the tumor is small, patients are often asymptomatic. Physical examination may reveal erythematous or white lesions or plaques. The majority of patients present with signs and symptoms of locally advanced disease including mucosal ulceration, pain, difficulty with speaking, chewing, and swallowing, bleeding, weight loss, and neck swelling. Patients may also present with swollen neck lymph nodes without any symptoms from the oropharyngeal tumor. The most significant prognostic factors are the size of the tumor and the lymph nodes status.
+
+oncotree_code : SACA
+parent_oncotree_code : HEAD_NECK
+children_oncotree_codes : ACCC; MUCC; SGO; PADA; SDCA; ACYC; OSACA; HNMASC; BCAC; PAC; CAEXPA; SAAD; MYEC
+key_phrases : Carcinoma of Salivary Gland; Carcinoma of the Salivary Gland; Salivary Carcinoma; Salivary Gland Cancer; Salivary Gland Carcinoma
+descriptions : A carcinoma that arises from the major or minor salivary glands.  Representative examples include carcinoma ex pleomorphic adenoma, adenocarcinoma, adenoid cystic carcinoma, and mucoepidermoid carcinoma.
+
+oncotree_code : MYEC
+parent_oncotree_code : SACA
+children_oncotree_codes : 
+key_phrases : Salivary Gland Cancer; Salivary Gland Myoepithelial Carcinoma
+descriptions : A locally aggressive carcinoma that arises from the salivary glands, predominantly the parotid gland. It is characterized by the presence of a malignant cellular infiltrate exhibiting myoepithelial differentiation. Patients usually present with a painless mass.
+
+oncotree_code : SBL
+parent_oncotree_code : HEAD_NECK
+children_oncotree_codes : 
+key_phrases : Sialoblastoma
+descriptions : 
+

@@ -1,0 +1,24 @@
+oncotree_code : ADRENAL_GLAND
+parent_oncotree_code : TISSUE
+children_oncotree_codes : ACA; ACC; PHC
+key_phrases : Adrenal Gland Cancer; Adrenal Glands; Adrenal gland, NOS; Adrenal structure (body structure); Adrenals; GLAND, ADRENAL; glandula adrenalis; glandula suprarenalis; suprarenal gland
+descriptions : A flattened, roughly triangular body resting upon the upper end of each kidney; it is one of the ductless glands furnishing internal secretions (epinephrine and norepinephrine from the medulla and steroid hormones from the cortex).
+
+oncotree_code : ACA
+parent_oncotree_code : ADRENAL_GLAND
+children_oncotree_codes : 
+key_phrases : ADENOMA, ADRENOCORTICAL, BENIGN; Adenoma of Adrenal Cortex; Adenoma of the Adrenal Cortex; Adrenal Cortex Adenoma; Adrenal Cortical Adenoma; Adrenocortical Adenoma; Benign Adenoma of Adrenal Gland; Benign Adenoma of the Adrenal Gland; Benign Adrenal Adenoma; Benign Adrenal Gland Adenoma; Cortical Cell Adenoma
+descriptions : A benign neoplasm that can arise from any of the adrenal cortical layers.  It can be associated with the overproduction of glucocorticoids (Cushing's syndrome), androgenic or estrogenic steroids (adrenogenital syndrome), or mineralocorticoids (Conn's syndrome). (Sternberg Diagnostic Surgical Pathology, 3rd ed.)
+
+oncotree_code : ACC
+parent_oncotree_code : ADRENAL_GLAND
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma, Adrenocortical, Malignant; Adrenal Cortex Adenocarcinoma; Adrenal Cortex Cancer; Adrenal Cortex Carcinoma; Adrenal Cortical Adenocarcinoma; Adrenal Cortical Carcinoma; Adrenal cortical adenocarcinoma; Adrenocortical Carcinoma; Adrenocortical carcinoma, NOS; CARCINOMA, ADRENOCORTICAL, MALIGNANT; Carcinoma of Adrenal Cortex; Carcinoma of the Adrenal Cortex; Cortical Cell Carcinoma; adrenocortical cancer; adrenocortical carcinoma; cancer of the adrenal cortex
+descriptions : A rare, usually large (greater than 5cm) carcinoma that arises from the adrenal cortex. Symptoms are usually related to the excessive production of hormones and include Cushing's syndrome and virilism in women. Common sites of metastasis include liver, lung, bone, and retroperitoneal lymph nodes. Advanced radiologic procedures have enabled the detection of small tumors, resulting in the improvement of the 5-year survival.
+
+oncotree_code : PHC
+parent_oncotree_code : ADRENAL_GLAND
+children_oncotree_codes : 
+key_phrases : Adrenal Gland Chromaffin Paraganglioma; Adrenal Gland Chromaffinoma; Adrenal Gland Paraganglioma; Adrenal Gland Pheochromocytoma; Adrenal Medullary Paraganglioma; Adrenal Medullary Pheochromocytoma; Adrenal Pheochromocytoma; Adrenal medullary paraganglioma; Chromaffin Paraganglioma of the Adrenal Gland; Intraadrenal Paraganglioma; PCC; Pheochromocytoma (adrenal); pheochromocytoma
+descriptions : A neuroendocrine neoplasm of the sympathetic nervous system that arises from the chromaffin cells of the adrenal medulla and secretes catecholamines. Clinical presentation includes headaches, palpitations, chest and abdominal pain, hypertension, fever, and tremor.  Microscopically, a characteristic nesting (zellballen) growth pattern is usually seen.  Other growth patterns including trabecular pattern may also be present.
+

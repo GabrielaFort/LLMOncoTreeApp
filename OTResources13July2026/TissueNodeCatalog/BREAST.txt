@@ -1,0 +1,216 @@
+oncotree_code : BREAST
+parent_oncotree_code : TISSUE
+children_oncotree_codes : BRAME; BFN; LCIS; BNNOS; MBC; IBC; JSCB; PBS; BRCA; DCIS
+key_phrases : Breast Cancer; Breast structure (body structure); Breast, NOS; Breasts
+descriptions : One of two hemispheric projections of variable size situated in the subcutaneous layer over the pectoralis major muscle on either side of the chest.
+
+oncotree_code : BA
+parent_oncotree_code : PBS
+children_oncotree_codes : 
+key_phrases : Angiosarcoma of Breast; Angiosarcoma of the Breast; Breast Angiosarcoma; Breast Hemangiosarcoma; Breast Sarcoma; Hemangiosarcoma of Breast; Hemangiosarcoma of the Breast
+descriptions : A malignant vascular neoplasm arising from the breast.
+
+oncotree_code : BRCANOS
+parent_oncotree_code : BRCA
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Breast Invasive Cancer, NOS
+descriptions : 
+
+oncotree_code : BRAME
+parent_oncotree_code : BREAST
+children_oncotree_codes : 
+key_phrases : Adenomyoepithelioma of the Breast; Breast Adenomyoepithelioma; Breast Cancer
+descriptions : A usually benign tumor arising from the breast. It is characterized by the proliferation of cells with myoepithelial differentiation around spaces which are lined by epithelial cells. Rarely, the epithelial and/or myoepithelial cells may undergo malignant transformation. Cases with malignant transformation may follow an aggressive clinical course, including recurrences and local and distant metastases.
+
+oncotree_code : BFN
+parent_oncotree_code : BREAST
+children_oncotree_codes : FA; PT
+key_phrases : Breast Fibroepithelial Neoplasms; Breast Fibroepithelial Tumor; Breast Sarcoma
+descriptions : A benign, malignant, or borderline biphasic neoplasm that arises from the breast parenchyma. It is characterized by the presence of an epithelial and a mesenchymal (stromal) component. The typical examples are fibroadenoma and phyllodes tumor.
+
+oncotree_code : MSCC
+parent_oncotree_code : EMBC
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Breast Squamous Cell Carcinoma; Metaplastic Squamous Cell Carcinoma; Primary Squamous Cell Breast Carcinoma; Primary Squamous Cell Carcinoma of Breast; Primary Squamous Cell Carcinoma of the Breast; SCC of Breast; SCC of the Breast; Squamous Breast Carcinoma; Squamous Carcinoma of Breast; Squamous Carcinoma of the Breast
+descriptions : A rare carcinoma that arises from the breast parenchyma and is entirely composed of squamous cells.
+
+oncotree_code : FA
+parent_oncotree_code : BFN
+children_oncotree_codes : 
+key_phrases : Breast Fibroadenoma; Breast Sarcoma; FIBROADENOMA, BENIGN; Fibroadenoma of Breast; Fibroadenoma of the Breast; fibroadenoma
+descriptions : A benign tumor of the breast characterized by the presence of stromal and epithelial elements. It presents as a painless, solitary, slow growing, firm, and mobile mass. It is the most common benign breast lesion. It usually occurs in women of childbearing age. The majority of fibroadenomas do not recur after complete excision. A slightly increased risk of developing cancer within fibroadenomas or in the breast tissue of patients previously treated for fibroadenomas has been reported.
+
+oncotree_code : LCIS
+parent_oncotree_code : BREAST
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Breast Lobular Carcinoma In Situ; LCIS, NOS; Lobular Breast Carcinoma In Situ; Lobular Ca in situ of Breast; Lobular Ca in situ of the Breast; Lobular Carcinoma In Situ (LCIS); Lobular Carcinoma In Situ of the Breast (LCIS); Lobular Carcinoma in situ of Breast; Lobular carcinoma in situ of breast; Lobular carcinoma in situ of unspecified breast; Lobular carcinoma in situ, NOS; Non-Infiltrating Lobular Breast Carcinoma; Non-Infiltrating Lobular Carcinoma of Breast; Non-Infiltrating Lobular Carcinoma of the Breast; Non-Invasive Lobular Breast Carcinoma; Non-Invasive Lobular Carcinoma of Breast; Non-Invasive Lobular Carcinoma of the Breast; lobular carcinoma in situ
+descriptions : A non-invasive adenocarcinoma of the breast characterized by a proliferation of monomorphic cells completely filling the lumina.  The overall lobular architecture is preserved.  It is frequently multifocal (90% in some series) and bilateral.  It seldom becomes invasive; however there is an increased risk of infiltrating ductal adenocarcinoma.
+
+oncotree_code : BNNOS
+parent_oncotree_code : BREAST
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Breast Neoplasm, NOS
+descriptions : 
+
+oncotree_code : MBC
+parent_oncotree_code : BREAST
+children_oncotree_codes : MMBC; EMBC
+key_phrases : Breast Metaplastic Carcinoma; Metaplastic Breast Cancer; Metaplastic Breast Carcinoma; Metaplastic Carcinoma of Breast; Metaplastic Carcinoma of the Breast; MpBC
+descriptions : A group of invasive breast carcinomas characterized by the presence of an adenocarcinomatous component which is admixed with a dominant component that is composed of squamous cells, spindle cells, or mesenchymal cells.
+
+oncotree_code : MDLC
+parent_oncotree_code : BRCA
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Breast Mixed Ductal and Lobular Carcinoma; Mixed Ductal and Lobular Breast Carcinoma; Mixed Ductal and Lobular Carcinoma of Breast; Mixed Ductal and Lobular Carcinoma of the Breast; Mixed Lobular and Ductal Breast Carcinoma; Mixed Lobular and Ductal Carcinoma of Breast; Mixed Lobular and Ductal Carcinoma of the Breast
+descriptions : A breast carcinoma characterized by the presence of a lobular and a ductal component. The ductal component comprises less than 50 percent of the tumor.
+
+oncotree_code : CCHM
+parent_oncotree_code : MMBC
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Breast Carcinoma with Cartilaginous Metaplasia; Breast Carcinoma with Chondroid Metaplasia
+descriptions : An invasive carcinoma of the breast showing differentiation towards cartilaginous structures.
+
+oncotree_code : MCS
+parent_oncotree_code : MMBC
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Metaplastic Carcinosarcoma
+descriptions : 
+
+oncotree_code : MASCC
+parent_oncotree_code : EMBC
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Breast Squamous Cell Carcinoma, Spindle Cell Variant; Metaplastic Adenocarcinoma with Spindle Cell Differentiation; Squamous Cell Breast Carcinoma, Spindle Cell Variant
+descriptions : A squamous cell carcinoma that arises from the breast parenchyma and is characterized by the presence of spindle-shaped malignant cells.
+
+oncotree_code : SPC
+parent_oncotree_code : BRCA
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Breast Solid Papillary Carcinoma; Solid Papillary Breast Carcinoma; Solid Papillary Carcinoma of the Breast
+descriptions : A well circumscribed, low grade neoplasm that arises from the breast.  It is characterized by the presence of sheets of malignant epithelial cells that are supported by fibrovascular structures.  When there is an invasive component present, it is usually a mucinous carcinoma.
+
+oncotree_code : IMMC
+parent_oncotree_code : BRCA
+children_oncotree_codes : 
+key_phrases : Breast Invasive Mixed Mucinous Carcinoma; Breast Mucinous Carcinoma; Colloid Carcinoma of Breast; Colloid Carcinoma of the Breast; Infiltrating Colloid Breast Carcinoma; Infiltrating Mucinous Breast Carcinoma; Invasive Colloid Breast Carcinoma; Invasive Mucinous Breast Carcinoma; Mucinous Breast Cancer; Mucinous Carcinoma of Breast; Mucinous Carcinoma of the Breast
+descriptions : An invasive adenocarcinoma of the breast characterized by the presence of islands of small and uniform cells, surrounded by large amounts of mucin.  Pure mucinous breast carcinomas generally have a favorable prognosis.
+
+oncotree_code : MMBC
+parent_oncotree_code : MBC
+children_oncotree_codes : CCHM; MCS; COM
+key_phrases : Breast Carcinosarcoma; Breast Mixed Epithelial/Mesenchymal Metaplastic Carcinoma; Mixed Epithelial/Mesenchymal Metaplastic Breast Carcinoma; Mixed Type Metaplastic Breast Cancer
+descriptions : An invasive breast carcinoma characterized by the presence of a mesenchymal cellular component.  The mesenchymal cellular component ranges from cartilaginous and osseous, to purely sarcomatous.
+
+oncotree_code : BPT
+parent_oncotree_code : PT
+children_oncotree_codes : 
+key_phrases : Benign Breast Phyllodes Tumor; Benign Phyllodes Neoplasm of Breast; Benign Phyllodes Neoplasm of the Breast; Benign Phyllodes Tumor of Breast; Benign Phyllodes Tumor of the Breast; Breast Benign Phyllodes Neoplasm; Breast Sarcoma
+descriptions : A usually unilateral, benign and well circumscribed biphasic neoplasm that arises from the breast.  It usually affects middle-aged women.  It is characterized by the presence of a double layer of epithelial cells that are arranged in clefts, surrounded by a cellular, monomorphic spindle cell mesenchymal component.  Mitoses are rare.  Necrotic changes may be present in large tumors.
+
+oncotree_code : PD
+parent_oncotree_code : DCIS
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Nipple Paget Disease; Nipple Paget's Disease; Paget Disease of the Nipple; Paget's Disease of Nipple; Paget's Disease of the Nipple; Paget's disease of the nipple
+descriptions : A malignant epithelial cellular proliferation characterized by the presence of atypical cells with large nuclei and abundant pale cytoplasm within the squamous epithelium of the nipple.  In almost all cases there is an underlying intraductal breast carcinoma or intraductal and invasive carcinoma.  The skin changes range from redness to eczematous appearance.
+
+oncotree_code : PT
+parent_oncotree_code : BFN
+children_oncotree_codes : BPT; MPT; BLPT
+key_phrases : Breast Cystosarcoma Phyllodes; Breast Phyllodes Neoplasm; Breast Phyllodes Tumor; Breast Sarcoma; Cystosarcoma Phyllodes of Breast; Cystosarcoma Phyllodes of the Breast; Cystosarcoma phylloides - breast; Cystosarcoma phylloides of the breast; Phyllodes Breast Neoplasm; Phyllodes Breast Tumor; Phyllodes Neoplasm of Breast; Phyllodes Neoplasm of the Breast; Phyllodes Tumor of Breast; Phyllodes Tumor of the Breast
+descriptions : A benign, malignant, or borderline circumscribed biphasic neoplasm that arises from the breast.  It usually affects middle-aged women.  It is characterized by the presence of a double layer of epithelial cells that are arranged in clefts, surrounded by a spindle cell mesenchymal (stromal) component.
+
+oncotree_code : BRSRCC
+parent_oncotree_code : BRCA
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Breast Carcinoma with Signet Ring; Breast Signet Ring Cell Adenocarcinoma; Breast Signet Ring Cell Carcinoma; Breast Signet-Ring Cell Carcinoma; Primary Mammary Signet Ring Cell Carcinoma; Primary SRC Breast Carcinoma; Primary SRC Carcinoma of Breast; Primary SRC Carcinoma of the Breast; Primary Signet Ring Cell Breast Carcinoma; Primary Signet Ring Cell Carcinoma of Breast; Primary Signet Ring Cell Carcinoma of the Breast
+descriptions : An invasive breast adenocarcinoma characterized by the presence of malignant epithelial cells with signet ring appearance.
+
+oncotree_code : IBC
+parent_oncotree_code : BREAST
+children_oncotree_codes : 
+key_phrases : Breast Inflammatory Carcinoma; Inflammatory Breast Cancer; Inflammatory Breast Carcinoma; Inflammatory Carcinoma of Breast; Inflammatory Carcinoma of the Breast; Inflammatory breast carcinoma; Inflammatory carcinoma; Mastitis Carcinomatosa; inflammatory breast cancer
+descriptions : An advanced, invasive breast adenocarcinoma characterized by the presence of distinct changes in the overlying skin. These changes include diffuse erythema, edema, peau d'orange (skin of an orange) appearance, tenderness, induration, warmth, enlargement, and in some cases a palpable mass. The skin changes are the consequence of lymphatic obstruction from the underlying invasive breast adenocarcinoma. Microscopically, the dermal lymphatics show prominent infiltration by malignant cells. The invasive breast adenocarcinoma is usually of ductal, NOS type. There is not significant inflammatory cell infiltrate present, despite the name of this carcinoma.
+
+oncotree_code : IDC
+parent_oncotree_code : BRCA
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Breast Invasive Ductal Carcinoma; IBC NST; Infiltrating Ductal Adenocarcinoma; Infiltrating Ductal Breast Carcinoma; Infiltrating Ductal Carcinoma of Breast; Infiltrating Ductal Carcinoma of the Breast; Invasive Breast Carcinoma of No Special Type; Invasive Ductal Adenocarcinoma; Invasive Ductal Breast Carcinoma; Invasive Ductal Carcinoma of Breast; Invasive Ductal Carcinoma of the Breast; Invasive Ductal Carcinoma, NOS; Invasive Ductal Carcinoma, NST; Invasive Ductal Carcinoma, No Specific Type; Invasive Ductal Carcinoma, Not Otherwise Specified; infiltrating ductal carcinoma
+descriptions : A term that refers to a large and heterogeneous group of invasive breast carcinomas that cannot be classified morphologically as any of the special histological types. (WHO 2019)
+
+oncotree_code : MPT
+parent_oncotree_code : PT
+children_oncotree_codes : 
+key_phrases : Breast Sarcoma; Malignant Breast Phyllodes Neoplasm; Malignant Breast Phyllodes Tumor; Malignant Mammary Phyllodes Neoplasm; Malignant Mammary Phyllodes Tumor; Malignant Phyllodes Breast Neoplasm; Malignant Phyllodes Neoplasm of Breast; Malignant Phyllodes Neoplasm of the Breast; Malignant Phyllodes Tumor of Breast; Malignant Phyllodes Tumor of the Breast
+descriptions : A phyllodes tumor of the breast characterized by infiltrative margins and a sarcomatous stromal component.  The sarcomatous stroma usually displays features of fibrosarcoma.  Liposarcomatous, osteosarcomatous, or rhabdomyosarcomatous elements may also be present.
+
+oncotree_code : JSCB
+parent_oncotree_code : BREAST
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Juvenile Secretory Carcinoma of the Breast
+descriptions : 
+
+oncotree_code : ILC
+parent_oncotree_code : BRCA
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Breast Invasive Lobular Carcinoma; Classic Invasive Lobular Carcinoma; Infiltrating Lobular Adenocarcinoma; Infiltrating Lobular Breast Carcinoma; Infiltrating Lobular Carcinoma of Breast; Infiltrating Lobular Carcinoma of the Breast; Invasive Breast Lobular Carcinoma; Invasive Lobular Adenocarcinoma; Invasive Lobular Breast Carcinoma; Invasive Lobular Carcinoma of Breast; Invasive Lobular Carcinoma of the Breast; Invasive Lobular Carcinoma, Classic Type; Invasive lobular carcinoma
+descriptions : An infiltrating lobular adenocarcinoma of the breast.  The malignant cells lack cohesion and are arranged individually or in a linear manner (Indian files), or as narrow trabeculae within the stroma.  The malignant cells are usually smaller than those of ductal carcinoma, are less pleomorphic, and have fewer mitotic figures.
+
+oncotree_code : CSNOS
+parent_oncotree_code : BRCA
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Breast Invasive Carcinosarcoma, NOS
+descriptions : 
+
+oncotree_code : PBS
+parent_oncotree_code : BREAST
+children_oncotree_codes : BA
+key_phrases : Breast Sarcoma; Sarcoma of Breast; Sarcoma of the Breast
+descriptions : A malignant mesenchymal neoplasm that arises from the breast.  Representative examples include angiosarcoma, liposarcoma, leiomyosarcoma, rhabdomyosarcoma, and extraskeletal osteosarcoma.
+
+oncotree_code : BRCA
+parent_oncotree_code : BREAST
+children_oncotree_codes : BRCANOS; MDLC; SPC; IMMC; BRSRCC; IDC; ILC; CSNOS; BRCNOS; ACBC
+key_phrases : Infiltrating Breast Carcinoma; Infiltrating Carcinoma of Breast; Infiltrating Carcinoma of the Breast; Invasive Breast Cancer; Invasive Breast Carcinoma; Invasive Carcinoma of Breast; Invasive Carcinoma of the Breast; Invasive Mammary Carcinoma; Invasive mammary carcinoma; infiltrating breast cancer; invasive breast cancer
+descriptions : A carcinoma that infiltrates the breast parenchyma.  The vast majority are adenocarcinomas arising from the terminal ductal lobular unit (TDLU).  Often, the invasive adenocarcinoma co-exists with ductal or lobular carcinoma in situ.  It is the most common carcinoma affecting women.
+
+oncotree_code : COM
+parent_oncotree_code : MMBC
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Breast Carcinoma with Osseous Metaplasia
+descriptions : An invasive breast carcinoma showing differentiation towards bone structures.
+
+oncotree_code : DCIS
+parent_oncotree_code : BREAST
+children_oncotree_codes : PD
+key_phrases : Breast Cancer; Breast Ductal Carcinoma In Situ, NOS; DCIS, NOS; Ductal Breast Carcinoma In Situ; Ductal Carcinoma In Situ (DCIS); Ductal Carcinoma In Situ of Breast; Ductal Carcinoma In Situ of the Breast; Ductal carcinoma in situ; Intraductal Breast Carcinoma; Intraductal Carcinoma of Breast; Intraductal Carcinoma of the Breast; Intraductal carcinoma in situ of breast; Intraductal carcinoma in situ of unspecified breast; Non-Infiltrating Ductal Adenocarcinoma of Breast; Non-Infiltrating Ductal Adenocarcinoma of the Breast; Non-Infiltrating Ductal Breast Adenocarcinoma; Non-Infiltrating Ductal Breast Carcinoma; Non-Infiltrating Ductal Carcinoma of Breast; Non-Infiltrating Ductal Carcinoma of the Breast; Non-Infiltrating Intraductal Adenocarcinoma of Breast; Non-Infiltrating Intraductal Adenocarcinoma of the Breast; Non-Infiltrating Intraductal Breast Adenocarcinoma; Non-Infiltrating Intraductal Carcinoma; Non-Invasive Ductal Adenocarcinoma of Breast; Non-Invasive Ductal Adenocarcinoma of the Breast; Non-Invasive Ductal Breast Adenocarcinoma; Non-Invasive Ductal Breast Carcinoma; Non-Invasive Ductal Carcinoma of Breast; Non-Invasive Ductal Carcinoma of the Breast; Non-Invasive Intraductal Adenocarcinoma of Breast; Non-Invasive Intraductal Adenocarcinoma of the Breast; Non-Invasive Intraductal Breast Adenocarcinoma; intraductal carcinoma
+descriptions : A breast carcinoma entirely confined to the mammary ducts. It is also known as DCIS. There is no evidence of invasion of the basement membrane. Currently, it is classified into three categories: High-grade DCIS, intermediate-grade DCIS and low-grade DCIS. In this classification the DCIS grade is defined by a combination of nuclear grade, architectural growth pattern and presence of necrosis. The size of the lesion as well as the grade and the clearance margins play a major role in dictating the most appropriate therapy for DCIS.
+
+oncotree_code : BRCNOS
+parent_oncotree_code : BRCA
+children_oncotree_codes : 
+key_phrases : Breast Cancer; Breast Invasive Carcinoma, NOS
+descriptions : 
+
+oncotree_code : MASC
+parent_oncotree_code : EMBC
+children_oncotree_codes : 
+key_phrases : Adenosquamous Breast Carcinoma; Breast Adenosquamous Carcinoma; Breast Cancer; Metaplastic Adenosquamous Carcinoma
+descriptions : An invasive breast carcinoma characterized by the presence of tubular and glandular neoplastic cell structures, admixed with islands of neoplastic cells showing squamous differentiation.
+
+oncotree_code : EMBC
+parent_oncotree_code : MBC
+children_oncotree_codes : MSCC; MASCC; MASC
+key_phrases : Epithelial Type Metaplastic Breast Cancer
+descriptions : 
+
+oncotree_code : BLPT
+parent_oncotree_code : PT
+children_oncotree_codes : 
+key_phrases : Borderline Breast Phyllodes Neoplasm; Borderline Breast Phyllodes Tumor; Borderline Phyllodes Neoplasm of Breast; Borderline Phyllodes Neoplasm of the Breast; Borderline Phyllodes Tumor of Breast; Borderline Phyllodes Tumor of the Breast; Breast Sarcoma; Low Grade Malignant Breast Phyllodes Tumor
+descriptions : A phyllodes tumor of the breast characterized by the presence of intermediate features and a stroma which usually resembles low grade fibrosarcoma.
+
+oncotree_code : ACBC
+parent_oncotree_code : BRCA
+children_oncotree_codes : 
+key_phrases : Adenocystic Breast Carcinoma; Adenocystic Carcinoma of Breast; Adenocystic Carcinoma of the Breast; Adenoid Cystic Breast Cancer; Adenoid Cystic Breast Carcinoma; Adenoid Cystic Carcinoma of Breast; Adenoid Cystic Carcinoma of the Breast; Breast Adenoid Cystic Carcinoma; Mammary Adenocystic Carcinoma
+descriptions : An adenoid cystic carcinoma primarily involving the breast.  Three morphologic patterns are seen: cribriform, trabecular, and solid.  The prognosis is excellent.
+

@@ -1,0 +1,18 @@
+oncotree_code : PERITONEUM
+parent_oncotree_code : TISSUE
+children_oncotree_codes : PEMESO; PSEC
+key_phrases : Human Peritoneal Membrane; Peritoneal Cancer; Peritoneum, NOS
+descriptions : The tissue that lines the wall of the abdominal cavity, intestine, mesentery, and pelvic organs. It consists of the parietal peritoneum and the visceral peritoneum.
+
+oncotree_code : PEMESO
+parent_oncotree_code : PERITONEUM
+children_oncotree_codes : 
+key_phrases : Mesothelial Neoplasm of Peritoneum; Mesothelial Neoplasm of the Peritoneum; Mesothelial Tumor of Peritoneum; Mesothelial Tumor of the Peritoneum; Mesothelioma of peritoneum; Peritoneal Mesothelial Neoplasm; Peritoneal Mesothelial Tumor; Peritoneal Mesothelioma
+descriptions : A mesothelial neoplasm that arises from the peritoneum. It includes adenomatoid tumor, well differentiated papillary mesothelial tumor, multicystic mesothelioma, and malignant mesothelioma.
+
+oncotree_code : PSEC
+parent_oncotree_code : PERITONEUM
+children_oncotree_codes : 
+key_phrases : Peritoneal Cancer, NOS; Peritoneal Serous Carcinoma
+descriptions : 
+

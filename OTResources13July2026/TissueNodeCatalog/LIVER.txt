@@ -1,0 +1,60 @@
+oncotree_code : LIVER
+parent_oncotree_code : TISSUE
+children_oncotree_codes : FLC; UESL; LIMNET; LIAD; LIAS; HCCIHCH; HCC; MRTL; LIHB
+key_phrases : Body System, Hepatic; Gastrointestinal Tract, Liver; Hepatic Body System; Hepatic Organ System; Liver Cancer; Liver structure (body structure); Organ System, Hepatic
+descriptions : A triangular-shaped organ located under the diaphragm in the right hypochondrium. It is the largest internal organ of the body, weighting up to 2 kg. Metabolism and bile secretion are its main functions. It is composed of cells which have the ability to regenerate.
+
+oncotree_code : FLC
+parent_oncotree_code : LIVER
+children_oncotree_codes : 
+key_phrases : FLC; Fibrolamellar Cancer; Fibrolamellar Carcinoma of Liver Cells; Fibrolamellar Carcinoma of the Liver Cells; Fibrolamellar Hepatocellular Carcinoma; Hepatobiliary Cancer; Hepatocellular Fibrolamellar Carcinoma; Hepatocellular carcinoma, fibrolamellar; Liver Cell Fibrolamellar Carcinoma; Oncocytic Hepatocellular Tumor; Polygonal Cell Type Hepatocellular Carcinoma with Fibrous Stroma
+descriptions : A distinctive type of liver cell carcinoma that arises in non-cirrhotic livers and is seen predominantly in young patients.  The tumor cells are polygonal and deeply eosinophilic, and are embedded in a fibrous stroma.  The prognosis is similar to classical hepatocellular carcinoma that arises in non-cirrhotic livers, and better than hepatocellular carcinoma that arises in cirrhotic livers.
+
+oncotree_code : UESL
+parent_oncotree_code : LIVER
+children_oncotree_codes : 
+key_phrases : Undifferentiated Embryonal Sarcoma of the Liver
+descriptions : 
+
+oncotree_code : LIMNET
+parent_oncotree_code : LIVER
+children_oncotree_codes : 
+key_phrases : Hepatobiliary Cancer; Malignant Nonepithelial Tumor of the Liver
+descriptions : 
+
+oncotree_code : LIAD
+parent_oncotree_code : LIVER
+children_oncotree_codes : 
+key_phrases : ADENOMA, HEPATOCELLULAR, BENIGN; Adenoma of Liver Cells; Adenoma of the Liver Cells; HCA; Hepatobiliary Cancer; Hepatocellular Adenoma; Liver Cell Adenoma; Liver cell adenoma
+descriptions : A benign epithelial neoplasm arising from the hepatocytes. Grossly, it appears as a soft, round mass which often contains areas of hemorrhage and necrosis. Morphologically, the neoplastic cells resemble normal hepatocytes and form plates separated by sinusoids. Most patients have a history of contraceptive or anabolic steroids use.
+
+oncotree_code : LIAS
+parent_oncotree_code : LIVER
+children_oncotree_codes : 
+key_phrases : Angiosarcoma of liver; Hemangiosarcoma of Liver; Hemangiosarcoma of the Liver; Hepatic Angiosarcoma; Hepatic Hemangiosarcoma; Hepatobiliary Cancer; Kupffer cell sarcoma; Liver Angiosarcoma; Liver Hemangiosarcoma; Primary Angiosarcoma of Liver; Primary Angiosarcoma of the Liver
+descriptions : A malignant vascular neoplasm arising from the liver.
+
+oncotree_code : HCCIHCH
+parent_oncotree_code : LIVER
+children_oncotree_codes : 
+key_phrases : Carcinoma of Liver and Intrahepatic Biliary Tract; Carcinoma of the Liver and Intrahepatic Biliary Tract; Cholangiohepatoma; Combined Hepatocellular Cancer and Intrahepatic Bile Duct Cancer (Cholangiocarcinoma); Combined Hepatocellular Carcinoma and Cholangiocarcinoma; Hepatobiliary Cancer; Hepatocellular Carcinoma plus Intrahepatic Cholangiocarcinoma; Hepatocholangiocarcinoma; Liver and Intrahepatic Biliary Tract Carcinoma; Mixed Hepatocellular Cholangiocarcinoma; cHCC-CCA
+descriptions : A rare tumor containing unequivocal elements of both hepatocellular and cholangiocarcinoma that are intimately admixed.  This tumor should be distinguished from separate hepatocellular carcinoma and cholangiocarcinoma arising in the same liver.  The prognosis of this tumor is poor.
+
+oncotree_code : HCC
+parent_oncotree_code : LIVER
+children_oncotree_codes : 
+key_phrases : CARCINOMA, HEPATOCELLULAR, MALIGNANT; HCC; Hepatobiliary Cancer; Hepatocellular Cancer; Hepatoma; LIHC; Liver Cell Cancer (Hepatocellular Carcinoma); Liver Cell Carcinoma; Liver cell carcinoma; Primary Carcinoma of Liver Cells; Primary Carcinoma of the Liver Cells; hepatoma
+descriptions : A malignant tumor that arises from hepatocytes. Hepatocellular carcinoma is relatively rare in the United States but very common in all African countries south of the Sahara and in Southeast Asia. Most cases are seen in patients over the age of 50 years, but this tumor can also occur in younger individuals and even in children. Hepatocellular carcinoma is more common in males than females and is associated with hepatitis B, hepatitis C, chronic alcohol abuse and cirrhosis. Serum elevation of alpha-fetoprotein occurs in a large percentage of patients with hepatocellular carcinoma. Grossly, hepatocellular carcinoma may present as a single mass, as multiple nodules, or as diffuse liver involvement. Microscopically, there is a wide range of differentiation from tumor to tumor (well differentiated to poorly differentiated tumors). Hepatocellular carcinomas quickly metastasize to regional lymph nodes and lung. The overall median survival of untreated liver cell carcinoma is about 4 months. The most effective treatment of hepatocellular carcinoma is complete resection of the tumor. Lately, an increasing number of tumors have been treated with liver transplantation.
+
+oncotree_code : MRTL
+parent_oncotree_code : LIVER
+children_oncotree_codes : 
+key_phrases : Malignant Rhabdoid Tumor of the Liver
+descriptions : 
+
+oncotree_code : LIHB
+parent_oncotree_code : LIVER
+children_oncotree_codes : 
+key_phrases : HBL; HEPATOBLASTOMA, MALIGNANT; Hepatobiliary Cancer; Pediatric Embryonal Hepatoma; Pediatric Hepatoblastoma
+descriptions : A malignant embryonal neoplasm that arises from the liver. It occurs almost exclusively in infants, although isolated cases in older children and adults have been reported. Microscopically,  it consists of either epithelial or epithelial and mesenchymal components.
+

@@ -1,0 +1,66 @@
+oncotree_code : BILIARY_TRACT
+parent_oncotree_code : TISSUE
+children_oncotree_codes : IPN; ICPN
+key_phrases : Bile Tract; Biliary System; Biliary Tract Cancer; Biliary tract, NOS; Tract, Biliary; biliary system
+descriptions : The system that transports bile from the hepatocytes in the liver to the small intestine. It is comprised of the intrahepatic bile ducts, hepatic ducts, common bile duct, cystic duct, and the gallbladder.
+
+oncotree_code : GBC
+parent_oncotree_code : ICPN
+children_oncotree_codes : SCGBC; GBAD; GBASC
+key_phrases : Cancer of Gallbladder; Cancer of the Gallbladder; Carcinoma of Gallbladder; Carcinoma of the Gallbladder; Gall bladder carcinoma (adeno); Gall bladder carcinoma (adenocarcinoma); Gallbladder Cancer; Gallbladder Carcinoma; Hepatobiliary Cancer; gallbladder cancer
+descriptions : A malignant tumor arising from the epithelium of the gallbladder. It is usually associated with the presence of gallstones. Clinical symptoms are not specific and usually present late in the course. Morphologically, most gallbladder carcinomas are adenocarcinomas; squamous cell carcinomas, adenosquamous carcinomas, signet ring carcinomas, and undifferentiated carcinomas can also occur.
+
+oncotree_code : SCGBC
+parent_oncotree_code : GBC
+children_oncotree_codes : 
+key_phrases : Hepatobiliary Cancer; Small Cell Gallbladder Carcinoma
+descriptions : 
+
+oncotree_code : IPN
+parent_oncotree_code : BILIARY_TRACT
+children_oncotree_codes : CHOL
+key_phrases : Hepatobiliary Cancer; Intraductal Papillary Neoplasm of the Bile Duct
+descriptions : 
+
+oncotree_code : EHCH
+parent_oncotree_code : CHOL
+children_oncotree_codes : 
+key_phrases : Extrahepatic Cholangiocarcinoma; Hepatobiliary Cancer
+descriptions : 
+
+oncotree_code : PHCH
+parent_oncotree_code : CHOL
+children_oncotree_codes : 
+key_phrases : Hepatobiliary Cancer; Large Duct Intrahepatic Cholangiocarcinoma; Perihilar Cholangiocarcinoma
+descriptions : An intrahepatic cholangiocarcinoma that arises from the intrahepatic large bile ducts.
+
+oncotree_code : ICPN
+parent_oncotree_code : BILIARY_TRACT
+children_oncotree_codes : GBC
+key_phrases : Hepatobiliary Cancer; Intracholecystic Papillary Neoplasm
+descriptions : 
+
+oncotree_code : CHOL
+parent_oncotree_code : IPN
+children_oncotree_codes : EHCH; PHCH; IHCH
+key_phrases : CC; CHOLANGIOCARCINOMA, MALIGNANT; Cholangiocar.- intra/extrahepatic; Cholangiocarcinoma, intrahepatic and extrahepatic bile ducts (adenocarcinoma); Cholangiocellular Carcinoma; Hepatobiliary Cancer; Intrahepatic Bile Duct Cancer (Cholangiocarcinoma); cholangiosarcoma
+descriptions : A carcinoma that arises from the intrahepatic bile ducts, the hepatic ducts, or the common bile duct distal to the insertion of the cystic duct. The vast majority of tumors are adenocarcinomas.
+
+oncotree_code : IHCH
+parent_oncotree_code : CHOL
+children_oncotree_codes : 
+key_phrases : CHOLANGIOCARCINOMA, INTRAHEPATIC, MALIGNANT; Hepatobiliary Cancer; ICCA; Intrahepatic Bile Duct Cancer (Cholangiocarcinoma); Intrahepatic Bile Duct Carcinoma; Intrahepatic Carcinoma of Bile Duct; Intrahepatic Carcinoma of the Bile Duct; Intrahepatic Cholangiocarcinoma; Intrahepatic Cholangiocellular Carcinoma; Intrahepatic bile duct carcinoma; iCCA
+descriptions : A carcinoma that arises from the intrahepatic bile duct epithelium in any site of the intrahepatic biliary tree.  Grossly, the malignant lesions are solid, nodular, and grayish.  Morphologically, the vast majority of cases are adenocarcinomas.  Signs and symptoms include malaise, weight loss, right upper quadrant abdominal pain, and night sweats.  Early detection is difficult and the prognosis is generally poor.
+
+oncotree_code : GBAD
+parent_oncotree_code : GBC
+children_oncotree_codes : 
+key_phrases : Gallbladder Adenocarcinoma, NOS; Hepatobiliary Cancer
+descriptions : 
+
+oncotree_code : GBASC
+parent_oncotree_code : GBC
+children_oncotree_codes : 
+key_phrases : Adenosquamous Carcinoma of the Gallbladder; Hepatobiliary Cancer
+descriptions : 
+

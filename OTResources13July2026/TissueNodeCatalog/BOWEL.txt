@@ -1,0 +1,156 @@
+oncotree_code : BOWEL
+parent_oncotree_code : TISSUE
+children_oncotree_codes : APAD; SIC; ARMM; LAMN; COADREAD; ANSC; TAC; AGA; CMC; GINET; SBC
+key_phrases : Bowel Cancer; Intestinal structure (body structure); Intestinal tract, NOS; Intestines; bowel
+descriptions : The portion of the gastrointestinal tract between the stomach and the anus. It includes the small intestine and large intestine.
+
+oncotree_code : AWDNET
+parent_oncotree_code : GINET
+children_oncotree_codes : 
+key_phrases : Appendix NET; Appendix Neuroendocrine Tumor; Appendix Well Differentiated Neuroendocrine Neoplasm; Appendix Well-Differentiated Neuroendocrine Neoplasm; Gastrointestinal Neuroendocrine Tumor; Well-Differentiated Neuroendocrine Tumor of the Appendix
+descriptions : A well-differentiated, low-, intermediate-, or high-grade neoplasm with neuroendocrine differentiation that arises from the appendix.
+
+oncotree_code : DA
+parent_oncotree_code : SBC
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma of Duodenum; Adenocarcinoma of the Duodenum; Duodenal Adenocarcinoma; Small Bowel Cancer
+descriptions : An adenocarcinoma that arises from the duodenum.  Histologic variants include mucinous adenocarcinoma and signet ring cell carcinoma.
+
+oncotree_code : APAD
+parent_oncotree_code : BOWEL
+children_oncotree_codes : GCCAP; CTAAP; MAAP; SRAP
+key_phrases : Adenocarcinoma of Appendix; Adenocarcinoma of the Appendix; Appendiceal Adenocarcinoma; Appendiceal Cancer; Appendix Adenocarcinoma
+descriptions : A malignant neoplasm arising from the glandular epithelium of the appendix with invasion of the appendiceal wall beyond the muscularis mucosa.  The majority of cases are well differentiated adenocarcinomas with mucinous stroma formation.  Clinically, it may present as an abdominal mass or with symptoms of acute appendicitis.  Patients with chronic ulcerative colitis are at a higher risk in developing appendiceal adenocarcinomas compared to the general population.
+
+oncotree_code : SIC
+parent_oncotree_code : BOWEL
+children_oncotree_codes : 
+key_phrases : Cancer of Small Bowel; Cancer of the Small Bowel; Carcinoma of Small Bowel; Carcinoma of Small Intestine; Carcinoma of the Small Bowel; Carcinoma of the Small Intestine; Small Bowel Cancer; Small Bowel Carcinoma; Small Intestinal Cancer; Small Intestinal Carcinoma; Small Intestine Cancer; Small intestine cancer, NOS; small intestine cancer
+descriptions : A carcinoma arising from the small intestine. The vast majority are adenocarcinomas. The remaining cases are adenosquamous, squamous, or undifferentiated carcinomas.
+
+oncotree_code : GCCAP
+parent_oncotree_code : APAD
+children_oncotree_codes : 
+key_phrases : Appendiceal Cancer; Goblet Cell Adenocarcinoma of the Appendix
+descriptions : 
+
+oncotree_code : ARMM
+parent_oncotree_code : BOWEL
+children_oncotree_codes : 
+key_phrases : Anal Malignant Melanoma; Anal Melanoma; Anorectal Mucosal Melanoma; Malignant Melanoma of Anus; Malignant Melanoma of the Anus; Malignant melanoma of anal skin
+descriptions : A melanoma arising from the anus.  Clinical presentation includes rectal bleeding, tenesmus, pain, and change in bowel habit.  The prognosis is usually poor.
+
+oncotree_code : READ
+parent_oncotree_code : COADREAD
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma - rectum; Adenocarcinoma of Rectum; Adenocarcinoma of the Rectum; Adenocarcinoma of the rectum; Colorectal Cancer; Rectal Adenocarcinoma
+descriptions : An adenocarcinoma arising from the rectum.  It is more frequently seen in populations with a Western type diet and in patients with a history of chronic inflammatory bowel disease.  Signs and symptoms include intestinal bleeding, anemia, and change in bowel habits.  According to the degree of cellular differentiation, rectal adenocarcinomas are divided into well, moderately, and poorly differentiated.  Histologic variants include mucinous adenocarcinoma, signet ring cell carcinoma, medullary carcinoma, serrated adenocarcinoma, cribriform comedo-type adenocarcinoma, and micropapillary adenocarcinoma.
+
+oncotree_code : CTAAP
+parent_oncotree_code : APAD
+children_oncotree_codes : 
+key_phrases : Appendiceal Cancer; Colonic Type Adenocarcinoma of the Appendix
+descriptions : 
+
+oncotree_code : LAMN
+parent_oncotree_code : BOWEL
+children_oncotree_codes : 
+key_phrases : Appendiceal Cancer; Low-grade Appendiceal Mucinous Neoplasm
+descriptions : 
+
+oncotree_code : CAIS
+parent_oncotree_code : COADREAD
+children_oncotree_codes : 
+key_phrases : Colon Adenocarcinoma In Situ; Colorectal Cancer
+descriptions : 
+
+oncotree_code : COADREAD
+parent_oncotree_code : BOWEL
+children_oncotree_codes : READ; CAIS; MACR; SRCCR; COAD
+key_phrases : Colorectal (Colon or Rectal) Adenocarcinoma; Colorectal Adenocarcinoma; Colorectal Cancer
+descriptions : The most common type of colorectal carcinoma.  It is characterized by the presence of malignant glandular epithelial cells invading through the muscularis mucosa into the submucosa.  Histologic variants include mucinous adenocarcinoma, signet ring cell carcinoma, medullary carcinoma, serrated adenocarcinoma, cribriform comedo-type adenocarcinoma, and micropapillary adenocarcinoma.
+
+oncotree_code : ANSC
+parent_oncotree_code : BOWEL
+children_oncotree_codes : 
+key_phrases : Anal Cancer; Anal Squamous Cell Cancer; Anal Squamous Cell Carcinoma; Epidermoid Anal Carcinoma; Epidermoid Carcinoma of Anus; Epidermoid Carcinoma of the Anus; Squamous Cell Anal Carcinoma; Squamous Cell Carcinoma of Anus; Squamous Cell Carcinoma of the Anus; Squamous cell carcinoma - anus; Squamous cell carcinoma of the anus
+descriptions : A squamous cell carcinoma (SCC) arising from the anal canal or the anal margin (perianal skin). Human papillomavirus is detected in the majority of cases. Homosexual HIV-positive men have an increased risk of developing anal squamous cell carcinoma in comparison to the general male population. Symptoms include anal pruritus, discomfort when sitting, pain, change in bowel habit, and bleeding. The prognosis is generally better for anal margin SCC than for anal canal SCC.
+
+oncotree_code : TAC
+parent_oncotree_code : BOWEL
+children_oncotree_codes : 
+key_phrases : Tubular Adenoma of the Colon
+descriptions : 
+
+oncotree_code : HGNEC
+parent_oncotree_code : GINET
+children_oncotree_codes : 
+key_phrases : Colorectal (Colon or Rectal) Neuroendocrine Cancer; Colorectal NEC; Colorectal Neuroendocrine Carcinoma; Gastrointestinal Neuroendocrine Tumor; High-Grade Neuroendocrine Carcinoma of the Colon and Rectum
+descriptions : An aggressive high-grade carcinoma with neuroendocrine differentiation that arises from the colon or rectum. It is composed of malignant small or large cells. The mitotic count is more than 20 per 2 mm2 and/or the Ki-67 index is more than 20%.
+
+oncotree_code : AGA
+parent_oncotree_code : BOWEL
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma of Anal Glands; Adenocarcinoma of anal glands; Adenocarcinoma of the Anal Gland; Anal Cancer; Anal Gland Adenocarcinoma; Anal Glands Adenocarcinoma
+descriptions : An anal adenocarcinoma arising from the epithelium of the anal glands.  The overlying anal mucosa does not show evidence of neoplastic changes.
+
+oncotree_code : MAAP
+parent_oncotree_code : APAD
+children_oncotree_codes : 
+key_phrases : Appendiceal Cancer; Appendix Mucinous Adenocarcinoma; Mucinous Adenocarcinoma of the Appendix
+descriptions : An adenocarcinoma arising from the appendix, characterized by the presence of mucinous stroma formation.
+
+oncotree_code : CMC
+parent_oncotree_code : BOWEL
+children_oncotree_codes : 
+key_phrases : Colon Medullary Carcinoma; Colorectal Cancer; Medullary Carcinoma of the Colon
+descriptions : A rare, invasive colon adenocarcinoma characterized by the presence of sheets of malignant epithelial cells with vesicular nuclei, prominent nucleoli, and abundant eosinophilic cytoplasm.  It usually has a favorable prognosis.
+
+oncotree_code : MACR
+parent_oncotree_code : COADREAD
+children_oncotree_codes : 
+key_phrases : Colorectal Cancer; Colorectal Mucinous Adenocarcinoma; Mucinous Adenocarcinoma of the Colon and Rectum
+descriptions : An invasive colorectal adenocarcinoma characterized by the presence of extracellular mucin pools that contain malignant glandular epithelial structures.  The extracellular mucin pools occupy more than 50% of the malignant lesion.
+
+oncotree_code : GINET
+parent_oncotree_code : BOWEL
+children_oncotree_codes : AWDNET; HGNEC; SBWDNET; RWDNET
+key_phrases : Digestive System NET; Digestive System Neuroendocrine Tumor; Digestive System Well Differentiated Neuroendocrine Tumor; GEP-NET; Gastroenteropancreatic NET; Gastroenteropancreatic Neuroendocrine Tumor; Gastrointestinal NET; Gastrointestinal Neuroendocrine Tumors; Gastrointestinal System Neuroendocrine Tumor
+descriptions : A well-differentiated neuroendocrine neoplasm of low, intermediate, or high grade arising from the digestive system. It is characterized by the presence of cells with features similar to those of the normal endocrine cells of the digestive system. The neoplastic cells express immunohistochemical evidence of neuroendocrine differentiation and hormones.
+
+oncotree_code : SRCCR
+parent_oncotree_code : COADREAD
+children_oncotree_codes : 
+key_phrases : Colon Signet Ring Cell Adenocarcinoma; Colon Signet-Ring Cell Adenocarcinoma; Colonic Signet Ring Cell Adenocarcinoma; Colorectal Cancer; Rectal Signet Ring Cell Adenocarcinoma; Rectal Signet-Ring Cell Adenocarcinoma; Signet Ring Adenocarcinoma of Rectum; Signet Ring Adenocarcinoma of the Rectum; Signet Ring Cell Adenocarcinoma of Colon; Signet Ring Cell Adenocarcinoma of Rectum; Signet Ring Cell Adenocarcinoma of the Colon and Rectum; Signet Ring Cell Adenocarcinoma of the Rectum; Signet Ring Cell Colon Adenocarcinoma
+descriptions : An infiltrating adenocarcinoma arising from the rectum.  It is characterized by the presence of malignant glandular cells with prominent intracytoplasmic mucin.  These cells constitute more than 50% of the malignant cellular population.; An invasive adenocarcinoma of the colon characterized by the presence of malignant glandular epithelial cells which contain prominent intracytoplasmic mucin (signet ring cells).  The signet ring cells constitute more than 50% of the malignant cells.
+
+oncotree_code : COAD
+parent_oncotree_code : COADREAD
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma - colon; Adenocarcinoma of Colon; Adenocarcinoma of the Colon; Adenocarcinoma of the colon; Colon Adenocarcinoma; Colonic Adenocarcinoma; Colorectal Cancer
+descriptions : An adenocarcinoma arising from the colon.  It is more frequently seen in populations with a Western type diet and in patients with a history of chronic inflammatory bowel disease.  Signs and symptoms include intestinal bleeding, anemia, and change in bowel habits.  According to the degree of cellular differentiation, colonic adenocarcinomas are divided into well, moderately, and poorly differentiated.  Histologic variants include mucinous adenocarcinoma, signet ring cell carcinoma, medullary carcinoma, serrated adenocarcinoma, cribriform comedo-type adenocarcinoma, and micropapillary adenocarcinoma.
+
+oncotree_code : SBWDNET
+parent_oncotree_code : GINET
+children_oncotree_codes : 
+key_phrases : Bladder Small Cell Carcinoma; Bladder Small Cell Neuroendocrine Cancer; Bladder Small Cell Neuroendocrine Carcinoma; Gastrointestinal Neuroendocrine Tumor; Small Bowel Well-Differentiated Neuroendocrine Tumor; Small Cell Neuroendocrine Carcinoma of Urinary Bladder; Small Cell Neuroendocrine Carcinoma of the Urinary Bladder
+descriptions : A small cell neuroendocrine carcinoma arising from the bladder.
+
+oncotree_code : RWDNET
+parent_oncotree_code : GINET
+children_oncotree_codes : 
+key_phrases : Colorectal NET; Colorectal Neuroendocrine Tumor; Colorectal Well Differentiated Neuroendocrine Neoplasm; Colorectal Well-Differentiated Neuroendocrine Neoplasm; Gastrointestinal Neuroendocrine Tumor; Well-Differentiated Neuroendocrine Tumor of the Rectum
+descriptions : A well-differentiated, low-, intermediate-, or high-grade neoplasm with neuroendocrine differentiation that arises from the colon or rectum.
+
+oncotree_code : SRAP
+parent_oncotree_code : APAD
+children_oncotree_codes : 
+key_phrases : Appendiceal Cancer; Appendix Signet Ring Cell Adenocarcinoma; Appendix Signet Ring Cell Carcinoma; Appendix Signet-Ring Cell Carcinoma; Signet Ring Cell Type of the Appendix
+descriptions : An adenocarcinoma arising from the appendix, characterized by the presence of signet-ring, mucin-producing malignant cells.  The signet-ring cells constitute more than fifty-percent of the malignant cells.
+
+oncotree_code : SBC
+parent_oncotree_code : BOWEL
+children_oncotree_codes : DA
+key_phrases : Cancer of Small Bowel; Cancer of the Small Bowel; Carcinoma of Small Bowel; Carcinoma of Small Intestine; Carcinoma of the Small Bowel; Carcinoma of the Small Intestine; Small Bowel Cancer; Small Bowel Carcinoma; Small Intestinal Cancer; Small Intestinal Carcinoma; Small Intestine Cancer; Small intestine cancer, NOS; small intestine cancer
+descriptions : A carcinoma arising from the small intestine. The vast majority are adenocarcinomas. The remaining cases are adenosquamous, squamous, or undifferentiated carcinomas.
+

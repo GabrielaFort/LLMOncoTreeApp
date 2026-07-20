@@ -1,0 +1,36 @@
+oncotree_code : PROSTATE
+parent_oncotree_code : TISSUE
+children_oncotree_codes : PRAD; PRSCC; PRNE; PRSC; BCCP
+key_phrases : GLAND, PROSTATE; Genital System, Male, Prostate; Prostate Cancer; Prostate Gland; Prostatic Gland; Prostatic structure (body structure); male prostate
+descriptions : The walnut shaped accessory sex gland of the male reproductive system. It is located in the pelvis just below the bladder, surrounding the prostatic part of the urethra. The prostate gland secretes a fluid which is part of the semen.
+
+oncotree_code : PRAD
+parent_oncotree_code : PROSTATE
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma of Prostate; Adenocarcinoma of the Prostate; PRAD; Prostate Adenocarcinoma; Prostate Cancer
+descriptions : An adenocarcinoma arising from the prostate gland.  It is one of the most common malignant tumors afflicting men.  The majority of adenocarcinomas arise in the peripheral zone and a minority occurs in the central or the transitional zone of the prostate gland.  Grading of prostatic adenocarcinoma predicts disease progression and correlates with survival.  Several grading systems have been proposed, of which the Gleason system is the most commonly used.  Gleason sums of 2 to 4 represent well-differentiated disease, 5 to 7 moderately differentiated disease and 8 to 10 poorly differentiated disease.  Prostatic-specific antigen (PSA) serum test is widely used as a screening test for the early detection of prostatic adenocarcinoma.  Treatment options include radical prostatectomy, radiation therapy, androgen ablation and cryotherapy.  Watchful waiting or surveillance alone is an option for older patients with low-grade or low-stage disease.
+
+oncotree_code : PRSCC
+parent_oncotree_code : PROSTATE
+children_oncotree_codes : 
+key_phrases : Oat Cell Carcinoma of Prostate; Oat Cell Carcinoma of the Prostate; Prostate Cancer; Prostate Oat Cell Carcinoma; Prostate Small Cell Carcinoma; Prostate Small Cell NEC; Prostate Small Cell Neuroendocrine Carcinoma; Small Cell Carcinoma of Prostate; Small Cell Carcinoma of the Prostate
+descriptions : A rare small cell neuroendocrine carcinoma that arises from the prostate gland.
+
+oncotree_code : PRNE
+parent_oncotree_code : PROSTATE
+children_oncotree_codes : 
+key_phrases : Neuroendocrine Neoplasm of Prostate; Neuroendocrine Neoplasm of the Prostate; Prostate Cancer; Prostate Neuroendocrine Carcinoma; Prostate Neuroendocrine Neoplasm
+descriptions : A neoplasm with neuroendocrine differentiation that arises from the prostate gland.
+
+oncotree_code : PRSC
+parent_oncotree_code : PROSTATE
+children_oncotree_codes : 
+key_phrases : Prostate Cancer; Prostate Squamous Cell Carcinoma; Squamous Cell Carcinoma of Prostate; Squamous Cell Carcinoma of the Prostate
+descriptions : An invasive prostate carcinoma characterized by the presence of malignant cells with squamous differentiation. There is no evidence of glandular differentiation.
+
+oncotree_code : BCCP
+parent_oncotree_code : PROSTATE
+children_oncotree_codes : 
+key_phrases : Basal Cell Carcinoma of Prostate; Prostate Cancer
+descriptions : 
+

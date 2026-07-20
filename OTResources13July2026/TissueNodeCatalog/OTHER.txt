@@ -1,0 +1,90 @@
+oncotree_code : OTHER
+parent_oncotree_code : TISSUE
+children_oncotree_codes : ARCH; EGCT; AIS; CUP; MIXED
+key_phrases : OT; Other Cancer; Other or Miscellaneous
+descriptions : Different than the one(s) previously specified or mentioned.
+
+oncotree_code : ARCH
+parent_oncotree_code : OTHER
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma in Retrorectal Cystic Hamartoma
+descriptions : 
+
+oncotree_code : EGCT
+parent_oncotree_code : OTHER
+children_oncotree_codes : 
+key_phrases : Extra Gonadal Germ Cell Tumor
+descriptions : 
+
+oncotree_code : NECNOS
+parent_oncotree_code : CUP
+children_oncotree_codes : 
+key_phrases : Cancer of Unknown Primary; Neuroendocrine Carcinoma, NOS
+descriptions : 
+
+oncotree_code : SCUP
+parent_oncotree_code : CUP
+children_oncotree_codes : 
+key_phrases : Cancer of Unknown Primary; Small Cell Carcinoma of Unknown Primary
+descriptions : 
+
+oncotree_code : ADNOS
+parent_oncotree_code : CUP
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma, NOS; Cancer of Unknown Primary
+descriptions : 
+
+oncotree_code : UDMN
+parent_oncotree_code : CUP
+children_oncotree_codes : 
+key_phrases : Cancer of Unknown Primary; Undifferentiated Malignant Neoplasm
+descriptions : A neoplasm that has minimal to no differentiating features.
+
+oncotree_code : ACN
+parent_oncotree_code : CUP
+children_oncotree_codes : 
+key_phrases : Acinar Cell Carcinoma, NOS; Cancer of Unknown Primary
+descriptions : 
+
+oncotree_code : SCCNOS
+parent_oncotree_code : CUP
+children_oncotree_codes : 
+key_phrases : Cancer of Unknown Primary; Squamous Cell Carcinoma, NOS
+descriptions : 
+
+oncotree_code : PDC
+parent_oncotree_code : CUP
+children_oncotree_codes : 
+key_phrases : Cancer of Unknown Primary; Poorly Differentiated Carcinoma, NOS
+descriptions : 
+
+oncotree_code : CUPNOS
+parent_oncotree_code : CUP
+children_oncotree_codes : 
+key_phrases : Cancer of Unknown Primary, NOS
+descriptions : 
+
+oncotree_code : NETNOS
+parent_oncotree_code : CUP
+children_oncotree_codes : 
+key_phrases : Cancer of Unknown Primary; Neuroendocrine Tumor, NOS
+descriptions : 
+
+oncotree_code : AIS
+parent_oncotree_code : OTHER
+children_oncotree_codes : 
+key_phrases : AIS; Adenocarcinoma In Situ; Adenocarcinoma in situ, NOS
+descriptions : A lesion in which the normally situated glands are partially or completely replaced by atypical cells with malignant characteristics.
+
+oncotree_code : CUP
+parent_oncotree_code : OTHER
+children_oncotree_codes : NECNOS; SCUP; ADNOS; UDMN; ACN; SCCNOS; PDC; CUPNOS; NETNOS
+key_phrases : Advanced Carcinoma Of Unknown Primary; Cancer of Unknown Primary; Carcinoma of Unknown Primary Origin
+descriptions : A carcinoma that has spread to other regions from an unknown primary anatomic site.
+
+oncotree_code : MIXED
+parent_oncotree_code : OTHER
+children_oncotree_codes : 
+key_phrases : Cancer of Unknown Primary; Mixed Cancer Types
+descriptions : 
+

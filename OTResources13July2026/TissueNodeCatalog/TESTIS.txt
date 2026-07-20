@@ -1,0 +1,72 @@
+oncotree_code : TESTIS
+parent_oncotree_code : TISSUE
+children_oncotree_codes : SEM; TMESO; NSGCT; TSCST; TLYM
+key_phrases : Genital System, Male, Testis; Testes; Testicles; Testicular Cancer; Testis structure (body structure); Testis, NOS; gonad of male genitalia; gonad of male reproductive system; male gonad; testicle
+descriptions : Either of the paired male reproductive glands that produce the male germ cells and the male hormones.
+
+oncotree_code : SEM
+parent_oncotree_code : TESTIS
+children_oncotree_codes : 
+key_phrases : Germ Cell Tumor; SEMINOMA, MALIGNANT; Seminoma, NOS; Seminoma, Pure
+descriptions : A radiosensitive malignant germ cell tumor found in the testis (especially undescended), and extragonadal sites (anterior mediastinum and pineal gland).  It is characterized by the presence of uniform cells with clear or dense cytoplasm which contains glycogen, and by a large nucleus which contains one or more nucleoli.  The neoplastic germ cells form aggregates separated by fibrous septa.  The fibrous septa contain chronic inflammatory cells, mainly lymphocytes.
+
+oncotree_code : TMESO
+parent_oncotree_code : TESTIS
+children_oncotree_codes : 
+key_phrases : Testicular Mesothelioma
+descriptions : 
+
+oncotree_code : GCTSTM
+parent_oncotree_code : NSGCT
+children_oncotree_codes : 
+key_phrases : Germ Cell Tumor with Somatic-Type Malignancy
+descriptions : 
+
+oncotree_code : TT
+parent_oncotree_code : NSGCT
+children_oncotree_codes : 
+key_phrases : Germ Cell Tumor; Teratoma of Testis; Teratoma of the Testis; Testicular Teratoma
+descriptions : A non-seminomatous germ cell tumor arising from the testis. It is characterized by the presence of various tissues which correspond to the different germinal layers (endoderm, mesoderm, and ectoderm). Testicular teratomas in children follow a benign clinical course whereas in postpubertal patients may metastasize to other anatomic sites.
+
+oncotree_code : TCCA
+parent_oncotree_code : NSGCT
+children_oncotree_codes : 
+key_phrases : Choriocarcinoma of Testis; Choriocarcinoma of the Testis; Germ Cell Tumor; Testicular Choriocarcinoma
+descriptions : A malignant germ cell tumor arising from the testis.  It represents the rarest of the testicular germ cell tumors. Histologically it is characterized by the presence of syncytiotrophoblasts and cytotrophoblasts.
+
+oncotree_code : NSGCT
+parent_oncotree_code : TESTIS
+children_oncotree_codes : GCTSTM; TT; TCCA; MGCT; EMBCA; TYST
+key_phrases : Non-Seminomatous Germ Cell Tumor
+descriptions : 
+
+oncotree_code : MGCT
+parent_oncotree_code : NSGCT
+children_oncotree_codes : 
+key_phrases : Mixed Germ Cell Neoplasm of Testis; Mixed Germ Cell Neoplasm of the Testis; Mixed Germ Cell Tumor of Testis; Mixed Germ Cell Tumor of the Testis; Testicular Germ Cell Tumor (Mixed); Testicular Mixed Germ Cell Neoplasm; Testicular Mixed Germ Cell Tumor
+descriptions : A malignant germ cell tumor that arises from the testis and is characterized by the presence of more than one histologic component.  Representative examples include mixed choriocarcinoma and embryonal carcinoma, mixed embryonal carcinoma and seminoma, and mixed yolk sac tumor and teratoma.
+
+oncotree_code : TSCST
+parent_oncotree_code : TESTIS
+children_oncotree_codes : 
+key_phrases : Sex Cord Stromal Tumor
+descriptions : 
+
+oncotree_code : EMBCA
+parent_oncotree_code : NSGCT
+children_oncotree_codes : 
+key_phrases : Embryonal Carcinoma of Testis; Embryonal Carcinoma of the Testis; Germ Cell Tumor; Testicular Embryonal Carcinoma
+descriptions : A malignant germ cell neoplasm arising from the testis.  It is composed of primitive epithelial cells arranged in solid, papillary, and glandular configurations.  Most patients present with a testicular mass, which may be associated with pain.  More than half of the patients have metastatic disease at diagnosis.  The form of treatment following radical orchiectomy is stage dependent.
+
+oncotree_code : TYST
+parent_oncotree_code : NSGCT
+children_oncotree_codes : 
+key_phrases : Endodermal Sinus Neoplasm of Testis; Endodermal Sinus Neoplasm of the Testis; Endodermal Sinus Tumor of Testis; Endodermal Sinus Tumor of the Testis; Germ Cell Tumor; Testicular Endodermal Sinus Neoplasm; Testicular Endodermal Sinus Tumor; Testicular Yolk Sac Neoplasm; Testicular Yolk Sac Tumor; Yolk Sac Neoplasm of Testis; Yolk Sac Neoplasm of the Testis; Yolk Sac Tumor of Testis; Yolk Sac Tumor of the Testis
+descriptions : A non-seminomatous malignant germ cell tumor arising from the testis.  It affects infants, young children, and postpubertal males.  It is the most frequently seen testicular neoplasm during childhood.  The vast majority of patients present with an asymptomatic scrotal mass.  The tumor mimics the yolk sac of the embryo and produces alpha-fetoprotein (AFP).  It metastasizes to distant anatomic sites.  Prognostic factors relate to the clinical stage and the degree of AFP elevation.
+
+oncotree_code : TLYM
+parent_oncotree_code : TESTIS
+children_oncotree_codes : 
+key_phrases : Lymphoma of Testis; Lymphoma of the Testis; Non-Hodgkin Lymphoma; Primary Testicular Lymphoma
+descriptions : A lymphoma that arises from the testis and is not associated with lymphoma in another anatomic site.
+

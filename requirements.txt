@@ -1,0 +1,5 @@
+streamlit
+ollama
+requests
+docling
+python-docx

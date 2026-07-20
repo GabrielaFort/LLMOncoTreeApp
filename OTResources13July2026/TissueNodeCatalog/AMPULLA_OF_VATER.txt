@@ -1,0 +1,30 @@
+oncotree_code : AMPULLA_OF_VATER
+parent_oncotree_code : TISSUE
+children_oncotree_codes : AMPCA
+key_phrases : Ampulla of Vater; Ampullary Carcinoma; Hepatopancreatic Ampulla; Vater's Ampulla; Vater's ampulla; ampulla biliaropancreatica; ampulla of bile duct; biliaropancreatic ampulla; hepatopancreatic ampulla; papilla Vateri
+descriptions : The junction of the common bile and main pancreatic ducts, which protrudes into the medial aspect of the descending duodenum at the major duodenal papilla. The flow of bile and pancreatic juices into the duodenum through the Ampulla of Vater is controlled by the sphincter of Oddi.
+
+oncotree_code : IAMPCA
+parent_oncotree_code : AMPCA
+children_oncotree_codes : 
+key_phrases : Ampulla of Vater Intestinal-Type Adenocarcinoma; Ampulla of Vater Invasive Intestinal Type Adenocarcinoma; Ampullary Cancer; Intestinal Ampullary Carcinoma
+descriptions : An invasive adenocarcinoma arising from the ampulla of Vater. Morphologically, it is characterized by the presence of intestinal-type malignant epithelial cells.
+
+oncotree_code : PAMPCA
+parent_oncotree_code : AMPCA
+children_oncotree_codes : 
+key_phrases : Ampullary Cancer; Pancreatobiliary Ampullary Carcinoma
+descriptions : 
+
+oncotree_code : MAMPCA
+parent_oncotree_code : AMPCA
+children_oncotree_codes : 
+key_phrases : Ampullary Cancer; Mixed Ampullary Carcinoma
+descriptions : 
+
+oncotree_code : AMPCA
+parent_oncotree_code : AMPULLA_OF_VATER
+children_oncotree_codes : IAMPCA; PAMPCA; MAMPCA
+key_phrases : Ampulla of Vater Cancer; Ampulla of Vater Carcinoma; Ampullary Cancer; Ampullary Carcinoma; ampulla of Vater cancer; ampullary cancer
+descriptions : A carcinoma arising from the ampulla of Vater.  The vast majority of cases are adenocarcinomas.  Signs and symptoms include jaundice, abdominal pain, anorexia, nausea, vomiting, and weight loss.
+

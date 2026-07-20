@@ -1,0 +1,30 @@
+oncotree_code : PLEURA
+parent_oncotree_code : TISSUE
+children_oncotree_codes : PLMESO
+key_phrases : PLEURAL TISSUE; Pleura, NOS; Pleural Cancer; Pleural Tissue; wall of pleural sac
+descriptions : The tissue that lines the wall of the thoracic cavity and the surface of the lungs.
+
+oncotree_code : PLEMESO
+parent_oncotree_code : PLMESO
+children_oncotree_codes : 
+key_phrases : Pleural Mesothelioma, Epithelioid Type
+descriptions : 
+
+oncotree_code : PLMESO
+parent_oncotree_code : PLEURA
+children_oncotree_codes : PLEMESO; PLBMESO; PLSMESO
+key_phrases : Mesothelial Neoplasm of Pleura; Mesothelial Neoplasm of the Pleura; Mesothelial Tumor of Pleura; Mesothelial Tumor of the Pleura; Mesothelioma of pleura; Pleural Mesothelial Neoplasm; Pleural Mesothelial Tumor; Pleural Mesothelioma
+descriptions : A mesothelial neoplasm that arises from the pleura. It includes adenomatoid tumor, well differentiated papillary mesothelial tumor, and malignant mesothelioma.
+
+oncotree_code : PLBMESO
+parent_oncotree_code : PLMESO
+children_oncotree_codes : 
+key_phrases : Pleural Mesothelioma, Biphasic Type
+descriptions : 
+
+oncotree_code : PLSMESO
+parent_oncotree_code : PLMESO
+children_oncotree_codes : 
+key_phrases : Pleural Mesothelioma, Sarcomatoid Type
+descriptions : 
+

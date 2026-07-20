@@ -1,0 +1,48 @@
+oncotree_code : EYE
+parent_oncotree_code : TISSUE
+children_oncotree_codes : OM; RBL; LGT
+key_phrases : Eye Cancer; Eye, NOS; Eyeball; Ocular; Ophthalmic; Optic; Structure of eye proper (body structure); ophthalmic
+descriptions : The organ of sight or vision.
+
+oncotree_code : CM
+parent_oncotree_code : OM
+children_oncotree_codes : 
+key_phrases : Malignant Conjunctiva Melanoma; Malignant Conjunctival Melanoma; Malignant Melanoma of Conjunctiva; Malignant Melanoma of the Conjunctiva
+descriptions : A melanoma that arises from the conjunctiva.
+
+oncotree_code : ACLG
+parent_oncotree_code : LGT
+children_oncotree_codes : 
+key_phrases : Adenoid Cystic Carcinoma of the Lacrimal Gland; Lacrimal Gland Tumor
+descriptions : 
+
+oncotree_code : OM
+parent_oncotree_code : EYE
+children_oncotree_codes : CM; UM
+key_phrases : Eye Melanoma; Melanoma of Eye; Melanoma of the Eye; Ocular Melanoma
+descriptions : A melanoma that arises from the structures of the eye.
+
+oncotree_code : UM
+parent_oncotree_code : OM
+children_oncotree_codes : 
+key_phrases : Intraocular Melanoma; MELANOMA, UVEAL, MALIGNANT; Melanoma of Uvea; Melanoma of the Uvea; UVM; Uveal Melanoma; Uveal Tract Melanoma; intraocular melanoma
+descriptions : A melanoma derived from melanocytes of the uveal tract.  It is the most common primary intraocular tumor in the United States and Western Europe.  Similar to melanoma of the skin, it is rare in Africa and Asia.  Diagnostic procedures include ophthalmoscopic exam, fluorescein angiography and ultrasound.  Treatment includes: surgical excision of the eye, iridocyclectomy and tumor resection.  Recent treatments also include radiotherapy or photo coagulation.  Classification of uveal melanomas recognizes four cell types within these tumors: epithelioid, intermediate, mixed cell, and spindle cell types.  The spindle cell type uveal melanomas are further sub-classified as spindle cell type A and spindle cell type B.
+
+oncotree_code : RBL
+parent_oncotree_code : EYE
+children_oncotree_codes : 
+key_phrases : RB; RETINOBLASTOMA, MALIGNANT; Retinoblastoma, NOS
+descriptions : A malignant tumor that originates in the nuclear layer of the retina. As the most common primary tumor of the eye in children, retinoblastoma is still relatively uncommon, accounting for only 1% of all malignant tumors in pediatric patients. Approximately 95% of cases are diagnosed before age 5. These tumors may be multifocal, bilateral, congenital, inherited, or acquired. Seventy-five percent of retinoblastomas are unilateral; 60% occur sporadically. A predisposition to retinoblastoma has been associated with 13q14 cytogenetic abnormalities. Patients with the inherited form also appear to be at increased risk for secondary nonocular malignancies such as osteosarcoma, malignant fibrous histiocytoma, and fibrosarcoma.
+
+oncotree_code : LGT
+parent_oncotree_code : EYE
+children_oncotree_codes : ACLG; SCLG
+key_phrases : Lacrimal Gland Tumor
+descriptions : 
+
+oncotree_code : SCLG
+parent_oncotree_code : LGT
+children_oncotree_codes : 
+key_phrases : Lacrimal Gland Tumor; Squamous Cell Carcinoma of the Lacrimal Gland
+descriptions : 
+

@@ -1,0 +1,30 @@
+oncotree_code : PENIS
+parent_oncotree_code : TISSUE
+children_oncotree_codes : PSCC
+key_phrases : Genital System, Male, Penis; Penile Cancer; Penile structure (body structure); Penis, NOS
+descriptions : The male organ of urination and copulation.
+
+oncotree_code : PSCC
+parent_oncotree_code : PENIS
+children_oncotree_codes : VPSCC; WPSCC; BPSCC
+key_phrases : Epidermoid Carcinoma of Penis; Epidermoid Carcinoma of the Penis; Epidermoid Cell Carcinoma of Penis; Epidermoid Cell Carcinoma of the Penis; Penile Cancer; Penile Epidermoid Carcinoma; Penile Epidermoid Cell Carcinoma; Penile Squamous Cell Cancer; Penile Squamous Cell Carcinoma; Penile squamous car.(epidermoid); Penile squamous carcinoma (epidermoid); Squamous Cell Carcinoma of Penis; Squamous Cell Carcinoma of the Penis
+descriptions : A squamous cell carcinoma arising from the penis.  It occurs chiefly in the squamous epithelium of the glans, coronal sulcus, and foreskin.  Etiologic factors include phimosis, lichen sclerosus, smoking, ultraviolet irradiation, history of warts or condylomas, and lack of circumcision.  Human papilloma virus is present in a subset of penile squamous cell carcinomas.  Patients may present with an exophytic or flat ulcerative mass in the glans or a large primary tumor with inguinal nodal and skin metastases. (WHO, 2004)
+
+oncotree_code : VPSCC
+parent_oncotree_code : PSCC
+children_oncotree_codes : 
+key_phrases : Penile Cancer; Penile Verrucous Carcinoma; Squamous Carcinoma of Penis, Verrucous Type; Verrucous Carcinoma of Penis; Verrucous Carcinoma of the Penis; Verrucous Penile Carcinoma; Verrucous Penile Squamous Carcinoma; Verrucous Penile Squamous Cell Carcinoma; Verrucous Squamous Carcinoma of Penis; Verrucous Squamous Carcinoma of the Penis
+descriptions : A slow growing, locally recurring, very well differentiated papillary squamous cell carcinoma that arises from the penis. It is characterized by the presence of acanthosis and hyperkeratosis. The neoplastic infiltrate extends into the underlying stroma with a pushing border. Koilocytotic atypia is not present.
+
+oncotree_code : WPSCC
+parent_oncotree_code : PSCC
+children_oncotree_codes : 
+key_phrases : Condylomatous Carcinoma of Penis; Condylomatous Carcinoma of the Penis; Condylomatous Penile Squamous Cell Carcinoma; Condylomatous Squamous Cell Carcinoma of Penis; Condylomatous Squamous Cell Carcinoma of the Penis; Penile Cancer; Penile Warty Carcinoma; Squamous Cell Carcinoma of Penis, Condylomatous Type; Squamous Cell Carcinoma of Penis, Warty Type; Squamous Cell Carcinoma of the Penis, Condylomatous Type; Squamous Cell Carcinoma of the Penis, Warty Type; Warty Carcinoma of Penis; Warty Carcinoma of the Penis; Warty Penile Squamous Cell Carcinoma; Warty Squamous Cell Carcinoma of Penis; Warty Squamous Cell Carcinoma of the Penis
+descriptions : A squamous cell carcinoma that arises from the penis.  It is characterized by a papillary growth pattern, hyperkeratosis and parakeratosis.  Koilocytotic atypia is present.  Human papillomavirus types 16 and 6 have been identified in some cases.
+
+oncotree_code : BPSCC
+parent_oncotree_code : PSCC
+children_oncotree_codes : 
+key_phrases : Basaloid Carcinoma of Penis; Basaloid Carcinoma of the Penis; Basaloid Penile Squamous Cell Carcinoma; Basaloid Squamous Cell Carcinoma of Penis; Penile Basaloid Squamous Cell Carcinoma; Penile Cancer; Squamous Cell Carcinoma of Penis, Basaloid Type; Squamous Cell Carcinoma of the Penis, Basaloid Type
+descriptions : An aggressive, human papillomavirus-related squamous cell carcinoma that arises from the penis.  It is characterized by the presence of nests of small malignant cells.  The malignant cells tend to invade deeply into the adjacent tissues.  Comedo-type necrosis is often present.
+

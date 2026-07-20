@@ -1,0 +1,144 @@
+oncotree_code : BONE
+parent_oncotree_code : TISSUE
+children_oncotree_codes : ES; OS; CHBL; CHDM; GCTB; CHS; ADMA
+key_phrases : Bone Cancer; Bone, NOS; Bones; Osseous; bone element
+descriptions : The structural organ comprised of specialized connective tissue that forms the skeletal components of the body.
+
+oncotree_code : HGSOS
+parent_oncotree_code : OS
+children_oncotree_codes : 
+key_phrases : Bone Cancer; High Grade Surface Osteosarcoma; High-Grade Surface Osteosarcoma
+descriptions : A usually aggressive high grade malignant bone-forming mesenchymal neoplasm arising from the surface of the bone.
+
+oncotree_code : SCOS
+parent_oncotree_code : OS
+children_oncotree_codes : 
+key_phrases : Bone Cancer; Small Cell Osteogenic Sarcoma; Small Cell Osteosarcoma
+descriptions : An osteosarcoma usually arising from the metaphysis of long bones. It is characterized by the presence of small cells and osteoid production. The prognosis is usually unfavorable.
+
+oncotree_code : ES
+parent_oncotree_code : BONE
+children_oncotree_codes : 
+key_phrases : Bone Cancer; ES; Ewing Sarcoma; Ewing tumor; Ewing's Sarcoma; Ewing's Tumor
+descriptions : A small round cell tumor that lacks morphologic, immunohistochemical, and electron microscopic evidence of neuroectodermal differentiation. It represents one of the two ends of the spectrum called Ewing sarcoma/peripheral neuroectodermal tumor. It affects mostly males under age 20, and it can occur in soft tissue or bone. Pain and the presence of a mass are the most common clinical symptoms.
+
+oncotree_code : EMCHS
+parent_oncotree_code : CHS
+children_oncotree_codes : 
+key_phrases : Bone Cancer; EMC; Extraskeletal Myxoid Chondrosarcoma; Myxoid Extraosseous Chondrosarcoma; Myxoid Extraskeletal Chondrosarcoma; Myxoid chondrosarcoma; NR4A3-Rearranged Myxoid Sarcoma
+descriptions : A rare malignant soft tissue neoplasm of uncertain differentiation, characterized by the presence of chondroblast-like cells in a myxoid stroma and a multinodular growth pattern.  The most common sites of involvement are the deep soft tissues of the extremities, particularly the thigh.  It usually presents as an enlarging soft tissue mass.  Patients may have long survivals, but local recurrences and metastases occur in approximately half of the cases.  The most common site of metastasis is the lungs.
+
+oncotree_code : CCHDM
+parent_oncotree_code : CHDM
+children_oncotree_codes : 
+key_phrases : Bone Cancer; Conventional Type Chordoma
+descriptions : 
+
+oncotree_code : OS
+parent_oncotree_code : BONE
+children_oncotree_codes : HGSOS; SCOS; LGCOS; PEOS; OSOS; PAOS; TEOS; CHOS; SECOS; FIOS
+key_phrases : Bone Cancer; OSTEOSARCOMA, MALIGNANT; Osteogenic Sarcoma; Osteosarcoma, NOS; osteogenic sarcoma
+descriptions : A usually aggressive malignant bone-forming mesenchymal neoplasm, predominantly affecting adolescents and young adults. It usually involves bones and less frequently extraosseous sites. It often involves the long bones (particularly distal femur, proximal tibia, and proximal humerus). Pain with or without a palpable mass is the most frequent clinical symptom. It may spread to other anatomic sites, particularly the lungs.
+
+oncotree_code : LGCOS
+parent_oncotree_code : OS
+children_oncotree_codes : 
+key_phrases : Bone Cancer; Intraosseous Well Differentiated Osteosarcoma; Intraosseous Well-Differentiated Osteogenic Sarcoma; Intraosseous Well-Differentiated Osteosarcoma; Intraosseous well differentiated osteosarcoma; LGCOS; Low Grade Central Osteosarcoma; Low Grade Intramedullary Osteosarcoma; Low-Grade Central Osteosarcoma; Low-Grade Intramedullary Osteosarcoma; Low-grade central osteosarcoma; Low-grade intramedullary osteosarcoma
+descriptions : A low grade osteosarcoma arising from the medullary portion of the bone. It affects the long bones and is characterized by the presence of fibroblastic stroma and osteoid production. Pain and swelling are the usual sign and symptom. The prognosis is more favorable than conventional osteosarcoma.
+
+oncotree_code : PEOS
+parent_oncotree_code : OS
+children_oncotree_codes : 
+key_phrases : Bone Cancer; Juxtacortical Chondroblastic Osteosarcoma; Periosteal Osteosarcoma; Surface Periosteal
+descriptions : An intermediate grade malignant bone-forming mesenchymal neoplasm with chondroblastic differentiation.  It arises from the surface of the bone and affects the diaphysis or diaphyseal- metaphyseal portion of the long bones.  A painless mass or swelling is the most common clinical sign.  It is associated with a better prognosis than conventional osteosarcoma.
+
+oncotree_code : OSOS
+parent_oncotree_code : OS
+children_oncotree_codes : 
+key_phrases : Bone Cancer; Osteoblastic Osteosarcoma; Osteoblastic sarcoma
+descriptions : A conventional osteosarcoma characterized by the predominance of osteoid matrix.
+
+oncotree_code : CHBL
+parent_oncotree_code : BONE
+children_oncotree_codes : 
+key_phrases : Bone Cancer; Chondroblastoma, NOS; Chondroblastoma, Not Otherwise Specified
+descriptions : A benign, chondroid-producing, well-circumscribed, lytic neoplasm usually arising from the epiphysis of long bones.  It is characterized by the presence of chondroblasts, osteoclast-like giant cells, chondroid formation, calcification, and mitotic activity. In aggressive cases, there is rearrangement of the 8q21 chromosome band.  It occurs most frequently in children and young adults and rarely metastasizes.
+
+oncotree_code : PAOS
+parent_oncotree_code : OS
+children_oncotree_codes : 
+key_phrases : Bone Cancer; Juxtacortical Osteogenic Sarcoma; Juxtacortical Osteosarcoma; Juxtacortical osteosarcoma; Parosteal Osteogenic Sarcoma; Parosteal Osteosarcoma
+descriptions : A low grade malignant bone-forming mesenchymal neoplasm arising from the surface of the bone. It usually affects the distal posterior femur, the proximal tibia, and proximal humerus. Painless swelling is the usual clinical sign. Most patients are young adults and the prognosis is usually excellent.
+
+oncotree_code : CHDM
+parent_oncotree_code : BONE
+children_oncotree_codes : CCHDM; DDCHDM
+key_phrases : Bone Cancer; CHORDOMA, MALIGNANT; Chordoma, NOS
+descriptions : A low-grade malignant neoplasm that arises from the remnants of the fetal notochord. It affects almost exclusively the axial skeleton (skull and spine) and very rarely the appendicular skeleton and soft tissue. Although it can occur at all ages, it is more frequently seen in middle-aged adults. It tends to recur and may metastasize. The most common sites of metastasis are lung, bone, lymph nodes, and subcutaneous tissue.
+
+oncotree_code : DDCHDM
+parent_oncotree_code : CHDM
+children_oncotree_codes : 
+key_phrases : Bone Cancer; Dedifferentiated Chordoma; Sarcomatoid Chordoma
+descriptions : A high-grade malignant bone tumor arising from the remnants of the notochord. It is characterized by a lobulated growth pattern, myxoid stroma formation, the presence of physaliphorous cells, and a sarcomatous component.
+
+oncotree_code : TEOS
+parent_oncotree_code : OS
+children_oncotree_codes : 
+key_phrases : Bone Cancer; Malignant Bone Aneurysm; Telangiectatic Osteogenic Sarcoma; Telangiectatic Osteosarcoma
+descriptions : An osteosarcoma usually arising from the metaphysis of long bones. It is characterized by the presence of a cystic architecture with blood-filled spaces. The prognosis is similar to that of conventional osteosarcoma.
+
+oncotree_code : GCTB
+parent_oncotree_code : BONE
+children_oncotree_codes : 
+key_phrases : Benign Bone Giant Cell Tumor; Bone Cancer; GCTB; GIANT CELL TUMOR, BENIGN; Giant Cell Tumor of Bone; Giant Cell Tumor of the Bone; Giant cell tumor of bone, NOS; Osteoclastoma, Benign
+descriptions : A locally aggressive tumor that arises from the bone and is composed of mononuclear cells admixed with macrophages and osteoclast-like giant cells. It usually arises from the ends of long bones or the vertebrae. Clinical presentation includes pain, edema, and decreased range of motion in the affected joint.
+
+oncotree_code : CHS
+parent_oncotree_code : BONE
+children_oncotree_codes : EMCHS; MCHS; MYCHS; DDCHS
+key_phrases : Bone Cancer; CHONDROSARCOMA, MALIGNANT; Chondrosarcoma, NOS
+descriptions : A malignant cartilaginous matrix-producing mesenchymal neoplasm arising from the bone and soft tissue.  It usually affects middle-aged to elderly adults.  The pelvic bones, ribs, shoulder girdle, and long bones are the most common sites of involvement.  Most chondrosarcomas arise de novo, but some may develop in a preexisting benign cartilaginous lesion.
+
+oncotree_code : ADMA
+parent_oncotree_code : BONE
+children_oncotree_codes : 
+key_phrases : Adamantinoma; Bone Cancer
+descriptions : 
+
+oncotree_code : MCHS
+parent_oncotree_code : CHS
+children_oncotree_codes : 
+key_phrases : Bone Cancer; Bone Mesenchymal Chondrosarcoma; Mesenchymal Chondrosarcoma of Bone; Mesenchymal Chondrosarcoma of the Bone
+descriptions : A morphologic variant of chondrosarcoma arising from the bone.  It is characterized by the presence of malignant small round cells, biphasic growth pattern, and well differentiated hyaline cartilage. Clinical presentation includes pain and swelling.  The clinical course is aggressive, with local recurrences and distant metastases.
+
+oncotree_code : CHOS
+parent_oncotree_code : OS
+children_oncotree_codes : 
+key_phrases : Bone Cancer; Chondroblastic Osteogenic Sarcoma; Chondroblastic Osteosarcoma
+descriptions : An osteosarcoma characterised by the presence of atypical cartilage of variable cellularity.  It may or may not be associated with the presence of myxoid areas or focal bone formation.
+
+oncotree_code : SECOS
+parent_oncotree_code : OS
+children_oncotree_codes : 
+key_phrases : Bone Cancer; Secondary Bone Osteosarcoma; Secondary Osteosarcoma
+descriptions : An osteosarcoma arising from a pre-existing lesion of the bone, usually Paget disease, or due to radiation therapy.
+
+oncotree_code : FIOS
+parent_oncotree_code : OS
+children_oncotree_codes : 
+key_phrases : Bone Cancer; FIBROSARCOMA, OSTEOGENIC, MALIGNANT; Fibroblastic Osteogenic Sarcoma; Fibroblastic Osteosarcoma; Fibrosarcomatous Osteogenic Sarcoma; Fibrosarcomatous Osteosarcoma; Osteogenic Fibrosarcoma
+descriptions : A conventional osteosarcoma characterized by the presence of spindle shaped cells.
+
+oncotree_code : MYCHS
+parent_oncotree_code : CHS
+children_oncotree_codes : 
+key_phrases : Bone Cancer; Myxoid Chondrosarcoma
+descriptions : A chondrosarcoma characterized by the presence of myxoid changes.
+
+oncotree_code : DDCHS
+parent_oncotree_code : CHS
+children_oncotree_codes : 
+key_phrases : Bone Cancer; Dedifferentiated Chondrosarcoma
+descriptions : An aggressive morphologic variant of chondrosarcoma. It is composed of a low grade chondrosarcoma and a high grade non-cartilagenous sarcomatous component. Due to the aggressive nature of the disease, its prognosis is poor.
+

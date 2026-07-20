@@ -1,0 +1,180 @@
+oncotree_code : LUNG
+parent_oncotree_code : TISSUE
+children_oncotree_codes : LAIS; LNET; IMTL; SARCL; CSCLC; NSCLC; LAM; PPB
+key_phrases : Lung Cancer; Lung structure (body structure); Lung, NOS; Lungs; Respiratory System, Lung; pulmo
+descriptions : One of a pair of viscera occupying the pulmonary cavities of the thorax, the organs of respiration in which aeration of the blood takes place. As a rule, the right lung is slightly larger than the left and is divided into three lobes (an upper, a middle, and a lower or basal), while the left has two lobes (an upper and a lower or basal). Each lung is irregularly conical in shape, presenting a blunt upper extremity (the apex), a concave base following the curve of the diaphragm, an outer convex surface (costal surface), an inner or mediastinal surface (mediastinal surface), a thin and sharp anterior border, and a thick and rounded posterior border.
+
+oncotree_code : LECLC
+parent_oncotree_code : LCLC
+children_oncotree_codes : 
+key_phrases : Lung Lymphoepithelial Carcinoma; Lung Lymphoepithelioma-Like Carcinoma; Lymphoepithelioma-Like Lung Carcinoma; Lymphoepithelioma-like Carcinoma of the Lung; Non-Small Cell Lung Cancer
+descriptions : A rare and distinctive type of lung carcinoma characterized by the presence of a syncytial growth pattern, large vesicular nuclei with eosinophilic nucleoli, and dense lymphoplasmacytic infiltration.
+
+oncotree_code : ALUCA
+parent_oncotree_code : LNET
+children_oncotree_codes : 
+key_phrases : Atypical Lung Carcinoid; Lung Atypical Carcinoid Tumor; Lung NET G2; Lung NET Grade 2; Lung NET, Grade 2; Lung Neuroendocrine Tumor G2; Lung Neuroendocrine Tumor Grade 2; Lung Neuroendocrine Tumor, Grade 2; Malignant carcinoid tumor of the bronchus and lung; Non-Small Cell Lung Cancer
+descriptions : A neuroendocrine tumor of the lung characterized by the presence of 2-10 mitoses per 2 mm2 and/or necrosis (usually punctate).
+
+oncotree_code : LCLC
+parent_oncotree_code : NSCLC
+children_oncotree_codes : LECLC; CCLC; GCLC; BLCLC; RLCLC
+key_phrases : Anaplastic Lung Carcinoma; Large Cell Carcinoma of Lung; Large Cell Carcinoma of the Lung; Large Cell Lung Cancer; Large Cell Lung Carcinoma; Large Cell Undifferentiated Lung Carcinoma; Lung Large Cell Carcinoma; Lung Large Cell Undifferentiated Carcinoma; Non-Small Cell Lung Cancer; large cell carcinoma
+descriptions : An undifferentiated non-small cell lung carcinoma composed of large polygonal cells without evidence of glandular, squamous, or neuroendocrine differentiation.
+
+oncotree_code : LAIS
+parent_oncotree_code : LUNG
+children_oncotree_codes : 
+key_phrases : Lung Adenocarcinoma In Situ; Non-Small Cell Lung Cancer
+descriptions : 
+
+oncotree_code : LNET
+parent_oncotree_code : LUNG
+children_oncotree_codes : ALUCA; LUCA; LUNE; SCLC
+key_phrases : Lung Neuroendocrine Neoplasm; Lung Neuroendocrine Tumor; Neuroendocrine Neoplasm of Lung; Neuroendocrine Neoplasm of the Lung; Non-Small Cell Lung Cancer; Pulmonary Neuroendocrine Neoplasm
+descriptions : A neoplasm with neuroendocrine differentiation that arises from the lung.  This category includes typical carcinoid tumor, atypical carcinoid tumor, small cell carcinoma, large cell neuroendocrine carcinoma, and combined carcinoma.
+
+oncotree_code : CCLC
+parent_oncotree_code : LCLC
+children_oncotree_codes : 
+key_phrases : Clear Cell Carcinoma of Lung, Large Cell Type; Clear Cell Carcinoma of the Lung, Large Cell Type; Clear Cell Lung Carcinoma, Large Cell Type; Large Cell Lung Carcinoma, Clear Cell Variant; Lung Large Cell Carcinoma, Clear Cell Variant; Non-Small Cell Lung Cancer
+descriptions : A large cell lung carcinoma characterized by a predominance of clear cells that may or may not contain glycogen.
+
+oncotree_code : IMTL
+parent_oncotree_code : LUNG
+children_oncotree_codes : 
+key_phrases : Inflammatory Myofibroblastic Lung Tumor; Lung Inflammatory Myofibroblastic Tumor; Lymphocytic pseudotumor of lung; Myofibroblastic Tumor, Peribronchial; Myofibroblastic tumor, peribronchial; Non-Small Cell Lung Cancer
+descriptions : An intermediate fibroblastic neoplasm that arises from the lung and is characterized by the presence of spindle-shaped fibroblasts and myofibroblasts, and a chronic inflammatory infiltrate composed of eosinophils, lymphocytes, and plasma cells.
+
+oncotree_code : LUAD
+parent_oncotree_code : NSCLC
+children_oncotree_codes : 
+key_phrases : Adenocarcinoma of Lung; Adenocarcinoma of the Lung; LUAD; Lung Adenocarcinoma; Non-Small Cell Lung Cancer
+descriptions : A carcinoma that arises from the lung and is characterized by the presence of malignant glandular epithelial cells.  There is a male predilection with a male to female ratio of 2:1.  Usually lung adenocarcinoma is asymptomatic and is identified through screening studies or as an incidental radiologic finding.  If clinical symptoms are present they include shortness of breath, cough, hemoptysis, chest pain, and fever.  Tobacco smoke is a known risk factor.
+
+oncotree_code : LUAS
+parent_oncotree_code : NSCLC
+children_oncotree_codes : 
+key_phrases : Adenosquamous Cell Lung Carcinoma; Adenosquamous Lung Cancer; Adenosquamous Lung Carcinoma; Lung Adenosquamous Carcinoma; Non-Small Cell Lung Cancer
+descriptions : An aggressive carcinoma with a poor prognosis characterized by a presence of both malignant squamous cells and glandular cells.
+
+oncotree_code : GCLC
+parent_oncotree_code : LCLC
+children_oncotree_codes : 
+key_phrases : Giant Cell Carcinoma of Lung; Giant Cell Carcinoma of the Lung; Lung Giant Cell Carcinoma; Non-Small Cell Lung Cancer
+descriptions : A morphologic variant of lung sarcomatoid carcinoma characterized by the presence of mononuclear and multinucleated pleomorphic neoplastic giant cells that lack cohesion.
+
+oncotree_code : LUCA
+parent_oncotree_code : LNET
+children_oncotree_codes : 
+key_phrases : Carcinoid Tumor of Lung; Carcinoid Tumor of the Lung; Lung Carcinoid Tumor; Lung NET; Lung Neuroendocrine Tumor; Non-Small Cell Lung Cancer; Pulmonary Carcinoid Tumor
+descriptions : A well-differentiated neuroendocrine neoplasm that arises from the lung. It is characterized by the presence of uniform polygonal cells with small or moderate amount of cytoplasm and inconspicuous nucleoli. The cells are usually arranged in organoid and trabecular patterns. It is classified as grade 1 (G1-typical carcinoid tumor) or grade 2 (G2-atypical carcinoid tumor) based on the number of mitotic figures and the absence or presence of necrosis. Grade 2 neuroendocrine tumors have a worse prognosis.
+
+oncotree_code : SARCL
+parent_oncotree_code : LUNG
+children_oncotree_codes : 
+key_phrases : Lung Sarcomatoid Carcinoma; Non-Small Cell Lung Cancer; Sarcomatoid Carcinoma of the Lung
+descriptions : A rare, aggressive, poorly differentiated, non-small cell lung carcinoma characterized by the presence of a sarcomatoid component often associated with giant cell differentiation. There is a male to female ratio of 4:1.  Clinical symptoms include cough, hemoptysis, chest pain, progressive dyspnea and fever secondary to recurrent pneumonia. Cigarette smoking is a major risk factor.
+
+oncotree_code : BLCLC
+parent_oncotree_code : LCLC
+children_oncotree_codes : 
+key_phrases : Basaloid Large Cell Carcinoma of the Lung; Lung Basaloid Large Cell Carcinoma; Non-Small Cell Lung Cancer
+descriptions : A large cell lung carcinoma characterized by the presence of a solid nodular or anastomotic trabecular growth pattern, peripheral palisading, and comedo type necrosis.
+
+oncotree_code : LUMEC
+parent_oncotree_code : SGTTL
+children_oncotree_codes : 
+key_phrases : Lung Mucoepidermoid Cancer; Lung Mucoepidermoid Carcinoma; Mucoepidermoid Carcinoma of the Lung; Non-Small Cell Lung Cancer
+descriptions : A lung carcinoma characterized by the presence of malignant non-keratinizing squamoid cells, mucin-producing cells and intermediate type cells.
+
+oncotree_code : RLCLC
+parent_oncotree_code : LCLC
+children_oncotree_codes : 
+key_phrases : Large Cell Lung Carcinoma With Rhabdoid Phenotype; Large Cell Lung Carcinoma with Rhabdoid Phenotype; Large cell carcinoma with rhabdoid phenotype; Lung Large Cell Carcinoma with Rhabdoid Phenotype; Non-Small Cell Lung Cancer
+descriptions : A large cell lung carcinoma characterized by the presence of rhabdoid cells.
+
+oncotree_code : NUTCL
+parent_oncotree_code : NSCLC
+children_oncotree_codes : 
+key_phrases : NUT Carcinoma of the Lung; Non-Small Cell Lung Cancer
+descriptions : 
+
+oncotree_code : LUPC
+parent_oncotree_code : NSCLC
+children_oncotree_codes : 
+key_phrases : Lung Pleomorphic Carcinoma; Non-Small Cell Lung Cancer; Pleomorphic Carcinoma of the Lung
+descriptions : A morphologic variant of sarcomatoid carcinoma characterized by the presence of malignant glandular or squamous cells associated with malignant giant and spindle cells.
+
+oncotree_code : LUNE
+parent_oncotree_code : LNET
+children_oncotree_codes : 
+key_phrases : LCNEC; Large Cell NEC; Large Cell Neuroendocrine Carcinoma; Large-cell neuroendocrine carcinoma; Non-Small Cell Lung Cancer
+descriptions : An aggressive high-grade carcinoma with neuroendocrine differentiation composed of malignant large cells.
+
+oncotree_code : CSCLC
+parent_oncotree_code : LUNG
+children_oncotree_codes : 
+key_phrases : Combined Lung Small Cell Carcinoma; Combined Small Cell Carcinoma of Lung; Combined Small Cell Carcinoma of the Lung; Combined Small Cell Lung Cancer; Combined Small Cell Lung Carcinoma; Combined Small Cell and Large Cell Lung Carcinoma; Combined Small Cell-Adenocarcinoma; Combined Small Cell-Large Carcinoma; Combined Small and Large Cell Lung Cancer; Combined Small and Large Cell Lung Carcinoma; Combined Type Small Cell Carcinoma of Lung; Combined Type Small Cell Carcinoma of the Lung; Combined Type Small Cell Lung Carcinoma; Mixed Small Cell and Large Cell Carcinoma of Lung; Mixed Small Cell and Large Cell Carcinoma of the Lung; Mixed Small Cell and Large Cell Lung Carcinoma
+descriptions : A morphologic variant of small cell lung carcinoma in combination with a non-small cell carcinoma.
+
+oncotree_code : NSCLC
+parent_oncotree_code : LUNG
+children_oncotree_codes : LCLC; LUAD; LUAS; NUTCL; LUPC; LUSC; SGTTL; NSCLCPD; SPCC; CMPT
+key_phrases : Lung Non-Small Cell Carcinoma; NSCLC - Non-Small Cell Lung Cancer; Non Small Cell Lung Cancer NOS; Non-Small Cell Cancer of Lung; Non-Small Cell Cancer of the Lung; Non-Small Cell Carcinoma of Lung; Non-Small Cell Carcinoma of the Lung; Non-Small Cell Lung Carcinoma; Non-small cell lung cancer, NOS; non-small cell lung cancer
+descriptions : A group of at least three distinct histological types of lung cancer, including non-small cell squamous cell carcinoma, adenocarcinoma, and large cell carcinoma. Non-small cell lung carcinomas have a poor response to conventional chemotherapy.
+
+oncotree_code : LAM
+parent_oncotree_code : LUNG
+children_oncotree_codes : 
+key_phrases : Lung Lymphangioleiomyomatosis; Lung Lymphangiomyomatosis; Non-Small Cell Lung Cancer; Pulmonary Lymphangiomyomatosis
+descriptions : Lymphangiomyomatosis involving the lungs and local lymph nodes.  Patients usually present with chylous pleural effusion.  The clinical course is variable.  Patients with resectable lesions usually have a favorable clinical outcome.  Patients with diffuse lesions usually have a progressive clinical course.
+
+oncotree_code : LUSC
+parent_oncotree_code : NSCLC
+children_oncotree_codes : 
+key_phrases : Epidermoid Cell Carcinoma of Lung; Epidermoid Cell Carcinoma of the Lung; Epidermoid Cell Lung Carcinoma; LSCC; LUSC; Lung Squamous Cell Carcinoma; Non-Small Cell Lung Cancer; Squamous Cell Carcinoma of Lung; Squamous Cell Carcinoma of the Lung; Squamous Cell Lung Cancer; Squamous Cell Lung Carcinoma; Squamous cell lung carcinoma
+descriptions : A carcinoma arising from squamous bronchial epithelial cells. It may be keratinizing or non-keratinizing. Keratinizing squamous cell carcinoma is characterized by the presence of keratinization, pearl formation, and/or intercellular bridges. Non-keratinizing squamous cell carcinoma is characterized by the absence of keratinization, pearl formation, and intercellular bridges. Cigarette smoking and arsenic exposure are strongly associated with squamous cell lung carcinoma.
+
+oncotree_code : PPB
+parent_oncotree_code : LUNG
+children_oncotree_codes : 
+key_phrases : Non-Small Cell Lung Cancer; PPB; Pleuropulmonary Blastoma; Pulmonary Blastoma of Childhood
+descriptions : A malignant neoplasm affecting the lungs and/or the pleura. Pleuropulmonary blastoma is seen in children. Microscopically, the tumor may show features of chondrosarcoma, leiomyosarcoma, rhabdomyosarcoma, liposarcoma, or undifferentiated sarcoma. In approximately 25% of patients with pleuropulmonary blastoma, there are other lesions or neoplasms that may affect patients or their families, including lung or kidney cysts, and ovarian or testicular neoplasms. Heterozygous germline mutations in DICER1 gene have been identified in families harboring pleuropulmonary blastomas.
+
+oncotree_code : SGTTL
+parent_oncotree_code : NSCLC
+children_oncotree_codes : LUMEC; LUACC
+key_phrases : Non-Small Cell Lung Cancer; Salivary Gland-Type Tumor of the Lung
+descriptions : 
+
+oncotree_code : NSCLCPD
+parent_oncotree_code : NSCLC
+children_oncotree_codes : 
+key_phrases : Poorly Differentiated Non-Small Cell Lung Cancer
+descriptions : 
+
+oncotree_code : LUACC
+parent_oncotree_code : SGTTL
+children_oncotree_codes : 
+key_phrases : Adenocystic Carcinoma of Lung; Adenocystic Carcinoma of the Lung; Adenoid Cystic Carcinoma of Lung; Adenoid Cystic Carcinoma of the Lung; Lung Adenocystic Carcinoma; Lung Adenoid Cystic Cancer; Lung Adenoid Cystic Carcinoma; Non-Small Cell Lung Cancer; Pulmonary Adenocystic Carcinoma; Pulmonary Adenoid Cystic Carcinoma
+descriptions : A rare usually indolent lung carcinoma characterized by a cribiform and tubular pattern and the presence of glandular epithelial cells.  Clinical symptoms include shortness of breath, cough, wheeze, hemopytsis and chest pain.
+
+oncotree_code : SPCC
+parent_oncotree_code : NSCLC
+children_oncotree_codes : 
+key_phrases : Lung Spindle Cell Carcinoma; Non-Small Cell Lung Cancer; Spindle Cell Carcinoma of the Lung
+descriptions : A morphologic variant of sarcomatoid carcinoma characterized by the presence of malignant spindle cells and focal lymphoplasmacytic infiltrates.  Adenocarcinoma cells, malignant squamous cells, and giant cells are not present.
+
+oncotree_code : SCLC
+parent_oncotree_code : LNET
+children_oncotree_codes : 
+key_phrases : Lung Oat Cell Carcinoma; Lung Small Cell Carcinoma; Lung Small Cell Neuroendocrine Carcinoma; Oat Cell Carcinoma of Lung; Oat Cell Carcinoma of the Lung; Oat Cell Lung Carcinoma; SCLC; Small Cell Carcinoma of Lung; Small Cell Carcinoma of the Lung; Small Cell Lung Cancer; Small Cell Lung Carcinoma; Small Cell Neuroendocrine Carcinoma of Lung; Small Cell Neuroendocrine Carcinoma of the Lung; Small cell lung cancer; small cell lung cancer
+descriptions : A highly aggressive carcinoma with neuroendocrine differentiation that arises from the lung. It is characterized by the presence of malignant small cells and more than 10 mitoses per 2 mm2. Necrosis is frequently seen. Metastatic disease is usually present at the time of diagnosis.
+
+oncotree_code : CMPT
+parent_oncotree_code : NSCLC
+children_oncotree_codes : 
+key_phrases : Ciliated Muconodular Papillary Tumor of the Lung; Non-Small Cell Lung Cancer
+descriptions : 
+
