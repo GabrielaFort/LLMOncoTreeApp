@@ -37,8 +37,8 @@ workspace/
 Clone both repositories into the same parent directory:
 
 ```bash
-git clone https://github.com/<user-or-org>/LLMPathReportParser.git
-git clone https://github.com/<user-or-org>/LLMOncoTreeApp.git
+git clone https://github.com/GabrielaFort/LLMPathReportParser.git
+git clone https://github.com/GabrielaFort/LLMOncoTreeApp.git
 ```
 
 Create and activate a Python environment:
