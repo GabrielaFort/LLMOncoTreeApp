@@ -3,3 +3,5 @@ ollama
 requests
 docling
 python-docx
+rapidocr
+onnxruntime

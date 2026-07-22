@@ -1,5 +1,6 @@
 import io
 import json
+import os
 import subprocess
 import tempfile
 import uuid
@@ -29,6 +30,7 @@ ICD_DIAGNOSIS_PATH = OT_RESOURCES_DIR / "ICD" / "ICD-10_Diagnosis.txt"
 ICD_MORPHOLOGY_PATH = OT_RESOURCES_DIR / "ICD" / "ICD_Morphology.txt"
 ICD_TOPOLOGY_PATH = OT_RESOURCES_DIR / "ICD" / "ICD_Topology.txt"
 RESULTS_DIR = APP_DIR / "results"
+DEFAULT_OLLAMA_HOST = "http://localhost:11434"
 
 TEMPUS_V33_MARKER_FIELDS = ["metadata", "rna", "ihc"]
 
@@ -158,6 +160,7 @@ def run_oncotree_classifier(
     persist_results=False,
 ):
     selected_model_source = selected_model_source or get_model_source(selected_model)
+    ollama_host = os.environ.get("OLLAMA_HOST", DEFAULT_OLLAMA_HOST).strip() or DEFAULT_OLLAMA_HOST
     case_id = input_record.get("test_order_id") or f"case_{uuid.uuid4().hex[:8]}"
     safe_id = safe_case_id(case_id)
 
@@ -192,6 +195,8 @@ def run_oncotree_classifier(
             str(input_dir),
             "-r",
             str(results_dir),
+            "-h",
+            ollama_host,
         ]
 
         if selected_model_source == "cloud":

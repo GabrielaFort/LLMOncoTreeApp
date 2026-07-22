@@ -1,0 +1,12 @@
+services:
+  oncotree-app:
+    build:
+      context: ..
+      dockerfile: LLMOncoTreeApp/Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      OLLAMA_HOST: http://host.docker.internal:11434
+      RUN_ENVIRONMENT: LOCAL
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

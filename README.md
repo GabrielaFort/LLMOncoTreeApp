@@ -75,6 +75,52 @@ The app supports:
 - local Ollama models
 - Ollama Cloud models
 
+## Run With Docker
+
+The Docker setup packages the Streamlit app, Java 21 runtime, Python dependencies, OncoTree resources, USeq resources, and the sibling `LLMPathReportParser` code into one image. Docker works the same way from macOS, Windows, or Linux as long as Docker Desktop or Docker Engine is installed.
+
+Keep the two repositories cloned next to each other:
+
+```text
+workspace/
+  LLMPathReportParser/
+  LLMOncoTreeApp/
+```
+
+From `LLMOncoTreeApp`, build and run the app:
+
+```bash
+docker compose up --build
+```
+
+Then open:
+
+```text
+http://localhost:8501
+```
+
+To stop the app:
+
+```bash
+docker compose down
+```
+
+### Docker And Ollama
+
+The container does not run Ollama itself. For local models, keep Ollama running on the host machine and let the app and Java classifier connect to it through:
+
+```text
+OLLAMA_HOST=http://host.docker.internal:11434
+```
+
+This is already set in `docker-compose.yml` and the `Dockerfile`.
+
+On macOS and Windows with Docker Desktop, `host.docker.internal` is usually available automatically. On Linux, `docker-compose.yml` adds `host.docker.internal:host-gateway`; if Ollama only listens on `127.0.0.1`, you may also need to start Ollama so it listens on an address reachable from Docker, such as `0.0.0.0`.
+
+If classifier logs show `-h Host http://localhost:11434` inside Docker, the container is not receiving or forwarding `OLLAMA_HOST` correctly. It should show `http://host.docker.internal:11434` when using the included Docker configuration.
+
+Ollama Cloud models do not require a local Ollama server, but the app still requires an Ollama Cloud API key before cloud model classification.
+
 ## Accepted Inputs And Behavior
 
 The Streamlit app has three input modes:

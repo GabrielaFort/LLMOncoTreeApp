@@ -348,10 +348,10 @@ def upload_widget_disabled(cloud_confirmed):
 
 # LLM settings sidebar
 st.sidebar.header("LLM Settings")
-available_local_models = discover_local_ollama_models()
+available_local_models = [] if IS_VM_ENVIRONMENT else discover_local_ollama_models()
 
 # Show sidebar message if no local models are found
-if not available_local_models:
+if not IS_VM_ENVIRONMENT and not available_local_models:
     st.sidebar.warning("No local LLMs detected. Ensure Ollama is running and models are available.")
 
 # Initialize cloud model storage and settings
@@ -742,18 +742,19 @@ with batch_tab:
             )
 
         result_options = list(range(len(st.session_state.batch_results)))
+        st.space("small")
+        st.subheader("Select result to view")
         selected_index = st.selectbox(
-            "**Select result to view**",
+            "Batch result:",
             result_options,
             key="selected_batch_result",
+            label_visibility="collapsed",
             format_func=lambda index: (
                 f"{'ERROR - ' if st.session_state.batch_results[index]['error'] else ''}"
                 f"{st.session_state.batch_results[index]['filename']}"
             ),
         )
         item = st.session_state.batch_results[selected_index]
-
-        st.markdown(f"### {item['filename']}")
 
         if item["error"]:
             st.error(item["error"])
