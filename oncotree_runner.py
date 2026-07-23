@@ -46,6 +46,19 @@ def is_tempus_v33_json(parsed):
     return isinstance(parsed, dict) and any(field in parsed for field in TEMPUS_V33_MARKER_FIELDS)
 
 
+def get_ollama_base_url(ollama_host=None):
+    base_url = (
+        ollama_host
+        or os.environ.get("OLLAMA_HOST")
+        or DEFAULT_OLLAMA_HOST
+    ).strip()
+    if not base_url:
+        base_url = DEFAULT_OLLAMA_HOST
+    if not base_url.startswith(("http://", "https://")):
+        base_url = f"http://{base_url}"
+    return base_url
+
+
 def tempus_json_to_oncotree_input(file_bytes, filename):
     if not TEMPUS_PATHO_PRINTER_PATH.exists():
         raise FileNotFoundError(f"TempusPathoPrinter not found: {TEMPUS_PATHO_PRINTER_PATH}")
@@ -107,6 +120,7 @@ def uploaded_file_to_oncotree_input(
     model_source=None,
     api_key=None,
     pdf_text_getter=None,
+    ollama_host=None,
 ):
     if Path(uploaded_file.name).suffix.lower() == ".json":
         return read_json_bytes(uploaded_file.getvalue(), uploaded_file.name)
@@ -117,6 +131,7 @@ def uploaded_file_to_oncotree_input(
         model_source=model_source,
         api_key=api_key,
         pdf_text_getter=pdf_text_getter,
+        ollama_host=ollama_host,
     )
 
 
@@ -127,6 +142,7 @@ def bytes_to_oncotree_input(
     model_source=None,
     api_key=None,
     pdf_text_getter=None,
+    ollama_host=None,
 ):
     suffix = Path(filename).suffix.lower()
 
@@ -140,15 +156,22 @@ def bytes_to_oncotree_input(
         model_source,
         api_key,
         pdf_text_getter=pdf_text_getter,
+        ollama_host=ollama_host,
     )
 
 
-def file_path_to_oncotree_input(path, parser_model, model_source=None, api_key=None):
+def file_path_to_oncotree_input(path, parser_model, model_source=None, api_key=None, ollama_host=None):
     path = Path(path)
     if path.suffix.lower() == ".json":
         return read_json_bytes(path.read_bytes(), path.name)
 
-    return parser_file_path_to_oncotree_input(path, parser_model, model_source, api_key)
+    return parser_file_path_to_oncotree_input(
+        path,
+        parser_model,
+        model_source,
+        api_key,
+        ollama_host=ollama_host,
+    )
 
 
 def run_oncotree_classifier(
@@ -158,9 +181,10 @@ def run_oncotree_classifier(
     api_key=None,
     context_size=24000,
     persist_results=False,
+    ollama_host=None,
 ):
     selected_model_source = selected_model_source or get_model_source(selected_model)
-    ollama_host = os.environ.get("OLLAMA_HOST", DEFAULT_OLLAMA_HOST).strip() or DEFAULT_OLLAMA_HOST
+    ollama_host = get_ollama_base_url(ollama_host)
     case_id = input_record.get("test_order_id") or f"case_{uuid.uuid4().hex[:8]}"
     safe_id = safe_case_id(case_id)
 
