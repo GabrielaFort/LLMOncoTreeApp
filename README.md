@@ -1,8 +1,14 @@
 # LLM OncoTree App
 
-Streamlit app and command-line utilities for running the LLM OncoTree classifier.
+Streamlit app for running the [LLM OncoTree classifier](https://github.com/HuntsmanCancerInstitute/OncoTree/tree/master).
 
-This repository contains the app, classifier runner, benchmark script, OncoTree resources, and the Java classifier used by the app. Pathology report parsing is kept in the sibling `LLMPathReportParser` repository.
+The app accepts pathology reports (`.pdf`, `.txt`, `.docx`), OncoTree input JSON, Tempus v3.3+ JSON, and manual form entry. Report-style inputs are parsed with utilities from the sibling [`LLMPathReportParser`](https://github.com/GabrielaFort/LLMPathReportParser) repository before classification.
+
+This repository contains the app, classifier runner, OncoTree resources, and the Java classifier used by the app. Pathology report parsing is kept in the sibling `LLMPathReportParser` repository.
+
+A publicly-hosted version of the app is hosted at http://tanlab.utah.edu:8094/. This version is limited to Ollama cloud model use and requires an API key from Ollama to access cloud models. This version also has a batch submission limit of 10 files at a time. 
+
+**Warning**: Do not upload any PHI/PII to cloud-hosted AI models. To run the application using local models, read the instructions below.
 
 ## Repository Layout
 
@@ -12,9 +18,9 @@ oncotree_runner.py        Python wrapper around the Java OncoTree classifier
 batch_classify.py         Batch command-line classifier runner
 evaluate_tcga_benchmark.py Benchmark evaluation script
 full_oncotree.json        OncoTree display data used by the app
-OT_0.3.jar                Java OncoTree classifier
+OT_0.3.jar                Java OncoTree classifier (from [OncoTree Repository](https://github.com/HuntsmanCancerInstitute/OncoTree/tree/master)
 OTResources13July2026/    OncoTree prompts, catalogs, ICD files, and resources
-USeq_9.3.9/               USeq tools used for Tempus JSON parsing
+USeq_9.3.9/               USeq tools used for Tempus JSON parsing (TempusPathoPrinter from [USeq](https://github.com/HuntsmanCancerInstitute/USeq))
 ```
 
 The app expects `LLMPathReportParser` and `LLMOncoTreeApp` to be cloned next to each other:
@@ -87,10 +93,10 @@ workspace/
   LLMOncoTreeApp/
 ```
 
-From `LLMOncoTreeApp`, build and run the app:
+The Docker files live in `LLMOncoTreeApp/docker/`. From `LLMOncoTreeApp`, build and run the app locally with Compose:
 
 ```bash
-docker compose up --build
+docker compose -f docker/docker-compose.yml up --build
 ```
 
 Then open:
@@ -102,43 +108,122 @@ http://localhost:8501
 To stop the app:
 
 ```bash
-docker compose down
+docker compose -f docker/docker-compose.yml down
 ```
+
 
 ### Docker And Ollama
 
-The container does not run Ollama itself. For local models, keep Ollama running on the host machine and let the app and Java classifier connect to it through:
+The container does not run Ollama itself. For local models, keep Ollama running on the host machine and let the app and Java classifier connect to it through `OLLAMA_HOST`:
 
 ```text
 OLLAMA_HOST=http://host.docker.internal:11434
 ```
 
-This is already set in `docker-compose.yml` and the `Dockerfile`.
+This default is already set in `docker/docker-compose.yml` and the `Dockerfile`. To change it for Compose, edit the `OLLAMA_HOST` value under `environment`.
 
-On macOS and Windows with Docker Desktop, `host.docker.internal` is usually available automatically. On Linux, `docker-compose.yml` adds `host.docker.internal:host-gateway`; if Ollama only listens on `127.0.0.1`, you may also need to start Ollama so it listens on an address reachable from Docker, such as `0.0.0.0`.
+For Ollama on the same Linux host with a custom port:
 
-If classifier logs show `-h Host http://localhost:11434` inside Docker, the container is not receiving or forwarding `OLLAMA_HOST` correctly. It should show `http://host.docker.internal:11434` when using the included Docker configuration.
+```yaml
+services:
+  oncotree-app:
+    environment:
+      OLLAMA_HOST: http://host.docker.internal:28641
+      RUN_ENVIRONMENT: LOCAL
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+```
+
+For Ollama on another reachable machine, use that machine's IP address or hostname:
+
+```yaml
+services:
+  oncotree-app:
+    environment:
+      OLLAMA_HOST: http://192.168.1.25:11434
+      RUN_ENVIRONMENT: LOCAL
+```
+
+Use one of these patterns:
+
+- **Mac or Windows Docker Desktop, Ollama on the same computer:** use `http://host.docker.internal:11434`.
+- **Linux Docker, Ollama on the same computer:** use `http://host.docker.internal:<port>` and keep the `extra_hosts` entry.
+- **Ollama on another server:** use that server's IP address or hostname, such as `http://192.168.1.25:11434`, and remove `extra_hosts`.
+
+If Linux Docker cannot connect to Ollama on the same computer, Ollama may only be listening on `127.0.0.1`. Start Ollama on a reachable address instead:
+
+```bash
+OLLAMA_HOST=0.0.0.0:28641 ollama serve
+```
+
+Then set the app container to the matching port:
+
+```yaml
+OLLAMA_HOST: http://host.docker.internal:28641
+```
 
 Ollama Cloud models do not require a local Ollama server, but the app still requires an Ollama Cloud API key before cloud model classification.
+
 
 ## Accepted Inputs And Behavior
 
 The Streamlit app has three input modes:
 
-- **File Upload** accepts one `.pdf`, `.txt`, `.docx`, or `.json` file.
-- **Form Upload** accepts manual text entry and does not require a document upload.
-- **Batch Upload** accepts multiple `.pdf`, `.txt`, `.docx`, and `.json` files.
+- **File Upload** for one document or JSON case at a time.
+- **Form Upload** for manually entering one case without uploading a file.
+- **Batch Upload** for processing multiple uploaded files in one run.
 
-Uploaded report files are handled as follows:
+### File Upload
 
-- `.pdf` files are displayed in the app and converted to text before parsing.
-- `.txt` files are read as UTF-8 text, with invalid characters replaced.
-- `.docx` files are converted to text before parsing.
-- `.json` files must be either OncoTree input JSON or Tempus v3.3+ JSON.
+File Upload accepts exactly one file with one of these extensions:
 
-For `.pdf`, `.txt`, and `.docx` files, the selected LLM is used first to parse the report into the OncoTree input JSON fields, then the Java OncoTree classifier runs on that JSON. For accepted `.json` files, the app skips report parsing and sends the normalized JSON directly to the classifier.
+- `.pdf`
+- `.txt`
+- `.docx`
+- `.json`
 
-When a cloud model is selected, the PHI confirmation appears before document upload. File and batch upload controls are disabled until the user confirms there is no PHI present, so documents cannot be successfully uploaded for cloud processing before that confirmation. The same PHI confirmation is required before manual form classification with a cloud model.
+Pathology Report-style files are parsed before classification:
+
+- `.pdf` files are displayed in the app, converted to text using [Docling](https://www.docling.ai/), then parsed into OncoTree input JSON.
+- `.txt` files are parsed into OncoTree input JSON.
+- `.docx` files are converted to text, then parsed into OncoTree input JSON.
+
+The selected LLM is used for this report-parsing step. After parsing, the Java OncoTree classifier runs on the generated JSON.
+
+### JSON Uploads
+
+`.json` uploads skip report parsing. They must be one of:
+
+- **OncoTree input JSON**, with the fields described below.
+- **Tempus v3.3+ JSON**, detected by fields such as `metadata`, `rna`, or `ihc`. These reports are automatically parsed into OncoTree input JSONs using the TempusPathoPrinter ([USeq Repo](https://github.com/HuntsmanCancerInstitute/USeq))
+
+Accepted JSON files are normalized and sent directly to the Java OncoTree classifier.
+
+### Form Upload
+
+Form Upload creates one OncoTree input JSON record from manual entries:
+
+- `Case ID / test order ID`: optional; a random case ID is generated if left blank.
+- `Sample site`: where the tumor sample was collected.
+- `Sample Type`: optional primary/metastasis, grade, stage, or related sample details.
+- `Diagnosis`: short diagnostic description.
+- `Other Classification Information`: optional ICD code description text.
+- `Comments`: optional longer pathology comments, including IHC or other supporting details.
+
+At least one of `Diagnosis`, `Other Classification Information`, or `Comments` is required.
+
+### Batch Upload
+
+Batch Upload accepts multiple files with these extensions:
+
+- `.pdf`
+- `.txt`
+- `.docx`
+- `.json`
+
+### Cloud Model PHI Confirmation
+
+When a cloud model is selected, you will be asked to confirm the uploads do not contain PHI. Do not upload any PHI to a cloud-hosted LLM.
 
 ## Input JSON Format
 
@@ -153,23 +238,4 @@ The classifier expects one JSON record per case:
 }
 ```
 
-Use `LLMPathReportParser` to prepare these JSON files from pathology reports without running the classifier.
 
-## Batch Classification
-
-```bash
-export PYTHONPATH="../LLMPathReportParser:$PYTHONPATH"
-python batch_classify.py --input input_json --model llama3.1
-```
-
-For Ollama Cloud models:
-
-```bash
-python batch_classify.py \
-  --input input_json \
-  --model gemma4:31b-cloud \
-  --api-key-file key.txt
-```
-
-## Notes
-- The Java classifier and USeq resources originate from the Huntsman Cancer Institute OncoTree/USeq tooling.
