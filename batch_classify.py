@@ -27,6 +27,10 @@ def main():
     parser.add_argument("--input", required=True, help="Input file or directory of reports.")
     parser.add_argument("--model", required=True, help="Ollama model name.")
     parser.add_argument("--api-key-file", help="File containing Ollama Cloud API key.")
+    parser.add_argument(
+        "--ollama-host",
+        help="Local Ollama host URL, e.g. http://127.0.0.1:11434. Ignored for cloud models.",
+    )
     args = parser.parse_args()
     model_source = get_model_source(args.model)
 
@@ -46,11 +50,13 @@ def main():
             path,
             args.model,
             api_key=api_key,
+            ollama_host=args.ollama_host,
         )
         result = run_oncotree_classifier(
             input_record=input_record,
             selected_model=args.model,
             api_key=api_key,
+            ollama_host=args.ollama_host,
         )
 
         if result["returncode"] == 0:
