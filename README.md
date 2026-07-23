@@ -18,9 +18,9 @@ oncotree_runner.py        Python wrapper around the Java OncoTree classifier
 batch_classify.py         Batch command-line classifier runner
 evaluate_tcga_benchmark.py Benchmark evaluation script
 full_oncotree.json        OncoTree display data used by the app
-OT_0.3.jar                Java OncoTree classifier (from [OncoTree Repository](https://github.com/HuntsmanCancerInstitute/OncoTree/tree/master)
-OTResources13July2026/    OncoTree prompts, catalogs, ICD files, and resources
-USeq_9.3.9/               USeq tools used for Tempus JSON parsing (TempusPathoPrinter from [USeq](https://github.com/HuntsmanCancerInstitute/USeq))
+OT_0.3.jar                Java OncoTree classifier (from OncoTree Repo)
+OTResources13July2026/    OncoTree prompts, catalogs, ICD files, and resources (from OncoTree Repo)
+USeq_9.3.9/               USeq tools used for Tempus JSON parsing (TempusPathoPrinter from USeq)
 ```
 
 The app expects `LLMPathReportParser` and `LLMOncoTreeApp` to be cloned next to each other:
