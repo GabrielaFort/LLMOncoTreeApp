@@ -16,6 +16,7 @@ from report_input_parser import (
 )
 from oncotree_runner import (
     APP_DIR,
+    get_ollama_base_url,
     run_oncotree_classifier,
     uploaded_file_to_oncotree_input as runner_uploaded_file_to_oncotree_input,
     zip_batch_output_files,
@@ -89,7 +90,7 @@ def discover_local_ollama_models():
     Return a sorted list of model names from ollama.list()
     """
     try:
-        models = ollama.list()["models"]
+        models = ollama.Client(host=get_ollama_base_url()).list()["models"]
     except Exception as e:
         # Ollama client not available or not running
         # Return an empty list
