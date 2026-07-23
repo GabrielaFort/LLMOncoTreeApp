@@ -1,8 +1,8 @@
 services:
   oncotree-app:
     build:
-      context: ..
-      dockerfile: LLMOncoTreeApp/Dockerfile
+      context: ../..
+      dockerfile: LLMOncoTreeApp/docker/Dockerfile
     ports:
       - "8501:8501"
     environment:
