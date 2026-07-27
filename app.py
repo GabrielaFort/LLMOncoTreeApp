@@ -8,6 +8,7 @@ import html
 import json
 import uuid
 from urllib.parse import urlencode
+from app_logging import setup_vm_logging
 from report_input_parser import (
     build_oncotree_input_json,
     convert_pdf_bytes_to_md,
@@ -161,6 +162,22 @@ with st.expander("What can I upload?", expanded=False):
         """
     )
 
+# Initiate logging
+logger = setup_vm_logging(IS_VM_ENVIRONMENT)
+
+# Log new sessions in VM mode
+if IS_VM_ENVIRONMENT:
+    if "session_id" not in st.session_state:
+        st.session_state["session_id"] = str(uuid.uuid4())
+        st.session_state["rerun_count"] = 0
+        logger.info("NEW SESSION session_id=%s", st.session_state["session_id"])
+    else:
+        st.session_state["rerun_count"] += 1
+        logger.info(
+            "RERUN session_id=%s rerun count=%s",
+            st.session_state["session_id"],
+            st.session_state["rerun_count"],
+        )
 
 # Function to auto-detect local LLMs on machine, assuming Ollama is running
 def discover_local_ollama_models():
@@ -551,6 +568,14 @@ with file_tab:
                                      disabled = upload_widget_disabled(file_cloud_confirmed))
     file_json_input_type = JSON_INPUT_AUTO
     if uploaded_file is not None:
+        upload_token = f"{uploaded_file.name}:{getattr(uploaded_file, 'size', '')}"
+        if st.session_state.get("file_logged_upload_token") != upload_token:
+            st.session_state.file_logged_upload_token = upload_token
+            logger.info(
+                "FILE_UPLOADED session_id=%s input_mode=file",
+                st.session_state.get("session_id"),
+            )
+
         uploaded_bytes = uploaded_file.getvalue()
 
         st.success(f"Loaded file: {uploaded_file.name}")
@@ -590,6 +615,11 @@ with file_tab:
                         key="uploaded_docx_preview"
                     )
                 except Exception as e:
+                    logger.error(
+                        "DOCX_PREVIEW_ERROR session_id=%s input_mode=file error_type=%s",
+                        st.session_state.get("session_id"),
+                        type(e).__name__,
+                    )
                     st.error(f"Error loading DOCX file: {e}")
             
             elif uploaded_file.name.lower().endswith(".json"):
@@ -599,6 +629,11 @@ with file_tab:
                     st.caption(f"Detected JSON type: {JSON_INPUT_TYPE_LABELS[detected_type]}")
                     st.json(preview_json)
                 except Exception as e:
+                    logger.error(
+                        "JSON_PREVIEW_ERROR session_id=%s input_mode=file error_type=%s",
+                        st.session_state.get("session_id"),
+                        type(e).__name__,
+                    )
                     st.error(f"Error loading JSON file: {e}")
                 
         
@@ -620,6 +655,11 @@ with file_tab:
                     )
 
             except Exception as e:
+                logger.error(
+                    "FILE_PROCESSING_ERROR session_id=%s input_mode=file error_type=%s",
+                    st.session_state.get("session_id"),
+                    type(e).__name__,
+                )
                 st.error(f"Error processing uploaded file: {e}")
 
         if input_record is not None:
@@ -630,6 +670,12 @@ with file_tab:
                     selected_model_source=st.session_state.selected_model_source,
                     api_key=st.session_state.ollama_cloud_api_key,
                 )
+                if result["returncode"] != 0:
+                    logger.error(
+                        "CLASSIFIER_ERROR session_id=%s input_mode=file returncode=%s",
+                        st.session_state.get("session_id"),
+                        result["returncode"],
+                    )
 
             st.session_state.file_input_record = input_record
             st.session_state.file_classifier_result = result
@@ -736,6 +782,12 @@ with form_tab:
                     selected_model_source=st.session_state.selected_model_source,
                     api_key=st.session_state.ollama_cloud_api_key,
                 )
+                if result["returncode"] != 0:
+                    logger.error(
+                        "CLASSIFIER_ERROR session_id=%s input_mode=form returncode=%s",
+                        st.session_state.get("session_id"),
+                        result["returncode"],
+                    )
 
             st.session_state.form_input_record = input_record
             st.session_state.form_classifier_result = result
@@ -767,6 +819,7 @@ with batch_tab:
         disabled=upload_widget_disabled(batch_cloud_confirmed),
     )
     batch_json_input_type = JSON_INPUT_AUTO
+
     if batch_files and any(file.name.lower().endswith(".json") for file in batch_files):
         batch_json_label = st.selectbox(
             "JSON handling for batch uploads",
@@ -786,6 +839,11 @@ with batch_tab:
         elif IS_VM_ENVIRONMENT and len(batch_files) > VM_BATCH_FILE_LIMIT:
             st.error(f"Batch uploads are limited to {VM_BATCH_FILE_LIMIT} files on the VM.")
         else:
+            logger.info(
+                "BATCH_MODE_INITIATED session_id=%s file_count=%s",
+                st.session_state.get("session_id"),
+                len(batch_files),
+            )
             progress = st.progress(0)
             status_text = st.empty()
             batch_results = []
@@ -805,6 +863,13 @@ with batch_tab:
                         selected_model_source=st.session_state.selected_model_source,
                         api_key=st.session_state.ollama_cloud_api_key,
                     )
+                    if result["returncode"] != 0:
+                        logger.error(
+                            "CLASSIFIER_ERROR session_id=%s input_mode=batch batch_index=%s returncode=%s",
+                            st.session_state.get("session_id"),
+                            index,
+                            result["returncode"],
+                        )
 
                     batch_results.append(
                         {
@@ -815,6 +880,12 @@ with batch_tab:
                         }
                     )
                 except Exception as e:
+                    logger.error(
+                        "BATCH_FILE_ERROR session_id=%s input_mode=batch batch_index=%s error_type=%s",
+                        st.session_state.get("session_id"),
+                        index,
+                        type(e).__name__,
+                    )
                     batch_results.append(
                         {
                             "filename": uploaded_file.name,
