@@ -114,13 +114,13 @@ docker compose -f docker/docker-compose.yml down
 
 ### Docker And Ollama
 
-The container does not run Ollama itself. For local models, keep Ollama running on the host machine and let the app and Java classifier connect to it through `OLLAMA_HOST`:
+The container does not run Ollama itself. For local models, keep Ollama running on the host machine. Docker defaults to the host Ollama address:
 
 ```text
 OLLAMA_HOST=http://host.docker.internal:11434
 ```
 
-This default is already set in `docker/docker-compose.yml` and the `Dockerfile`. To change it for Compose, edit the `OLLAMA_HOST` value under `environment`.
+This is already set in `docker/docker-compose.yml` and the `Dockerfile`. You only need to change `OLLAMA_HOST` if Ollama is running on a different host or port.
 
 For Ollama on the same Linux host with a custom port:
 
@@ -197,7 +197,7 @@ The selected LLM is used for this report-parsing step. After parsing, the Java O
 - **OncoTree input JSON**, with the fields described below.
 - **Tempus v3.3+ JSON**, detected by fields such as `metadata`, `rna`, or `ihc`. These reports are automatically parsed into OncoTree input JSONs using the TempusPathoPrinter ([USeq Repo](https://github.com/HuntsmanCancerInstitute/USeq))
 
-Accepted JSON files are normalized and sent directly to the Java OncoTree classifier.
+For a single JSON upload, the app lets users choose the JSON type or use auto-detection. Batch uploads auto-detect each JSON file by default, with an option to force all JSON files to one type.
 
 ### Form Upload
 
@@ -237,5 +237,3 @@ The classifier expects one JSON record per case:
   "sample_site": ""
 }
 ```
-
-

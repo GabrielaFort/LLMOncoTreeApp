@@ -16,7 +16,11 @@ from report_input_parser import (
 )
 from oncotree_runner import (
     APP_DIR,
+    describe_json_input_type,
     get_ollama_base_url,
+    JSON_INPUT_AUTO,
+    JSON_INPUT_ONCOTREE,
+    JSON_INPUT_TEMPUS,
     run_oncotree_classifier,
     uploaded_file_to_oncotree_input as runner_uploaded_file_to_oncotree_input,
     zip_batch_output_files,
@@ -42,46 +46,120 @@ DEMO_FORM_INPUT = {
     "other_comments": "Invasive, poorly differentiated squamous cell carcinoma with cellular and nuclear atypia. p40 positive by IHC.",
 }
 
+JSON_INPUT_TYPE_OPTIONS = {
+    "Auto-detect": JSON_INPUT_AUTO,
+    "OncoTree classifier input JSON": JSON_INPUT_ONCOTREE,
+    "Tempus v3.3+ report JSON": JSON_INPUT_TEMPUS,
+}
+
+JSON_INPUT_TYPE_LABELS = {
+    JSON_INPUT_AUTO: "Auto-detect",
+    JSON_INPUT_ONCOTREE: "OncoTree classifier input JSON",
+    JSON_INPUT_TEMPUS: "Tempus v3.3+ report JSON",
+    None: "Unknown JSON type",
+}
+
+st.set_page_config(page_title = "LLM OncoTree Classifier", layout = "wide", initial_sidebar_state = "expanded")
+
 # Add custom CSS for styled tabs
 st.markdown("""
 <style>
+    .block-container {
+        max-width: 1400px;
+        padding-top: 2.75rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    .app-header {
+        text-align: center;
+        background: #e2e8f0;
+        border: 2px solid #64748b;
+        border-radius: 8px;
+        padding: 1.35rem 1.5rem;
+        margin-top: 0.25rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .app-header h1 {
+        margin: 0 0 0.35rem 0;
+        font-size: 2.25rem;
+        line-height: 1.15;
+    }
+
+    .app-header p {
+        color: #64748b;
+        margin: 0.25rem 0;
+        font-size: 0.98rem;
+    }
+
+    .app-header a {
+        color: #334155;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .app-header a:hover {
+        color: #0f766e;
+        text-decoration: underline;
+    }
+
     /* Style the tab buttons */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 12px;
+        width: 100%;
+        gap: 8px;
         background-color: transparent;
-        padding: 8px 0;
+        padding: 4px 0 8px 0;
     }
 
     .stTabs [data-baseweb="tab"] {
-        height: 50px;
-        background-color: #f0f2f6;
-        border-radius: 12px 12px 0 0;
+        flex: 1;
+        justify-content: center;
+        height: 48px;
+        background-color: #e2e8f0;
+        border-radius: 8px 8px 0 0;
         padding: 10px 20px;
         font-weight: 600;
-        border: 2px solid #e0e0e0;
+        border: 2px solid #64748b;
         border-bottom: none;
-        transition: all 0.3s ease;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
     }
 
     .stTabs [data-baseweb="tab"]:hover {
-        background-color: #e8eaf0;
-        transform: translateY(-2px);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        background-color: #dbe4ee;
+        border-color: #475569;
     }
 
     .stTabs [aria-selected="true"] {
         background-color: #ffffff !important;
-        border-color: #6c757d !important;
+        border-color: #475569 !important;
         border-bottom: 2px solid #ffffff !important;
-        box-shadow: 0 -2px 8px rgba(108, 117, 125, 0.2);
+        box-shadow: 0 -1px 6px rgba(15, 23, 42, 0.08);
     }
 
 </style>
 """, unsafe_allow_html=True)
 
-st.set_page_config(page_title = "LLM OncoTree Classifier", layout = "centered", initial_sidebar_state = "expanded")
-st.title("LLM OncoTree Classifier")
-st.text("This app utilizes an LLM to classify cancer types from uploaded test results or pathology reports using the OncoTree ontology.")
+st.markdown(
+    """
+    <div class="app-header">
+        <h1>LLM OncoTree Classifier</h1>
+        <p>Prepare pathology reports or JSON records and run the OncoTree classifier.</p>
+        <p>Documentation: <a href="https://github.com/GabrielaFort/LLMOncoTreeApp" target="_blank">LLMOncoTreeApp</a> and <a href="https://github.com/HuntsmanCancerInstitute/OncoTree/tree/master" target="_blank">OncoTree</a></p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+with st.expander("What can I upload?", expanded=False):
+    st.markdown(
+        """
+        - PDF, TXT, and DOCX pathology reports are parsed into OncoTree input JSON before classification.
+        - OncoTree classifier input JSON is sent directly to the classifier.
+        - Tempus v3.3+ report JSON is converted with TempusPathoPrinter before classification.
+        - For PDF, TXT, and DOCX files, the case ID is taken from the uploaded filename.
+        """
+    )
 
 
 # Function to auto-detect local LLMs on machine, assuming Ollama is running
@@ -349,6 +427,15 @@ def upload_widget_disabled(cloud_confirmed):
 
 # LLM settings sidebar
 st.sidebar.header("LLM Settings")
+with st.sidebar.expander("Model setup", expanded=False):
+    st.markdown(
+        """
+        - For local models, start Ollama normally. The app uses Ollama's default host unless `OLLAMA_HOST` is set.
+        - Docker uses `http://host.docker.internal:11434` by default.
+        - Cloud models require an Ollama Cloud API key and should not be used with PHI.
+        """
+    )
+
 available_local_models = [] if IS_VM_ENVIRONMENT else discover_local_ollama_models()
 
 # Show sidebar message if no local models are found
@@ -441,48 +528,46 @@ def get_uploaded_pdf_md(uploaded_file):
     return st.session_state.uploaded_pdf_md
 
 
-def uploaded_file_to_oncotree_input(uploaded_file):
+def uploaded_file_to_oncotree_input(uploaded_file, json_input_type=JSON_INPUT_AUTO):
     return runner_uploaded_file_to_oncotree_input(
         uploaded_file,
         st.session_state.selected_model,
         st.session_state.selected_model_source,
         st.session_state.ollama_cloud_api_key,
         pdf_text_getter=get_uploaded_pdf_md,
+        json_input_type=json_input_type,
     )
 
 
 # File upload tab
 with file_tab:
     st.subheader("Classify from uploaded file")
+    st.caption("Use this for one pathology report, one OncoTree input JSON, or one Tempus v3.3+ report JSON.")
 
     file_cloud_confirmed = cloud_uploads_allowed("file_cloud_phi_confirm")
     uploaded_file = st.file_uploader("Upload pathology report or test result",
                                      type = ["txt", "pdf", "docx", "json"],
                                      key = upload_widget_key("uploaded_report_file", file_cloud_confirmed),
                                      disabled = upload_widget_disabled(file_cloud_confirmed))
+    file_json_input_type = JSON_INPUT_AUTO
     if uploaded_file is not None:
         uploaded_bytes = uploaded_file.getvalue()
-        pdf_md = None
 
         st.success(f"Loaded file: {uploaded_file.name}")
 
-        if uploaded_file.name.lower().endswith(".pdf"):
-            with st.spinner("Converting PDF to text..."):
-                try:
-                    pdf_md = get_uploaded_pdf_md(uploaded_file)
-                except Exception as e:
-                    st.error(f"Error converting PDF to text: {e}")
+        if uploaded_file.name.lower().endswith(".json"):
+            file_json_label = st.radio(
+                "JSON type",
+                options=list(JSON_INPUT_TYPE_OPTIONS),
+                horizontal=True,
+                help="Auto-detect works for most files. Choose explicitly if the app cannot infer the JSON type.",
+                key="file_json_input_type_label",
+            )
+            file_json_input_type = JSON_INPUT_TYPE_OPTIONS[file_json_label]
 
         with st.expander("Preview uploaded file", expanded=False):
             if uploaded_file.name.lower().endswith(".pdf"):
                 render_pdf(uploaded_bytes, height=800)
-                st.text_area(
-                    "Text preview",
-                    value=pdf_md if pdf_md else "No readable text extracted from the PDF.",
-                    height=400,
-                    disabled=True,
-                    key="uploaded_pdf_md_preview",
-                )
 
             elif uploaded_file.name.lower().endswith(".txt"):
                 text = uploaded_bytes.decode("utf-8", errors="replace")
@@ -510,6 +595,8 @@ with file_tab:
             elif uploaded_file.name.lower().endswith(".json"):
                 try:
                     preview_json = json.loads(uploaded_bytes.decode("utf-8"))
+                    detected_type = describe_json_input_type(preview_json)
+                    st.caption(f"Detected JSON type: {JSON_INPUT_TYPE_LABELS[detected_type]}")
                     st.json(preview_json)
                 except Exception as e:
                     st.error(f"Error loading JSON file: {e}")
@@ -527,7 +614,10 @@ with file_tab:
         else:
             try:
                 with st.spinner("Preparing uploaded file..."):
-                    input_record = uploaded_file_to_oncotree_input(uploaded_file)
+                    input_record = uploaded_file_to_oncotree_input(
+                        uploaded_file,
+                        json_input_type=file_json_input_type,
+                    )
 
             except Exception as e:
                 st.error(f"Error processing uploaded file: {e}")
@@ -663,6 +753,7 @@ with form_tab:
 
 with batch_tab:
     st.subheader("Batch classify uploaded files")
+    st.caption("Batch mode autodetects JSON files by default and processes PDF, TXT, DOCX, and JSON uploads in sequence.")
 
     if IS_VM_ENVIRONMENT:
         st.info(f"Batch uploads are limited to {VM_BATCH_FILE_LIMIT} files.")
@@ -675,6 +766,15 @@ with batch_tab:
         key=upload_widget_key("batch_uploaded_files", batch_cloud_confirmed),
         disabled=upload_widget_disabled(batch_cloud_confirmed),
     )
+    batch_json_input_type = JSON_INPUT_AUTO
+    if batch_files and any(file.name.lower().endswith(".json") for file in batch_files):
+        batch_json_label = st.selectbox(
+            "JSON handling for batch uploads",
+            options=list(JSON_INPUT_TYPE_OPTIONS),
+            help="Auto-detect checks each JSON file. Choose an explicit type when all JSON files use the same format.",
+            key="batch_json_input_type_label",
+        )
+        batch_json_input_type = JSON_INPUT_TYPE_OPTIONS[batch_json_label]
 
     if st.button("Run batch classification", key="classify_batch"):
         if not validate_model_selection():
@@ -694,7 +794,10 @@ with batch_tab:
                 status_text.write(f"Processing {uploaded_file.name} ({index} of {len(batch_files)})")
 
                 try:
-                    input_record = uploaded_file_to_oncotree_input(uploaded_file)
+                    input_record = uploaded_file_to_oncotree_input(
+                        uploaded_file,
+                        json_input_type=batch_json_input_type,
+                    )
 
                     result = run_oncotree_classifier(
                         input_record=input_record,
@@ -732,6 +835,16 @@ with batch_tab:
             for item in st.session_state.batch_results
             if item["input_record"] and item["result"] and not item["error"]
         ]
+        failed_results = [
+            item
+            for item in st.session_state.batch_results
+            if item["error"]
+        ]
+
+        total_col, success_col, failed_col = st.columns(3)
+        total_col.metric("Files", len(st.session_state.batch_results))
+        success_col.metric("Completed", len(successful_results))
+        failed_col.metric("Failed", len(failed_results))
 
         if successful_results:
             st.download_button(

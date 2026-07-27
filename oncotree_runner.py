@@ -33,6 +33,10 @@ RESULTS_DIR = APP_DIR / "results"
 DEFAULT_OLLAMA_HOST = "http://localhost:11434"
 
 TEMPUS_V33_MARKER_FIELDS = ["metadata", "rna", "ihc"]
+JSON_INPUT_AUTO = "auto"
+JSON_INPUT_ONCOTREE = "oncotree"
+JSON_INPUT_TEMPUS = "tempus"
+JSON_INPUT_TYPES = {JSON_INPUT_AUTO, JSON_INPUT_ONCOTREE, JSON_INPUT_TEMPUS}
 
 
 def safe_case_id(case_id):
@@ -44,6 +48,14 @@ def safe_case_id(case_id):
 
 def is_tempus_v33_json(parsed):
     return isinstance(parsed, dict) and any(field in parsed for field in TEMPUS_V33_MARKER_FIELDS)
+
+
+def describe_json_input_type(parsed):
+    if is_oncotree_input_json(parsed):
+        return JSON_INPUT_ONCOTREE
+    if is_tempus_v33_json(parsed):
+        return JSON_INPUT_TEMPUS
+    return None
 
 
 def get_ollama_base_url(ollama_host=None):
@@ -102,13 +114,27 @@ def tempus_json_to_oncotree_input(file_bytes, filename):
     raise RuntimeError("TempusPathoPrinter completed, but no OncoTree input JSON was found.")
 
 
-def read_json_bytes(file_bytes, filename):
+def read_json_bytes(file_bytes, filename, json_input_type=JSON_INPUT_AUTO):
+    if json_input_type not in JSON_INPUT_TYPES:
+        raise ValueError(f"Unknown JSON input type: {json_input_type}")
+
     parsed = json.loads(file_bytes.decode("utf-8"))
 
-    if is_oncotree_input_json(parsed):
+    if json_input_type == JSON_INPUT_ONCOTREE:
+        if not is_oncotree_input_json(parsed):
+            raise ValueError("Selected OncoTree input JSON, but required fields were not found.")
         return normalize_oncotree_input_json(parsed, filename)
 
-    if is_tempus_v33_json(parsed):
+    if json_input_type == JSON_INPUT_TEMPUS:
+        if not is_tempus_v33_json(parsed):
+            raise ValueError("Selected Tempus v3.3+ report JSON, but expected Tempus fields were not found.")
+        return tempus_json_to_oncotree_input(file_bytes, filename)
+
+    detected_type = describe_json_input_type(parsed)
+    if detected_type == JSON_INPUT_ONCOTREE:
+        return normalize_oncotree_input_json(parsed, filename)
+
+    if detected_type == JSON_INPUT_TEMPUS:
         return tempus_json_to_oncotree_input(file_bytes, filename)
 
     raise ValueError("JSON must be OncoTree input JSON or Tempus v3.3+ JSON.")
@@ -121,9 +147,10 @@ def uploaded_file_to_oncotree_input(
     api_key=None,
     pdf_text_getter=None,
     ollama_host=None,
+    json_input_type=JSON_INPUT_AUTO,
 ):
     if Path(uploaded_file.name).suffix.lower() == ".json":
-        return read_json_bytes(uploaded_file.getvalue(), uploaded_file.name)
+        return read_json_bytes(uploaded_file.getvalue(), uploaded_file.name, json_input_type)
 
     return parser_uploaded_file_to_oncotree_input(
         uploaded_file,
@@ -143,11 +170,12 @@ def bytes_to_oncotree_input(
     api_key=None,
     pdf_text_getter=None,
     ollama_host=None,
+    json_input_type=JSON_INPUT_AUTO,
 ):
     suffix = Path(filename).suffix.lower()
 
     if suffix == ".json":
-        return read_json_bytes(file_bytes, filename)
+        return read_json_bytes(file_bytes, filename, json_input_type)
 
     return parser_bytes_to_oncotree_input(
         filename,
@@ -160,10 +188,17 @@ def bytes_to_oncotree_input(
     )
 
 
-def file_path_to_oncotree_input(path, parser_model, model_source=None, api_key=None, ollama_host=None):
+def file_path_to_oncotree_input(
+    path,
+    parser_model,
+    model_source=None,
+    api_key=None,
+    ollama_host=None,
+    json_input_type=JSON_INPUT_AUTO,
+):
     path = Path(path)
     if path.suffix.lower() == ".json":
-        return read_json_bytes(path.read_bytes(), path.name)
+        return read_json_bytes(path.read_bytes(), path.name, json_input_type)
 
     return parser_file_path_to_oncotree_input(
         path,

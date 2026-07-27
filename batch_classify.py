@@ -4,6 +4,8 @@ from pathlib import Path
 from oncotree_runner import (
     file_path_to_oncotree_input,
     get_model_source,
+    JSON_INPUT_AUTO,
+    JSON_INPUT_TYPES,
     run_oncotree_classifier,
 )
 
@@ -31,6 +33,12 @@ def main():
         "--ollama-host",
         help="Local Ollama host URL, e.g. http://127.0.0.1:11434. Ignored for cloud models.",
     )
+    parser.add_argument(
+        "--json-input-type",
+        choices=sorted(JSON_INPUT_TYPES),
+        default=JSON_INPUT_AUTO,
+        help="How to treat JSON inputs. Default: auto.",
+    )
     args = parser.parse_args()
     model_source = get_model_source(args.model)
 
@@ -51,6 +59,7 @@ def main():
             args.model,
             api_key=api_key,
             ollama_host=args.ollama_host,
+            json_input_type=args.json_input_type,
         )
         result = run_oncotree_classifier(
             input_record=input_record,
