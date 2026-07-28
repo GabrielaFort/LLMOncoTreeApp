@@ -9,7 +9,6 @@ from pathlib import Path
 
 from report_input_parser import (
     bytes_to_oncotree_input as parser_bytes_to_oncotree_input,
-    build_oncotree_input_json,
     file_path_to_oncotree_input as parser_file_path_to_oncotree_input,
     get_model_source,
     is_oncotree_input_json,
