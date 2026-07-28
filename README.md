@@ -2,9 +2,9 @@
 
 Streamlit app for running the [LLM OncoTree classifier](https://github.com/HuntsmanCancerInstitute/OncoTree/tree/master).
 
-The app accepts pathology reports (`.pdf`, `.txt`, `.docx`), OncoTree input JSON, Tempus v3.3+ JSON, and manual form entry. Report-style inputs are parsed with utilities from the sibling [`LLMPathReportParser`](https://github.com/GabrielaFort/LLMPathReportParser) repository before classification.
+The app accepts pathology reports (`.pdf`, `.txt`, `.docx`), OncoTree input JSON, Tempus v3.3+ JSON, and manual form entry. Report-style inputs are parsed with utilities from [`LLMPathReportParser`](https://github.com/GabrielaFort/LLMPathReportParser) before classification.
 
-This repository contains the app, classifier runner, OncoTree resources, and the Java classifier used by the app. Pathology report parsing is kept in the sibling `LLMPathReportParser` repository.
+This repository contains the Streamlit app and classifier runner. Runtime dependencies from `LLMPathReportParser`, `OncoTree`, and `USeq` are fetched automatically into `.external/` by `scripts/setup_external_deps.py`.
 
 A publicly-hosted version of the app is hosted at http://tanlab.utah.edu:8094/. This version is limited to Ollama cloud model use and requires an API key from Ollama to access cloud models. This version also has a batch submission limit of 10 files at a time. 
 
@@ -13,22 +13,26 @@ A publicly-hosted version of the app is hosted at http://tanlab.utah.edu:8094/. 
 ## Repository Layout
 
 ```text
-app.py                    Streamlit frontend
-oncotree_runner.py        Python wrapper around the Java OncoTree classifier
-batch_classify.py         Batch command-line classifier runner
-evaluate_tcga_benchmark.py Benchmark evaluation script
-full_oncotree.json        OncoTree display data used by the app
-OT_0.3.jar                Java OncoTree classifier (from OncoTree Repo)
-OTResources13July2026/    OncoTree prompts, catalogs, ICD files, and resources (from OncoTree Repo)
-USeq_9.3.9/               USeq tools used for Tempus JSON parsing (TempusPathoPrinter from USeq)
+app.py                         Streamlit frontend
+oncotree_runner.py             Python wrapper around the Java OncoTree classifier
+batch_classify.py              Batch command-line classifier runner
+evaluate_tcga_benchmark.py     Benchmark evaluation script
+full_oncotree.json             OncoTree display data used by the app
+scripts/setup_external_deps.py Fetches external runtime dependencies
+docker/                        Dockerfile and Compose config
 ```
 
-The app expects `LLMPathReportParser` and `LLMOncoTreeApp` to be cloned next to each other:
+After setup, external dependencies are stored outside git:
 
 ```text
-workspace/
-  LLMPathReportParser/
-  LLMOncoTreeApp/
+.external/
+  LLMPathReportParser/    Cloned from GabrielaFort/LLMPathReportParser
+  runtime/
+    OT.jar                Downloaded from latest OncoTree release
+    USeq/                 Downloaded from latest USeq release
+      Apps/TempusPathoPrinter
+      LibraryJars/
+    OTResources/          Extracted from OncoTree/Resources/OTResources13July2026.zip
 ```
 
 ## Requirements
@@ -40,17 +44,16 @@ workspace/
 
 ## Install
 
-Clone both repositories into the same parent directory:
+Clone this repository:
 
 ```bash
-git clone https://github.com/GabrielaFort/LLMPathReportParser.git
 git clone https://github.com/GabrielaFort/LLMOncoTreeApp.git
+cd LLMOncoTreeApp
 ```
 
 Create and activate a Python environment:
 
 ```bash
-cd LLMOncoTreeApp
 python -m venv .venv
 source .venv/bin/activate
 ```
@@ -61,10 +64,10 @@ Install dependencies:
 python -m pip install -r requirements.txt
 ```
 
-Make the parser repository available to the app:
+Fetch external runtime dependencies:
 
 ```bash
-export PYTHONPATH="../LLMPathReportParser:$PYTHONPATH"
+python scripts/setup_external_deps.py
 ```
 
 ## Run The App
@@ -83,17 +86,9 @@ The app supports:
 
 ## Run With Docker
 
-The Docker setup packages the Streamlit app, Java 21 runtime, Python dependencies, OncoTree resources, USeq resources, and the sibling `LLMPathReportParser` code into one image. Docker works the same way from macOS, Windows, or Linux as long as Docker Desktop or Docker Engine is installed.
+The Docker setup builds a self-contained image with the Streamlit app, Java 21 runtime, Python dependencies, `LLMPathReportParser`, OncoTree resources, the OncoTree classifier JAR, and USeq runtime files. Docker runs `scripts/setup_external_deps.py` during image build, so you do not need to run the setup script first.
 
-Keep the two repositories cloned next to each other:
-
-```text
-workspace/
-  LLMPathReportParser/
-  LLMOncoTreeApp/
-```
-
-The Docker files live in `LLMOncoTreeApp/docker/`. From `LLMOncoTreeApp`, build and run the app locally with Compose:
+From `LLMOncoTreeApp`, build and run the app locally with Compose (this may take several minutes):
 
 ```bash
 docker compose -f docker/docker-compose.yml up --build
@@ -150,17 +145,6 @@ Use one of these patterns:
 - **Linux Docker, Ollama on the same computer:** use `http://host.docker.internal:<port>` and keep the `extra_hosts` entry.
 - **Ollama on another server:** use that server's IP address or hostname, such as `http://192.168.1.25:11434`, and remove `extra_hosts`.
 
-If Linux Docker cannot connect to Ollama on the same computer, Ollama may only be listening on `127.0.0.1`. Start Ollama on a reachable address instead:
-
-```bash
-OLLAMA_HOST=0.0.0.0:28641 ollama serve
-```
-
-Then set the app container to the matching port:
-
-```yaml
-OLLAMA_HOST: http://host.docker.internal:28641
-```
 
 Ollama Cloud models do not require a local Ollama server, but the app still requires an Ollama Cloud API key before cloud model classification.
 

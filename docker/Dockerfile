@@ -2,7 +2,6 @@ FROM eclipse-temurin:21-jre-jammy
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PYTHONPATH=/opt/LLMPathReportParser \
     STREAMLIT_BROWSER_GATHER_USAGE_STATS=false \
     OLLAMA_HOST=http://host.docker.internal:11434
 
@@ -10,6 +9,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \
+        git \
         libgl1 \
         libglib2.0-0 \
         libsm6 \
@@ -20,16 +20,17 @@ RUN apt-get update \
         python3-venv \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /opt
+WORKDIR /opt/LLMOncoTreeApp
 
-COPY LLMOncoTreeApp/requirements.txt /tmp/requirements.txt
+COPY requirements.txt /tmp/requirements.txt
 RUN python3 -m pip install --no-cache-dir --upgrade pip \
     && python3 -m pip install --no-cache-dir -r /tmp/requirements.txt
 
-COPY LLMPathReportParser /opt/LLMPathReportParser
-COPY LLMOncoTreeApp /opt/LLMOncoTreeApp
+COPY . /opt/LLMOncoTreeApp
+RUN python3 scripts/setup_external_deps.py
 
-WORKDIR /opt/LLMOncoTreeApp
+# TEMPORARY SETUP UNTIL USEQ IS UPDATED
+COPY local_test/USeq /opt/LLMOncoTreeApp/.external/runtime/USeq
 
 EXPOSE 8501
 

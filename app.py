@@ -9,16 +9,14 @@ import json
 import uuid
 from urllib.parse import urlencode
 from app_logging import setup_vm_logging
-from report_input_parser import (
-    build_oncotree_input_json,
-    convert_pdf_bytes_to_md,
-    extract_docx_text,
-    get_model_source,
-)
 from oncotree_runner import (
     APP_DIR,
+    build_oncotree_input_json,
+    convert_pdf_bytes_to_md,
     describe_json_input_type,
+    extract_docx_text,
     get_ollama_base_url,
+    get_model_source,
     JSON_INPUT_AUTO,
     JSON_INPUT_ONCOTREE,
     JSON_INPUT_TEMPUS,
@@ -105,17 +103,15 @@ st.markdown("""
         text-decoration: underline;
     }
 
-    /* Style the tab buttons. Use role selectors because Streamlit class names can change across reruns. */
-    div[data-testid="stTabs"] div[role="tablist"],
-    .stTabs [data-baseweb="tab-list"] {
+    /* Style the tab buttons. */
+    div[data-testid="stTabs"] div[role="tablist"] {
         width: 100%;
         gap: 8px !important;
         background-color: transparent !important;
         padding: 4px 0 8px 0 !important;
     }
 
-    div[data-testid="stTabs"] button[role="tab"],
-    .stTabs [data-baseweb="tab"] {
+    div[data-testid="stTabs"] button[role="tab"] {
         flex: 1 1 0 !important;
         justify-content: center !important;
         height: 48px !important;
@@ -129,24 +125,24 @@ st.markdown("""
         transition: background-color 0.2s ease, border-color 0.2s ease !important;
     }
 
-    div[data-testid="stTabs"] button[role="tab"]:hover,
-    .stTabs [data-baseweb="tab"]:hover {
+    div[data-testid="stTabs"] button[role="tab"]:hover {
         background-color: #dbe4ee !important;
         border-color: #475569 !important;
     }
 
-    div[data-testid="stTabs"] button[role="tab"][aria-selected="true"],
-    .stTabs [aria-selected="true"] {
+    div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
         background-color: #ffffff !important;
         border-color: #475569 !important;
         border-bottom: 2px solid #ffffff !important;
         box-shadow: 0 -1px 6px rgba(15, 23, 42, 0.08) !important;
     }
 
-    div[data-testid="stTabs"] button[role="tab"] p,
-    .stTabs [data-baseweb="tab"] p {
+    div[data-testid="stTabs"] button[role="tab"] p {
         font-size: 1rem !important;
         font-weight: 600 !important;
+        margin: 0 !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
     }
 
 	</style>

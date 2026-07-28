@@ -2,13 +2,25 @@ import io
 import json
 import os
 import subprocess
+import sys
 import tempfile
 import uuid
 import zipfile
 from pathlib import Path
 
+APP_DIR = Path(__file__).parent.resolve()
+EXTERNAL_DIR = APP_DIR / ".external"
+RUNTIME_DIR = EXTERNAL_DIR / "runtime"
+EXTERNAL_PARSER_DIR = EXTERNAL_DIR / "LLMPathReportParser"
+
+if EXTERNAL_PARSER_DIR.exists():
+    sys.path.insert(0, str(EXTERNAL_PARSER_DIR))
+
 from report_input_parser import (
+    build_oncotree_input_json,
     bytes_to_oncotree_input as parser_bytes_to_oncotree_input,
+    convert_pdf_bytes_to_md,
+    extract_docx_text,
     file_path_to_oncotree_input as parser_file_path_to_oncotree_input,
     get_model_source,
     is_oncotree_input_json,
@@ -17,10 +29,9 @@ from report_input_parser import (
 )
 
 
-APP_DIR = Path(__file__).parent.resolve()
-OT_JAR_PATH = APP_DIR / "OT_0.3.jar"
-TEMPUS_PATHO_PRINTER_PATH = APP_DIR / "USeq_9.3.9" / "Apps" / "TempusPathoPrinter"
-OT_RESOURCES_DIR = APP_DIR / "OTResources13July2026"
+OT_JAR_PATH = RUNTIME_DIR / "OT.jar"
+TEMPUS_PATHO_PRINTER_PATH = RUNTIME_DIR / "USeq" / "Apps" / "TempusPathoPrinter"
+OT_RESOURCES_DIR = RUNTIME_DIR / "OTResources" / "OTResources13July2026"
 
 PROMPT_TISSUE_PATH = OT_RESOURCES_DIR / "promptTissue.txt"
 TISSUE_NODE_CODES_PATH = OT_RESOURCES_DIR / "tissueCodeNodeCodes.txt"

@@ -2,3 +2,5 @@ __pycache__/
 .vscode
 *.tar
 *.tar.gz
+.external/
+local_test/
