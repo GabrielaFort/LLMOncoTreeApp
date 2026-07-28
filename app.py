@@ -105,40 +105,51 @@ st.markdown("""
         text-decoration: underline;
     }
 
-    /* Style the tab buttons */
+    /* Style the tab buttons. Use role selectors because Streamlit class names can change across reruns. */
+    div[data-testid="stTabs"] div[role="tablist"],
     .stTabs [data-baseweb="tab-list"] {
         width: 100%;
-        gap: 8px;
-        background-color: transparent;
-        padding: 4px 0 8px 0;
+        gap: 8px !important;
+        background-color: transparent !important;
+        padding: 4px 0 8px 0 !important;
     }
 
+    div[data-testid="stTabs"] button[role="tab"],
     .stTabs [data-baseweb="tab"] {
-        flex: 1;
-        justify-content: center;
-        height: 48px;
-        background-color: #e2e8f0;
-        border-radius: 8px 8px 0 0;
-        padding: 10px 20px;
-        font-weight: 600;
-        border: 2px solid #64748b;
-        border-bottom: none;
-        transition: background-color 0.2s ease, border-color 0.2s ease;
+        flex: 1 1 0 !important;
+        justify-content: center !important;
+        height: 48px !important;
+        min-height: 48px !important;
+        background-color: #e2e8f0 !important;
+        border-radius: 8px 8px 0 0 !important;
+        padding: 10px 20px !important;
+        font-weight: 600 !important;
+        border: 2px solid #64748b !important;
+        border-bottom: none !important;
+        transition: background-color 0.2s ease, border-color 0.2s ease !important;
     }
 
+    div[data-testid="stTabs"] button[role="tab"]:hover,
     .stTabs [data-baseweb="tab"]:hover {
-        background-color: #dbe4ee;
-        border-color: #475569;
+        background-color: #dbe4ee !important;
+        border-color: #475569 !important;
     }
 
+    div[data-testid="stTabs"] button[role="tab"][aria-selected="true"],
     .stTabs [aria-selected="true"] {
         background-color: #ffffff !important;
         border-color: #475569 !important;
         border-bottom: 2px solid #ffffff !important;
-        box-shadow: 0 -1px 6px rgba(15, 23, 42, 0.08);
+        box-shadow: 0 -1px 6px rgba(15, 23, 42, 0.08) !important;
     }
 
-</style>
+    div[data-testid="stTabs"] button[role="tab"] p,
+    .stTabs [data-baseweb="tab"] p {
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+    }
+
+	</style>
 """, unsafe_allow_html=True)
 
 st.markdown(
@@ -155,10 +166,9 @@ st.markdown(
 with st.expander("What can I upload?", expanded=False):
     st.markdown(
         """
-        - PDF, TXT, and DOCX pathology reports are parsed into OncoTree input JSON before classification.
-        - OncoTree classifier input JSON is sent directly to the classifier.
-        - Tempus v3.3+ report JSON is converted with TempusPathoPrinter before classification.
-        - For PDF, TXT, and DOCX files, the case ID is taken from the uploaded filename.
+        - PDF, TXT, or DOCX pathology reports (parsed into OncoTree input JSON before classification using [LLMPathReportParser](https://github.com/GabrielaFort/LLMPathReportParser)).
+        - OncoTree classifier input JSON (sent directly to the classifier).
+        - Tempus v3.3+ report JSON (parsed into OncoTree input JSON before classification using [TempusPathoPrinter](https://github.com/HuntsmanCancerInstitute/USeq))
         """
     )
 
