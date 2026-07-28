@@ -178,7 +178,7 @@ The selected LLM is used for this report-parsing step. After parsing, the Java O
 
 `.json` uploads skip report parsing. They must be one of:
 
-- **OncoTree input JSON**, with the fields described below.
+- **OncoTree input JSON**, with the fields described in the [OncoTree Repo](https://github.com/HuntsmanCancerInstitute/OncoTree).
 - **Tempus v3.3+ JSON**, detected by fields such as `metadata`, `rna`, or `ihc`. These reports are automatically parsed into OncoTree input JSONs using the TempusPathoPrinter ([USeq Repo](https://github.com/HuntsmanCancerInstitute/USeq))
 
 For a single JSON upload, the app lets users choose the JSON type or use auto-detection. Batch uploads auto-detect each JSON file by default, with an option to force all JSON files to one type.
