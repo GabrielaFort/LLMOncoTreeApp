@@ -4,9 +4,9 @@ Streamlit app for running the [LLM OncoTree classifier](https://github.com/Hunts
 
 The app accepts pathology reports (`.pdf`, `.txt`, `.docx`), OncoTree input JSON, Tempus v3.3+ JSON, and manual form entry. Report-style inputs are parsed with utilities from [`LLMPathReportParser`](https://github.com/GabrielaFort/LLMPathReportParser) before classification.
 
-This repository contains the Streamlit app and classifier runner. Runtime dependencies from `LLMPathReportParser`, `OncoTree`, and `USeq` are fetched automatically into `.external/` by `scripts/setup_external_deps.py`.
+This repository contains the Streamlit app and classifier runner. Additional runtime dependencies are fetched during setup.
 
-A publicly-hosted version of the app is hosted at http://tanlab.utah.edu:8094/. This version is limited to Ollama cloud model use and requires an API key from Ollama to access cloud models. This version also has a batch submission limit of 10 files at a time. 
+A freely available version of the app is hosted at http://tanlab.utah.edu:8094/. This version is limited to Ollama cloud model use and requires an API key from Ollama to access cloud models. This version also has a batch submission limit of 10 files at a time. 
 
 **Warning**: Do not upload any PHI/PII to cloud-hosted AI models. To run the application using local models, read the instructions below.
 
@@ -205,19 +205,4 @@ Batch Upload accepts multiple files with these extensions:
 - `.docx`
 - `.json`
 
-### Cloud Model PHI Confirmation
 
-When a cloud model is selected, you will be asked to confirm the uploads do not contain PHI. Do not upload any PHI to a cloud-hosted LLM.
-
-## Input JSON Format
-
-The classifier expects one JSON record per case:
-
-```json
-{
-  "icd_code_descriptions": "",
-  "path_lab_info": "",
-  "test_order_id": "",
-  "sample_site": ""
-}
-```
