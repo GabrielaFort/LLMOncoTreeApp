@@ -36,6 +36,9 @@ try:
 except ValueError:
     VM_BATCH_FILE_LIMIT = 10
 
+RECOMMENDED_CLOUD_MODEL = "glm-5.2-cloud"
+RECOMMENDED_LOCAL_MODEL = "gemma4:e4b"
+
 DEMO_FORM_INPUT = {
     "test_order_id": "12345",
     "sample_site": "Lung, lower lobe",
@@ -450,14 +453,24 @@ def upload_widget_disabled(cloud_confirmed):
 
 # LLM settings sidebar
 st.sidebar.header("LLM Settings")
-with st.sidebar.expander("Model setup", expanded=False):
-    st.markdown(
-        """
-        - For local models, start Ollama normally. The app uses Ollama's default host unless `OLLAMA_HOST` is set.
-        - Docker uses `http://host.docker.internal:11434` by default.
-        - Cloud models require an Ollama Cloud API key and should not be used with PHI.
-        """
-    )
+if IS_VM_ENVIRONMENT:
+    with st.sidebar.expander("Model setup", expanded=False):
+        st.markdown(
+            """
+            - This public web version of OncoTree.AI only supports Ollama cloud models. Cloud models require an Ollama cloud API key and should not be used with PHI.
+            - To use local Ollama models, follow the manual or Docker installation instructions [here](https://github.com/GabrielaFort/LLMOncoTreeApp)
+            """
+        )
+
+else:
+    with st.sidebar.expander("Model setup", expanded=False):
+        st.markdown(
+            """
+            - For local models, start Ollama normally. The app uses Ollama's default host unless `OLLAMA_HOST` is set.
+            - Docker uses `http://host.docker.internal:11434` by default.
+            - Cloud models require an Ollama Cloud API key and should not be used with PHI.
+            """
+        )
 
 available_local_models = [] if IS_VM_ENVIRONMENT else discover_local_ollama_models()
 
@@ -496,8 +509,19 @@ with st.sidebar.expander(cloud_label, expanded=False):
         set(available_local_models + st.session_state.available_cloud_models)
     )
 
-selected_model_label = st.sidebar.selectbox("Select Model", options=model_options, index=0, key ="selected_model_label")
+def format_model_option(model):
+    if model == RECOMMENDED_CLOUD_MODEL or model == RECOMMENDED_LOCAL_MODEL:
+        return f"* {model} (recommended)"
+    return model
 
+selected_model_label = st.sidebar.selectbox("Select Model", options=model_options, index=0, key ="selected_model_label",format_func=format_model_option,)
+
+if IS_VM_ENVIRONMENT:
+    st.sidebar.caption(f"Recommended Cloud Model: {RECOMMENDED_CLOUD_MODEL}")
+else:
+    st.sidebar.caption(f"Recommended Local Model: {RECOMMENDED_LOCAL_MODEL} \n"
+                       f"Recommended Cloud Model: {RECOMMENDED_CLOUD_MODEL}")
+    
 selected_model = None
 selected_model_source = None
 
