@@ -4,3 +4,7 @@ __pycache__
 .vscode
 *.tar
 *.tar.gz
+**/*.tar
+**/*.tar.gz
+docker/*.tar
+docker/*.tar.gz
