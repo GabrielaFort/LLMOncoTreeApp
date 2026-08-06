@@ -3,4 +3,3 @@ __pycache__/
 *.tar
 *.tar.gz
 .external/
-local_test/
