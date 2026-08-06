@@ -3,9 +3,9 @@ from pathlib import Path
 
 from oncotree_runner import (
     file_path_to_oncotree_input,
-    get_model_source,
     JSON_INPUT_AUTO,
     JSON_INPUT_TYPES,
+    normalize_model_source,
     run_oncotree_classifier,
 )
 
@@ -28,6 +28,12 @@ def main():
     parser = argparse.ArgumentParser(description="Batch classify reports with the OncoTree classifier.")
     parser.add_argument("--input", required=True, help="Input file or directory of reports.")
     parser.add_argument("--model", required=True, help="Ollama model name.")
+    parser.add_argument(
+        "--model-source",
+        choices=["local", "cloud"],
+        default="local",
+        help="Where to run the model. Default: local.",
+    )
     parser.add_argument("--api-key-file", help="File containing Ollama Cloud API key.")
     parser.add_argument(
         "--ollama-host",
@@ -40,7 +46,7 @@ def main():
         help="How to treat JSON inputs. Default: auto.",
     )
     args = parser.parse_args()
-    model_source = get_model_source(args.model)
+    model_source = normalize_model_source(args.model_source)
 
     api_key = None
     if args.api_key_file:
@@ -57,6 +63,7 @@ def main():
         input_record = file_path_to_oncotree_input(
             path,
             args.model,
+            model_source=model_source,
             api_key=api_key,
             ollama_host=args.ollama_host,
             json_input_type=args.json_input_type,
@@ -64,6 +71,7 @@ def main():
         result = run_oncotree_classifier(
             input_record=input_record,
             selected_model=args.model,
+            selected_model_source=model_source,
             api_key=api_key,
             ollama_host=args.ollama_host,
         )

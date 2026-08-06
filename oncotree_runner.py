@@ -22,7 +22,6 @@ from report_input_parser import (
     convert_pdf_bytes_to_md,
     extract_docx_text,
     file_path_to_oncotree_input as parser_file_path_to_oncotree_input,
-    get_model_source,
     is_oncotree_input_json,
     normalize_oncotree_input_json,
     uploaded_file_to_oncotree_input as parser_uploaded_file_to_oncotree_input,
@@ -47,6 +46,14 @@ JSON_INPUT_AUTO = "auto"
 JSON_INPUT_ONCOTREE = "oncotree"
 JSON_INPUT_TEMPUS = "tempus"
 JSON_INPUT_TYPES = {JSON_INPUT_AUTO, JSON_INPUT_ONCOTREE, JSON_INPUT_TEMPUS}
+MODEL_SOURCES = {"local", "cloud"}
+
+
+def normalize_model_source(model_source=None):
+    model_source = (model_source or "local").strip().lower()
+    if model_source not in MODEL_SOURCES:
+        raise ValueError("model_source must be 'local' or 'cloud'.")
+    return model_source
 
 
 def safe_case_id(case_id):
@@ -228,7 +235,7 @@ def run_oncotree_classifier(
     persist_results=False,
     ollama_host=None,
 ):
-    selected_model_source = selected_model_source or get_model_source(selected_model)
+    selected_model_source = normalize_model_source(selected_model_source)
     ollama_host = get_ollama_base_url(ollama_host)
     case_id = input_record.get("test_order_id") or f"case_{uuid.uuid4().hex[:8]}"
     safe_id = safe_case_id(case_id)

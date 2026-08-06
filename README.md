@@ -84,6 +84,7 @@ The app supports:
 - local Ollama models
 - Ollama Cloud models
 
+
 ## Run With Docker
 
 The Docker setup builds a self-contained image with the Streamlit app, Java 21 runtime, Python dependencies, `LLMPathReportParser`, OncoTree resources, the OncoTree classifier JAR, and USeq runtime files. Docker runs `scripts/setup_external_deps.py` during image build, so you do not need to run the setup script first.
@@ -148,6 +149,29 @@ Use one of these patterns:
 
 Ollama Cloud models do not require a local Ollama server, but the app still requires an Ollama Cloud API key before cloud model classification.
 
+## Batch CLI
+
+Use `batch_classify.py` to classify files from the command line:
+
+```bash
+python batch_classify.py \
+  --input reports/ \
+  --model gemma4:e4b \
+  --model-source local
+```
+
+For Ollama Cloud, explicitly set the source and provide an API key file:
+
+```bash
+python batch_classify.py \
+  --input reports/ \
+  --model glm-5.2-cloud \
+  --model-source cloud \
+  --api-key-file key.txt
+```
+
+`--model-source` defaults to `local`. 
+
 
 ## Accepted Inputs And Behavior
 
@@ -204,5 +228,4 @@ Batch Upload accepts multiple files with these extensions:
 - `.txt`
 - `.docx`
 - `.json`
-
 

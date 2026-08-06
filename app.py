@@ -16,7 +16,6 @@ from oncotree_runner import (
     describe_json_input_type,
     extract_docx_text,
     get_ollama_base_url,
-    get_model_source,
     JSON_INPUT_AUTO,
     JSON_INPUT_ONCOTREE,
     JSON_INPUT_TEMPUS,
@@ -504,17 +503,32 @@ with st.sidebar.expander(cloud_label, expanded=False):
             else:
                 st.warning("No cloud models found.")
 
-    # Build one list of available models; cloud/local is inferred from the model name.
-    model_options = ["No model selected"] + sorted(
-        set(available_local_models + st.session_state.available_cloud_models)
-    )
+model_options = [("No model selected", None, None)]
+model_options.extend(
+    (f"Local: {model}", model, "local")
+    for model in sorted(set(available_local_models))
+)
+model_options.extend(
+    (f"Cloud: {model}", model, "cloud")
+    for model in sorted(set(st.session_state.available_cloud_models))
+)
 
-def format_model_option(model):
-    if model == RECOMMENDED_CLOUD_MODEL or model == RECOMMENDED_LOCAL_MODEL:
-        return f"* {model} (recommended)"
-    return model
+def format_model_option(option):
+    label, model, source = option
+    if (
+        (source == "local" and model == RECOMMENDED_LOCAL_MODEL)
+        or (source == "cloud" and model == RECOMMENDED_CLOUD_MODEL)
+    ):
+        return f"* {label} (recommended)"
+    return label
 
-selected_model_label = st.sidebar.selectbox("Select Model", options=model_options, index=0, key ="selected_model_label",format_func=format_model_option,)
+selected_model_option = st.sidebar.selectbox(
+    "Select Model",
+    options=model_options,
+    index=0,
+    key="selected_model_option",
+    format_func=format_model_option,
+)
 
 if IS_VM_ENVIRONMENT:
     st.sidebar.caption(f"Recommended Cloud Model: {RECOMMENDED_CLOUD_MODEL}")
@@ -522,12 +536,7 @@ else:
     st.sidebar.caption(f"Recommended Local Model: {RECOMMENDED_LOCAL_MODEL} \n"
                        f"Recommended Cloud Model: {RECOMMENDED_CLOUD_MODEL}")
     
-selected_model = None
-selected_model_source = None
-
-if st.session_state.selected_model_label != "No model selected":
-    selected_model = st.session_state.selected_model_label
-    selected_model_source = get_model_source(selected_model)
+_, selected_model, selected_model_source = selected_model_option
 
 st.session_state.selected_model = selected_model
 st.session_state.selected_model_source = selected_model_source
