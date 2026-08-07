@@ -36,7 +36,7 @@ try:
 except ValueError:
     VM_BATCH_FILE_LIMIT = 10
 
-RECOMMENDED_CLOUD_MODEL = "glm-5.2:cloud"
+RECOMMENDED_CLOUD_MODEL = "glm-5.2"
 RECOMMENDED_LOCAL_MODEL = "gemma4:e4b"
 
 DEMO_FORM_INPUT = {
@@ -402,7 +402,10 @@ def display_oncotree_tree(output_files, key_prefix):
         return
 
     st.subheader("OncoTree Visualization")
-    components.iframe(oncotree_url, height=800)
+    if hasattr(st, "iframe"):
+        st.iframe(oncotree_url, height=800)
+    else:
+        components.iframe(oncotree_url, height=800)
 
 
 # Model validation helper

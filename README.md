@@ -73,8 +73,10 @@ python scripts/setup_external_deps.py
 ## Run The App
 
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
+
+Use `python -m streamlit` so the app runs with the same Python environment where you installed `requirements.txt`.
 
 The app supports:
 
@@ -228,4 +230,3 @@ Batch Upload accepts multiple files with these extensions:
 - `.txt`
 - `.docx`
 - `.json`
-
