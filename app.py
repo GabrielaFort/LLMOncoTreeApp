@@ -231,9 +231,9 @@ def discover_ollama_cloud_models():
 
     for model in models:
         if isinstance(model, dict):
-            name = model.get("model") or model.get("name")
+            name = model.get("model")
             if name:
-                names.append(str(name).strip())
+                names.append(name)
     
     return sorted(set(names))
 
@@ -495,13 +495,6 @@ with st.sidebar.expander(cloud_label, expanded=False):
             st.warning("Please enter your Ollama Cloud API Key to load cloud models.")
         else:
             st.session_state.available_cloud_models = discover_ollama_cloud_models()
-            previous_model_option = st.session_state.get("selected_model_option")
-            if (
-                isinstance(previous_model_option, tuple)
-                and len(previous_model_option) == 3
-                and previous_model_option[2] == "cloud"
-            ):
-                st.session_state.selected_model_option = ("No model selected", None, None)
             if st.session_state.available_cloud_models:
                 st.success(f"Loaded {len(st.session_state.available_cloud_models)} cloud models.")
             else:
