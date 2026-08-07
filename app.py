@@ -36,7 +36,7 @@ try:
 except ValueError:
     VM_BATCH_FILE_LIMIT = 10
 
-RECOMMENDED_CLOUD_MODEL = "glm-5.2-cloud"
+RECOMMENDED_CLOUD_MODEL = "glm-5.2:cloud"
 RECOMMENDED_LOCAL_MODEL = "gemma4:e4b"
 
 DEMO_FORM_INPUT = {
@@ -494,13 +494,9 @@ with st.sidebar.expander(cloud_label, expanded=False):
         if not api_key:
             st.warning("Please enter your Ollama Cloud API Key to load cloud models.")
         else:
-            cloud_models = discover_ollama_cloud_models()
-            cloud_models = [
-                model if model.endswith("-cloud") else f"{model}-cloud" for model in cloud_models
-            ]
-            st.session_state.available_cloud_models = cloud_models
-            if cloud_models:
-                st.success(f"Loaded {len(cloud_models)} cloud models.")
+            st.session_state.available_cloud_models = discover_ollama_cloud_models()
+            if st.session_state.available_cloud_models:
+                st.success(f"Loaded {len(st.session_state.available_cloud_models)} cloud models.")
             else:
                 st.warning("No cloud models found.")
 

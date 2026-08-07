@@ -165,7 +165,7 @@ For Ollama Cloud, explicitly set the source and provide an API key file:
 ```bash
 python batch_classify.py \
   --input reports/ \
-  --model glm-5.2-cloud \
+  --model glm-5.2:cloud \
   --model-source cloud \
   --api-key-file key.txt
 ```
