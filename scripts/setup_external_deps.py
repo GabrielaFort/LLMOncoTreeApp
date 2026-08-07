@@ -19,6 +19,7 @@ ONCOTREE_REPO = "https://github.com/HuntsmanCancerInstitute/OncoTree.git"
 
 PARSER_DIR = EXTERNAL_DIR / "LLMPathReportParser"
 ONCOTREE_DIR = EXTERNAL_DIR / "OncoTree"
+LOCAL_USEQ_DIR = APP_DIR / "local_test" / "USeq"
 
 
 def clone_or_update(repo_url, destination):
@@ -101,6 +102,26 @@ def remove_if_exists(path):
         path.unlink()
 
 
+def install_useq_runtime():
+    tempus_patho_printer = LOCAL_USEQ_DIR / "Apps" / "TempusPathoPrinter"
+    bio_tools_library = LOCAL_USEQ_DIR / "LibraryJars" / "bioToolsCodeLibrary.jar"
+
+    if not tempus_patho_printer.exists():
+        raise RuntimeError(
+            f"Missing TempusPathoPrinter: {tempus_patho_printer}. "
+            "The tracked local_test/USeq runtime files are required for Tempus JSON uploads."
+        )
+    if not bio_tools_library.exists():
+        raise RuntimeError(
+            f"Missing bioToolsCodeLibrary.jar: {bio_tools_library}. "
+            "The tracked local_test/USeq runtime files are required for Tempus JSON uploads."
+        )
+
+    useq_runtime_dir = RUNTIME_DIR / "USeq"
+    remove_if_exists(useq_runtime_dir)
+    shutil.copytree(LOCAL_USEQ_DIR, useq_runtime_dir)
+
+
 def main():
     EXTERNAL_DIR.mkdir(exist_ok=True)
     RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
@@ -128,7 +149,7 @@ def main():
     replace_file(oncotree_jar_download, RUNTIME_DIR / "OT.jar")
 
     ####################################################################
-    #### TEMPORARILY REMOVING THIS UNTIL USEQ RELEASE IS UPDATED #######
+    #### TEMPORARILY USING TRACKED USEQ FILES UNTIL RELEASE IS UPDATED ##
     ####################################################################
     # _, useq_asset_name, useq_asset_url = latest_asset_url(
     #     "HuntsmanCancerInstitute",
@@ -150,6 +171,7 @@ def main():
     #     useq_runtime_dir / "LibraryJars" / "bioToolsCodeLibrary.jar",
     # )
     # remove_if_exists(RUNTIME_DIR / "TempusPathoPrinter")
+    install_useq_runtime()
 
     remove_if_exists(ONCOTREE_DIR)
     # remove_if_exists(useq_extract_dir)

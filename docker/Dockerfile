@@ -29,9 +29,6 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip \
 COPY . /opt/LLMOncoTreeApp
 RUN python3 scripts/setup_external_deps.py
 
-# TEMPORARY SETUP UNTIL USEQ IS UPDATED
-COPY local_test/USeq /opt/LLMOncoTreeApp/.external/runtime/USeq
-
 EXPOSE 8501
 
 CMD ["python3", "-m", "streamlit", "run", "app.py", "--server.address=0.0.0.0", "--server.port=8501"]

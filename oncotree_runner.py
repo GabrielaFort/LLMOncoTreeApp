@@ -90,7 +90,10 @@ def get_ollama_base_url(ollama_host=None):
 
 def tempus_json_to_oncotree_input(file_bytes, filename):
     if not TEMPUS_PATHO_PRINTER_PATH.exists():
-        raise FileNotFoundError(f"TempusPathoPrinter not found: {TEMPUS_PATHO_PRINTER_PATH}")
+        raise FileNotFoundError(
+            f"TempusPathoPrinter not found: {TEMPUS_PATHO_PRINTER_PATH}. "
+            "Run `python scripts/setup_external_deps.py` from the LLMOncoTreeApp directory."
+        )
 
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_dir = Path(temp_dir)
