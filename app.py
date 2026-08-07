@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import ollama
 import requests
 import base64
@@ -401,7 +402,7 @@ def display_oncotree_tree(output_files, key_prefix):
         return
 
     st.subheader("OncoTree Visualization")
-    st.iframe(oncotree_url, height=800)
+    components.iframe(oncotree_url, height=800)
 
 
 # Model validation helper
