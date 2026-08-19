@@ -45,6 +45,12 @@ def main():
         default=JSON_INPUT_AUTO,
         help="How to treat JSON inputs. Default: auto.",
     )
+    parser.add_argument(
+        "--pdf-page-limit",
+        type=int,
+        default=None,
+        help="Only process the first N pages of PDF inputs. Default: process all pages.",
+    )
     args = parser.parse_args()
     model_source = normalize_model_source(args.model_source)
 
@@ -67,6 +73,7 @@ def main():
             api_key=api_key,
             ollama_host=args.ollama_host,
             json_input_type=args.json_input_type,
+            pdf_page_limit=args.pdf_page_limit,
         )
         result = run_oncotree_classifier(
             input_record=input_record,

@@ -3,12 +3,14 @@ import streamlit.components.v1 as components
 import ollama
 import requests
 import base64
+import io
 import os
 from pathlib import Path
 import html
 import json
 import uuid
 from urllib.parse import urlencode
+from pypdf import PdfReader, PdfWriter
 from app_logging import setup_vm_logging
 from oncotree_runner import (
     APP_DIR,
@@ -29,6 +31,7 @@ from oncotree_runner import (
 ONCOTREE_BASE_URL = "https://oncotree.mskcc.org/"
 FULL_ONCOTREE_JSON_PATH = APP_DIR / "full_oncotree.json"
 CLOUD_PHI_WARNING = "Warning: You are about to submit your file(s) to a cloud hosted AI model. Please ensure there is no PHI present before submission"
+DEFAULT_PDF_PAGE_LIMIT = 5
 RUN_ENVIRONMENT = os.environ.get("RUN_ENVIRONMENT", "LOCAL").strip().upper()
 IS_VM_ENVIRONMENT = RUN_ENVIRONMENT == "VM"
 try:
@@ -157,6 +160,7 @@ st.markdown(
         <h1>LLM OncoTree Classifier</h1>
         <p>Prepare pathology reports or JSON records and run the OncoTree classifier.</p>
         <p>Documentation: <a href="https://github.com/GabrielaFort/LLMOncoTreeApp" target="_blank">LLMOncoTreeApp</a> and <a href="https://github.com/HuntsmanCancerInstitute/OncoTree/tree/master" target="_blank">OncoTree</a></p>
+
     </div>
     """,
     unsafe_allow_html=True,
@@ -170,6 +174,8 @@ with st.expander("What can I upload?", expanded=False):
         - Tempus v3.3+ report JSON (parsed into OncoTree input JSON before classification using [TempusPathoPrinter](https://github.com/HuntsmanCancerInstitute/USeq))
         """
     )
+
+st.warning("**Warning:** Do not upload any PHI/PII to cloud-hosted AI models or unapproved systems. See the documentation for instructions on using local models.")
 
 # Initiate logging
 logger = setup_vm_logging(IS_VM_ENVIRONMENT)
@@ -576,24 +582,53 @@ def render_pdf(pdf_bytes, height=700):
     """
     st.markdown(pdf_display, unsafe_allow_html=True)
 
-def get_uploaded_pdf_md(uploaded_file):
-    if (
-        st.session_state.get("uploaded_pdf_md_name") != uploaded_file.name
-        or "uploaded_pdf_md" not in st.session_state
-    ):
-        st.session_state.uploaded_pdf_md_name = uploaded_file.name
-        st.session_state.uploaded_pdf_md = convert_pdf_bytes_to_md(uploaded_file.getvalue())
+def first_pdf_pages(pdf_bytes, page_limit=DEFAULT_PDF_PAGE_LIMIT):
+    if page_limit < 1:
+        raise ValueError("PDF page limit must be at least 1.")
+
+    reader = PdfReader(io.BytesIO(pdf_bytes))
+    writer = PdfWriter()
+
+    for index, page in enumerate(reader.pages):
+        if index >= page_limit:
+            break
+        writer.add_page(page)
+
+    output = io.BytesIO()
+    writer.write(output)
+    return output.getvalue()
+
+
+def count_pdf_pages(pdf_bytes):
+    return len(PdfReader(io.BytesIO(pdf_bytes)).pages)
+
+
+def get_uploaded_pdf_md(uploaded_file, page_limit=DEFAULT_PDF_PAGE_LIMIT):
+    cache_key = f"{uploaded_file.name}:{getattr(uploaded_file, 'size', '')}:{page_limit}"
+
+    if st.session_state.get("uploaded_pdf_md_key") != cache_key:
+        st.session_state.uploaded_pdf_md_key = cache_key
+        st.session_state.uploaded_pdf_md = convert_pdf_bytes_to_md(
+            uploaded_file.getvalue(),
+            page_limit=page_limit,
+        )
 
     return st.session_state.uploaded_pdf_md
 
 
-def uploaded_file_to_oncotree_input(uploaded_file, json_input_type=JSON_INPUT_AUTO):
+def uploaded_file_to_oncotree_input(
+    uploaded_file,
+    json_input_type=JSON_INPUT_AUTO,
+    pdf_page_limit=None,
+):
+    pdf_page_limit = pdf_page_limit or DEFAULT_PDF_PAGE_LIMIT
+
     return runner_uploaded_file_to_oncotree_input(
         uploaded_file,
         st.session_state.selected_model,
         st.session_state.selected_model_source,
         st.session_state.ollama_cloud_api_key,
-        pdf_text_getter=get_uploaded_pdf_md,
+        pdf_text_getter=lambda file: get_uploaded_pdf_md(file, pdf_page_limit),
         json_input_type=json_input_type,
     )
 
@@ -609,6 +644,7 @@ with file_tab:
                                      key = upload_widget_key("uploaded_report_file", file_cloud_confirmed),
                                      disabled = upload_widget_disabled(file_cloud_confirmed))
     file_json_input_type = JSON_INPUT_AUTO
+    file_pdf_page_limit = DEFAULT_PDF_PAGE_LIMIT
     if uploaded_file is not None:
         upload_token = f"{uploaded_file.name}:{getattr(uploaded_file, 'size', '')}"
         if st.session_state.get("file_logged_upload_token") != upload_token:
@@ -619,8 +655,17 @@ with file_tab:
             )
 
         uploaded_bytes = uploaded_file.getvalue()
-
         st.success(f"Loaded file: {uploaded_file.name}")
+
+        if uploaded_file.name.lower().endswith(".pdf"):
+            file_pdf_page_limit = st.number_input(
+                "PDF pages to process",
+                min_value=1,
+                value=DEFAULT_PDF_PAGE_LIMIT,
+                step=1,
+                help = "Diagnosis information is often in the first few pages. Fewer pages usually means faster processing.",
+                key="file_pdf_page_limit",
+            )
 
         if uploaded_file.name.lower().endswith(".json"):
             file_json_label = st.radio(
@@ -634,7 +679,10 @@ with file_tab:
 
         with st.expander("Preview uploaded file", expanded=False):
             if uploaded_file.name.lower().endswith(".pdf"):
-                render_pdf(uploaded_bytes, height=800)
+                pdf_page_count = count_pdf_pages(uploaded_bytes)
+                if file_pdf_page_limit < pdf_page_count:
+                    st.caption(f"Previewing first {file_pdf_page_limit} of {pdf_page_count} pages.")
+                render_pdf(first_pdf_pages(uploaded_bytes, file_pdf_page_limit), height=800)
 
             elif uploaded_file.name.lower().endswith(".txt"):
                 text = uploaded_bytes.decode("utf-8", errors="replace")
@@ -694,6 +742,7 @@ with file_tab:
                     input_record = uploaded_file_to_oncotree_input(
                         uploaded_file,
                         json_input_type=file_json_input_type,
+                        pdf_page_limit=file_pdf_page_limit,
                     )
 
             except Exception as e:
@@ -861,6 +910,7 @@ with batch_tab:
         disabled=upload_widget_disabled(batch_cloud_confirmed),
     )
     batch_json_input_type = JSON_INPUT_AUTO
+    batch_pdf_page_limit = DEFAULT_PDF_PAGE_LIMIT
 
     if batch_files and any(file.name.lower().endswith(".json") for file in batch_files):
         batch_json_label = st.selectbox(
@@ -870,6 +920,16 @@ with batch_tab:
             key="batch_json_input_type_label",
         )
         batch_json_input_type = JSON_INPUT_TYPE_OPTIONS[batch_json_label]
+
+    if batch_files and any(file.name.lower().endswith(".pdf") for file in batch_files):
+        batch_pdf_page_limit = st.number_input(
+            "PDF pages to process",
+            min_value=1,
+            value=DEFAULT_PDF_PAGE_LIMIT,
+            step=1,
+            help = "Applies to each PDF in the batch. Fewer pages usually means faster processing.",
+            key="batch_pdf_page_limit",
+        )
 
     if st.button("Run batch classification", key="classify_batch"):
         if not validate_model_selection():
@@ -897,6 +957,7 @@ with batch_tab:
                     input_record = uploaded_file_to_oncotree_input(
                         uploaded_file,
                         json_input_type=batch_json_input_type,
+                        pdf_page_limit=batch_pdf_page_limit,
                     )
 
                     result = run_oncotree_classifier(

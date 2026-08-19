@@ -168,6 +168,7 @@ def uploaded_file_to_oncotree_input(
     pdf_text_getter=None,
     ollama_host=None,
     json_input_type=JSON_INPUT_AUTO,
+    pdf_page_limit=None,
 ):
     if Path(uploaded_file.name).suffix.lower() == ".json":
         return read_json_bytes(uploaded_file.getvalue(), uploaded_file.name, json_input_type)
@@ -179,6 +180,7 @@ def uploaded_file_to_oncotree_input(
         api_key=api_key,
         pdf_text_getter=pdf_text_getter,
         ollama_host=ollama_host,
+        pdf_page_limit=pdf_page_limit,
     )
 
 
@@ -191,6 +193,7 @@ def bytes_to_oncotree_input(
     pdf_text_getter=None,
     ollama_host=None,
     json_input_type=JSON_INPUT_AUTO,
+    pdf_page_limit=None,
 ):
     suffix = Path(filename).suffix.lower()
 
@@ -205,6 +208,7 @@ def bytes_to_oncotree_input(
         api_key,
         pdf_text_getter=pdf_text_getter,
         ollama_host=ollama_host,
+        pdf_page_limit=pdf_page_limit,
     )
 
 
@@ -215,6 +219,7 @@ def file_path_to_oncotree_input(
     api_key=None,
     ollama_host=None,
     json_input_type=JSON_INPUT_AUTO,
+    pdf_page_limit=None,
 ):
     path = Path(path)
     if path.suffix.lower() == ".json":
@@ -226,6 +231,7 @@ def file_path_to_oncotree_input(
         model_source,
         api_key,
         ollama_host=ollama_host,
+        pdf_page_limit=pdf_page_limit,
     )
 
 

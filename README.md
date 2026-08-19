@@ -2,13 +2,13 @@
 
 Streamlit app for running the [LLM OncoTree classifier](https://github.com/HuntsmanCancerInstitute/OncoTree/tree/master).
 
+**Warning: Do not upload any PHI/PII to cloud-hosted AI models or unapproved systems. To run the application using local models, read the instructions below.**
+
 The app accepts pathology reports (`.pdf`, `.txt`, `.docx`), OncoTree input JSON, Tempus v3.3+ JSON, and manual form entry. Report-style inputs are parsed with utilities from [`LLMPathReportParser`](https://github.com/GabrielaFort/LLMPathReportParser) before classification.
 
 This repository contains the Streamlit app and classifier runner. Additional runtime dependencies are fetched during setup.
 
 A freely available version of the app is hosted at http://tanlab.utah.edu:8094/. This version is limited to Ollama cloud model use and requires an API key from Ollama to access cloud models. This version also has a batch submission limit of 10 files at a time. 
-
-**Warning**: Do not upload any PHI/PII to cloud-hosted AI models. To run the application using local models, read the instructions below.
 
 ## Repository Layout
 
@@ -159,7 +159,8 @@ Use `batch_classify.py` to classify files from the command line:
 python batch_classify.py \
   --input reports/ \
   --model gemma4:e4b \
-  --model-source local
+  --model-source local \
+  --pdf-page-limit 5
 ```
 
 For Ollama Cloud, explicitly set the source and provide an API key file:
@@ -173,6 +174,8 @@ python batch_classify.py \
 ```
 
 `--model-source` defaults to `local`. 
+
+For PDF inputs, `--pdf-page-limit N` processes only the first `N` pages before Docling extraction and LLM parsing. If omitted, the batch CLI processes full PDFs.
 
 
 ## Accepted Inputs And Behavior
@@ -194,11 +197,13 @@ File Upload accepts exactly one file with one of these extensions:
 
 Pathology Report-style files are parsed before classification:
 
-- `.pdf` files are displayed in the app, converted to text using [Docling](https://www.docling.ai/), then parsed into OncoTree input JSON.
+- `.pdf` files are displayed in the app, converted to text using [Docling](https://www.docling.ai/), then parsed into OncoTree input JSON. The app defaults to processing the first 5 PDF pages; users can change the page limit before classification.
 - `.txt` files are parsed into OncoTree input JSON.
 - `.docx` files are converted to text, then parsed into OncoTree input JSON.
 
 The selected LLM is used for this report-parsing step. After parsing, the Java OncoTree classifier runs on the generated JSON.
+
+If uploading long PDFs where the majority of the diagnosis information is in the first few pages, setting a page limit can significantly reduce processing time without compromising accuracy.
 
 ### JSON Uploads
 
@@ -230,3 +235,5 @@ Batch Upload accepts multiple files with these extensions:
 - `.txt`
 - `.docx`
 - `.json`
+
+When a batch includes PDFs, the app shows a PDF page limit control. It defaults to 5 pages and applies to each PDF in the batch.
