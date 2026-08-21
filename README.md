@@ -6,8 +6,6 @@ Streamlit app for running the [LLM OncoTree classifier](https://github.com/Hunts
 
 The app accepts pathology reports (`.pdf`, `.txt`, `.docx`), OncoTree input JSON, Tempus v3.3+ JSON, and manual form entry. Report-style inputs are parsed with utilities from [`LLMPathReportParser`](https://github.com/GabrielaFort/LLMPathReportParser) before classification.
 
-This repository contains the Streamlit app and classifier runner. Additional runtime dependencies are fetched during setup.
-
 A freely available version of the app is hosted at http://tanlab.utah.edu:8094/. This version is limited to Ollama cloud model use and requires an API key from Ollama to access cloud models. This version also has a batch submission limit of 10 files at a time. 
 
 ## Repository Layout
@@ -16,10 +14,10 @@ A freely available version of the app is hosted at http://tanlab.utah.edu:8094/.
 app.py                         Streamlit frontend
 oncotree_runner.py             Python wrapper around the Java OncoTree classifier
 batch_classify.py              Batch command-line classifier runner
-evaluate_tcga_benchmark.py     Benchmark evaluation script
 full_oncotree.json             OncoTree display data used by the app
 scripts/setup_external_deps.py Fetches external runtime dependencies
 docker/                        Dockerfile and Compose config
+local_test/USeq/               Tracked USeq runtime files used during setup
 ```
 
 After setup, external dependencies are stored outside git:
@@ -29,7 +27,7 @@ After setup, external dependencies are stored outside git:
   LLMPathReportParser/    Cloned from GabrielaFort/LLMPathReportParser
   runtime/
     OT.jar                Downloaded from latest OncoTree release
-    USeq/                 Downloaded from latest USeq release
+    USeq/                 Copied from tracked local_test/USeq runtime files
       Apps/TempusPathoPrinter
       LibraryJars/
     OTResources/          Extracted from OncoTree/Resources/OTResources13July2026.zip
@@ -37,12 +35,123 @@ After setup, external dependencies are stored outside git:
 
 ## Requirements
 
-- Python 3.10+
-- Java 21+
-- Ollama installed and running for local models
-- Optional Ollama Cloud API key for cloud models
+- Docker for the recommended container install.
+- Ollama installed and running on the host machine for local models.
+- Optional Ollama Cloud API key for cloud models.
 
-## Install
+For manual source installs, use Python 3.10+ and Java 21+.
+
+## Run With Docker
+
+The easiest way to run the app is to pull the prebuilt container image from GitHub Container Registry. The image includes the Streamlit app, Java 21 runtime, Python dependencies, `LLMPathReportParser`, OncoTree resources, the OncoTree classifier JAR, and USeq runtime files.
+
+Install Docker, then run:
+
+```bash
+docker run --rm \
+  -p 8501:8501 \
+  -e OLLAMA_HOST=http://host.docker.internal:11434 \
+  --add-host=host.docker.internal:host-gateway \
+  ghcr.io/gabrielafort/llm-oncotree-app:latest
+```
+
+Then open:
+
+```text
+http://localhost:8501
+```
+
+To stop the app, press `Ctrl+C` in the terminal running Docker.
+
+### Docker And Ollama
+
+The container does not run Ollama itself. For local models, keep Ollama running on the host machine. The Docker command above sets the host Ollama address:
+
+```text
+OLLAMA_HOST=http://host.docker.internal:11434
+```
+
+You only need to change `OLLAMA_HOST` if Ollama is running on a different host or port.
+
+For Ollama on the same Linux host with a custom port:
+
+```bash
+docker run --rm \
+  -p 8501:8501 \
+  -e OLLAMA_HOST=http://host.docker.internal:28641 \
+  -e RUN_ENVIRONMENT=LOCAL \
+  --add-host=host.docker.internal:host-gateway \
+  ghcr.io/gabrielafort/llm-oncotree-app:latest
+```
+
+For Ollama on another reachable machine, use that machine's IP address or hostname:
+
+```bash
+docker run --rm \
+  -p 8501:8501 \
+  -e OLLAMA_HOST=http://192.168.1.25:11434 \
+  -e RUN_ENVIRONMENT=LOCAL \
+  ghcr.io/gabrielafort/llm-oncotree-app:latest
+```
+
+Use one of these patterns:
+
+- **Mac or Windows Docker Desktop, Ollama on the same computer:** use `http://host.docker.internal:11434`.
+- **Linux Docker, Ollama on the same computer:** use `http://host.docker.internal:<port>` and keep `--add-host=host.docker.internal:host-gateway`.
+- **Ollama on another server:** use that server's IP address or hostname, such as `http://192.168.1.25:11434`.
+
+Ollama Cloud models do not require a local Ollama server, but the app still requires an Ollama Cloud API key before cloud model classification.
+
+<details>
+<summary>Manual install options</summary>
+
+### Build The Docker Image Yourself
+
+Use this option if you want to build the container from source instead of pulling the prebuilt GitHub image.
+
+Clone this repository:
+
+```bash
+git clone https://github.com/GabrielaFort/LLMOncoTreeApp.git
+cd LLMOncoTreeApp
+```
+
+Build the image:
+
+```bash
+docker build \
+  -f docker/Dockerfile \
+  -t llm-oncotree-app:local \
+  .
+```
+
+Run the locally built image:
+
+```bash
+docker run --rm \
+  -p 8501:8501 \
+  -e OLLAMA_HOST=http://host.docker.internal:11434 \
+  --add-host=host.docker.internal:host-gateway \
+  llm-oncotree-app:local
+```
+
+Local builds may take several minutes because Docker installs Python dependencies and runs `scripts/setup_external_deps.py` during the image build.
+
+You can also build and run with Docker Compose:
+
+```bash
+docker compose -f docker/docker-compose.yml up --build
+```
+
+To stop the Compose app:
+
+```bash
+docker compose -f docker/docker-compose.yml down
+```
+
+### Install And Run From Source
+
+Use this option if you do not want to use Docker.
 
 Clone this repository:
 
@@ -58,7 +167,7 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
-Install dependencies:
+Install Python dependencies:
 
 ```bash
 python -m pip install -r requirements.txt
@@ -70,7 +179,7 @@ Fetch external runtime dependencies:
 python scripts/setup_external_deps.py
 ```
 
-## Run The App
+Run the app:
 
 ```bash
 python -m streamlit run app.py
@@ -78,82 +187,11 @@ python -m streamlit run app.py
 
 Use `python -m streamlit` so the app runs with the same Python environment where you installed `requirements.txt`.
 
-The app supports:
-
-- uploaded `.pdf`, `.txt`, `.docx`, and `.json` files
-- manual form entry
-- batch uploaded file classification
-- local Ollama models
-- Ollama Cloud models
-
-
-## Run With Docker
-
-The Docker setup builds a self-contained image with the Streamlit app, Java 21 runtime, Python dependencies, `LLMPathReportParser`, OncoTree resources, the OncoTree classifier JAR, and USeq runtime files. Docker runs `scripts/setup_external_deps.py` during image build, so you do not need to run the setup script first.
-
-From `LLMOncoTreeApp`, build and run the app locally with Compose (this may take several minutes):
-
-```bash
-docker compose -f docker/docker-compose.yml up --build
-```
-
-Then open:
-
-```text
-http://localhost:8501
-```
-
-To stop the app:
-
-```bash
-docker compose -f docker/docker-compose.yml down
-```
-
-
-### Docker And Ollama
-
-The container does not run Ollama itself. For local models, keep Ollama running on the host machine. Docker defaults to the host Ollama address:
-
-```text
-OLLAMA_HOST=http://host.docker.internal:11434
-```
-
-This is already set in `docker/docker-compose.yml` and the `Dockerfile`. You only need to change `OLLAMA_HOST` if Ollama is running on a different host or port.
-
-For Ollama on the same Linux host with a custom port:
-
-```yaml
-services:
-  oncotree-app:
-    environment:
-      OLLAMA_HOST: http://host.docker.internal:28641
-      RUN_ENVIRONMENT: LOCAL
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-```
-
-For Ollama on another reachable machine, use that machine's IP address or hostname:
-
-```yaml
-services:
-  oncotree-app:
-    environment:
-      OLLAMA_HOST: http://192.168.1.25:11434
-      RUN_ENVIRONMENT: LOCAL
-```
-
-Use one of these patterns:
-
-- **Mac or Windows Docker Desktop, Ollama on the same computer:** use `http://host.docker.internal:11434`.
-- **Linux Docker, Ollama on the same computer:** use `http://host.docker.internal:<port>` and keep the `extra_hosts` entry.
-- **Ollama on another server:** use that server's IP address or hostname, such as `http://192.168.1.25:11434`, and remove `extra_hosts`.
-
-
-Ollama Cloud models do not require a local Ollama server, but the app still requires an Ollama Cloud API key before cloud model classification.
+</details>
 
 ## Batch CLI
 
-Use `batch_classify.py` to classify files from the command line:
+After installing from source, use `batch_classify.py` to classify files from the command line:
 
 ```bash
 python batch_classify.py \

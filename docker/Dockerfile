@@ -2,8 +2,6 @@ FROM eclipse-temurin:21-jre-jammy
 
 LABEL org.opencontainers.image.source="https://github.com/GabrielaFort/LLMOncoTreeApp"
 LABEL org.opencontainers.image.description="Streamlit app for running the LLM OncoTree classifier"
-# To associate a license....
-# LABEL org.opencontainers.image.licenses="MIT"
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
