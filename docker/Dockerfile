@@ -1,5 +1,10 @@
 FROM eclipse-temurin:21-jre-jammy
 
+LABEL org.opencontainers.image.source="https://github.com/GabrielaFort/LLMOncoTreeApp"
+LABEL org.opencontainers.image.description="Streamlit app for running the LLM OncoTree classifier"
+# To associate a license....
+# LABEL org.opencontainers.image.licenses="MIT"
+
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     STREAMLIT_BROWSER_GATHER_USAGE_STATS=false \
@@ -27,7 +32,8 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip \
     && python3 -m pip install --no-cache-dir -r /tmp/requirements.txt
 
 COPY . /opt/LLMOncoTreeApp
-RUN python3 scripts/setup_external_deps.py
+RUN python3 scripts/setup_external_deps.py \
+    && rm -rf local_test __pycache__ scripts/__pycache__
 
 EXPOSE 8501
 
