@@ -4,7 +4,7 @@ Streamlit app for running the [LLM OncoTree classifier](https://github.com/Hunts
 
 **Warning: Do not upload any PHI/PII to cloud-hosted AI models or unapproved systems. To run the application using local models, read the instructions below.**
 
-The app accepts pathology reports (`.pdf`, `.txt`, `.docx`), OncoTree input JSON, Tempus v3.3+ JSON, and manual form entry. Report-style inputs are parsed with utilities from [LLMPathReportParser](https://github.com/GabrielaFort/LLMPathReportParser) before classification.
+The app accepts pathology reports/molecular testing results (`.pdf`, `.txt`, `.docx`), OncoTree input JSON, Tempus v3.3+ JSON, and manual form entry. Report-style inputs are parsed with utilities from [LLMPathReportParser](https://github.com/GabrielaFort/LLMPathReportParser) before classification.
 
 A freely available version of the app is hosted at http://tanlab.utah.edu:8094/. This version is limited to Ollama cloud model use and requires an API key from Ollama to access cloud models. This version also has a batch submission limit of 10 files at a time. 
 
@@ -207,7 +207,7 @@ File Upload accepts exactly one file with one of these extensions:
 - `.docx`
 - `.json`
 
-Pathology Report-style files are parsed before classification:
+Pathology report or molecular test result files are parsed before classification:
 
 - `.pdf` files are displayed in the app, converted to text using [Docling](https://www.docling.ai/), then parsed into OncoTree input JSON using the selected LLM. The app defaults to processing the first 5 PDF pages; users can change the page limit before classification.
 - `.txt` files are parsed into OncoTree input JSON.
