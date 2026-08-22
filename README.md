@@ -4,7 +4,7 @@ Streamlit app for running the [LLM OncoTree classifier](https://github.com/Hunts
 
 **Warning: Do not upload any PHI/PII to cloud-hosted AI models or unapproved systems. To run the application using local models, read the instructions below.**
 
-The app accepts pathology reports (`.pdf`, `.txt`, `.docx`), OncoTree input JSON, Tempus v3.3+ JSON, and manual form entry. Report-style inputs are parsed with utilities from [`LLMPathReportParser`](https://github.com/GabrielaFort/LLMPathReportParser) before classification.
+The app accepts pathology reports (`.pdf`, `.txt`, `.docx`), OncoTree input JSON, Tempus v3.3+ JSON, and manual form entry. Report-style inputs are parsed with utilities from [LLMPathReportParser](https://github.com/GabrielaFort/LLMPathReportParser) before classification.
 
 A freely available version of the app is hosted at http://tanlab.utah.edu:8094/. This version is limited to Ollama cloud model use and requires an API key from Ollama to access cloud models. This version also has a batch submission limit of 10 files at a time. 
 
@@ -20,7 +20,7 @@ docker/                        Dockerfile and Compose config
 local_test/USeq/               Tracked USeq runtime files used during setup
 ```
 
-After setup, external dependencies are stored outside git:
+External dependencies downloaded during setup:
 
 ```text
 .external/
@@ -35,7 +35,7 @@ After setup, external dependencies are stored outside git:
 
 ## Requirements
 
-- Docker for the recommended container install.
+- Docker for the recommended installation.
 - Ollama installed and running on the host machine for local models.
 - Optional Ollama Cloud API key for cloud models.
 
@@ -43,7 +43,7 @@ For manual source installs, use Python 3.10+ and Java 21+.
 
 ## Run With Docker
 
-The easiest way to run the app is to pull the prebuilt container image from GitHub Container Registry. The image includes the Streamlit app, Java 21 runtime, Python dependencies, `LLMPathReportParser`, OncoTree resources, the OncoTree classifier JAR, and USeq runtime files.
+The easiest way to run the app locally is to pull the prebuilt container image from GitHub Container Registry. The image includes the Streamlit app, Java 21 runtime, Python dependencies, [LLMPathReportParser](https://github.com/GabrielaFort/LLMPathReportParser), OncoTree resources, the [OncoTree classifier app](https://github.com/HuntsmanCancerInstitute/OncoTree/tree/master), and the TempusPathoPrinter ([USeq Repo](https://github.com/HuntsmanCancerInstitute/USeq)) for parsing Tempus JSON reports.
 
 Install Docker, then run:
 
@@ -189,32 +189,6 @@ Use `python -m streamlit` so the app runs with the same Python environment where
 
 </details>
 
-## Batch CLI
-
-After installing from source, use `batch_classify.py` to classify files from the command line:
-
-```bash
-python batch_classify.py \
-  --input reports/ \
-  --model gemma4:e4b \
-  --model-source local \
-  --pdf-page-limit 5
-```
-
-For Ollama Cloud, explicitly set the source and provide an API key file:
-
-```bash
-python batch_classify.py \
-  --input reports/ \
-  --model glm-5.2:cloud \
-  --model-source cloud \
-  --api-key-file key.txt
-```
-
-`--model-source` defaults to `local`. 
-
-For PDF inputs, `--pdf-page-limit N` processes only the first `N` pages before Docling extraction and LLM parsing. If omitted, the batch CLI processes full PDFs.
-
 
 ## Accepted Inputs And Behavior
 
@@ -235,7 +209,7 @@ File Upload accepts exactly one file with one of these extensions:
 
 Pathology Report-style files are parsed before classification:
 
-- `.pdf` files are displayed in the app, converted to text using [Docling](https://www.docling.ai/), then parsed into OncoTree input JSON. The app defaults to processing the first 5 PDF pages; users can change the page limit before classification.
+- `.pdf` files are displayed in the app, converted to text using [Docling](https://www.docling.ai/), then parsed into OncoTree input JSON using the selected LLM. The app defaults to processing the first 5 PDF pages; users can change the page limit before classification.
 - `.txt` files are parsed into OncoTree input JSON.
 - `.docx` files are converted to text, then parsed into OncoTree input JSON.
 
