@@ -25,8 +25,15 @@ RUN apt-get update \
 
 WORKDIR /opt/LLMOncoTreeApp
 
+ARG TORCH_VERSION=2.13.0+cpu
+ARG TORCHVISION_VERSION=0.28.0+cpu
+
 COPY requirements.txt /tmp/requirements.txt
 RUN python3 -m pip install --no-cache-dir --upgrade pip \
+    && python3 -m pip install --no-cache-dir \
+        --extra-index-url https://download.pytorch.org/whl/cpu \
+        torch==${TORCH_VERSION} \
+        torchvision==${TORCHVISION_VERSION} \
     && python3 -m pip install --no-cache-dir -r /tmp/requirements.txt
 
 COPY . /opt/LLMOncoTreeApp
