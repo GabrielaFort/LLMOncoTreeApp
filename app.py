@@ -39,8 +39,8 @@ try:
 except ValueError:
     VM_BATCH_FILE_LIMIT = 10
 
-RECOMMENDED_CLOUD_MODEL = "glm-5.2"
-RECOMMENDED_LOCAL_MODEL = "gemma4:e4b"
+RECOMMENDED_CLOUD_MODELS = ["glm-5.2", "gemma4:31b"]
+RECOMMENDED_LOCAL_MODELS = ["gemma4:e4b", "gemma4:26b"]
 
 DEMO_FORM_INPUT = {
     "test_order_id": "12345",
@@ -522,8 +522,8 @@ model_options.extend(
 def format_model_option(option):
     label, model, source = option
     if (
-        (source == "local" and model == RECOMMENDED_LOCAL_MODEL)
-        or (source == "cloud" and model == RECOMMENDED_CLOUD_MODEL)
+        (source == "local" and model in RECOMMENDED_LOCAL_MODELS)
+        or (source == "cloud" and model in RECOMMENDED_CLOUD_MODELS)
     ):
         return f"* {label} (recommended)"
     return label
@@ -540,10 +540,14 @@ selected_model_option = st.sidebar.selectbox(
 )
 
 if IS_VM_ENVIRONMENT:
-    st.sidebar.caption(f"Recommended Cloud Model: {RECOMMENDED_CLOUD_MODEL}")
+    st.sidebar.caption(f"Recommended Cloud Models: {', '.join(RECOMMENDED_CLOUD_MODELS)}")
 else:
-    st.sidebar.caption(f"Recommended Local Model: {RECOMMENDED_LOCAL_MODEL} \n"
-                       f"Recommended Cloud Model: {RECOMMENDED_CLOUD_MODEL}")
+    st.sidebar.caption(
+        f"Recommended Local Models: {', '.join(RECOMMENDED_LOCAL_MODELS)}"
+    )
+    st.sidebar.caption(
+        f"Recommended Cloud Models: {', '.join(RECOMMENDED_CLOUD_MODELS)}"
+    )
     
 _, selected_model, selected_model_source = selected_model_option
 
