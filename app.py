@@ -76,37 +76,15 @@ st.markdown("""
         padding-right: 3rem;
     }
 
-    .app-header {
+    .app-title {
         text-align: center;
-        background: #e2e8f0;
-        border: 2px solid #64748b;
-        border-radius: 8px;
-        padding: 1.35rem 1.5rem;
-        margin-top: 0.25rem;
         margin-bottom: 1.25rem;
     }
 
-    .app-header h1 {
-        margin: 0 0 0.35rem 0;
-        font-size: 2.25rem;
-        line-height: 1.15;
-    }
-
-    .app-header p {
-        color: #64748b;
-        margin: 0.25rem 0;
-        font-size: 0.98rem;
-    }
-
-    .app-header a {
-        color: #334155;
-        text-decoration: none;
-        font-weight: 600;
-    }
-
-    .app-header a:hover {
-        color: #0f766e;
-        text-decoration: underline;
+    .app-title h1,
+    .app-title p {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     /* Style the tab buttons. */
@@ -122,25 +100,8 @@ st.markdown("""
         justify-content: center !important;
         height: 48px !important;
         min-height: 48px !important;
-        background-color: #e2e8f0 !important;
-        border-radius: 8px 8px 0 0 !important;
         padding: 10px 20px !important;
         font-weight: 600 !important;
-        border: 2px solid #64748b !important;
-        border-bottom: none !important;
-        transition: background-color 0.2s ease, border-color 0.2s ease !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"]:hover {
-        background-color: #dbe4ee !important;
-        border-color: #475569 !important;
-    }
-
-    div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
-        background-color: #ffffff !important;
-        border-color: #475569 !important;
-        border-bottom: 2px solid #ffffff !important;
-        box-shadow: 0 -1px 6px rgba(15, 23, 42, 0.08) !important;
     }
 
     div[data-testid="stTabs"] button[role="tab"] p {
@@ -151,16 +112,41 @@ st.markdown("""
         white-space: nowrap !important;
     }
 
+    .confidence-label {
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .confidence-box {
+        border-radius: 6px;
+        padding: 0.45rem 0.65rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .confidence-high {
+        background: rgba(34, 197, 94, 0.16);
+        border: 1px solid rgba(34, 197, 94, 0.65);
+    }
+
+    .confidence-medium {
+        background: rgba(234, 179, 8, 0.18);
+        border: 1px solid rgba(234, 179, 8, 0.7);
+    }
+
+    .confidence-low {
+        background: rgba(239, 68, 68, 0.16);
+        border: 1px solid rgba(239, 68, 68, 0.65);
+    }
 	</style>
 """, unsafe_allow_html=True)
 
 st.markdown(
     """
-    <div class="app-header">
+    <div class="app-title">
         <h1>LLM OncoTree Classifier</h1>
-        <p>Prepare pathology reports or JSON records and run the OncoTree classifier.</p>
-        <p>Documentation: <a href="https://github.com/GabrielaFort/LLMOncoTreeApp" target="_blank">LLMOncoTreeApp</a> and <a href="https://github.com/HuntsmanCancerInstitute/OncoTree/tree/master" target="_blank">OncoTree</a></p>
-
+        <p>Prepare pathology reports or molecular testing results and run the OncoTree classifier.</p>
+        <p><small>Documentation: <a href="https://github.com/GabrielaFort/LLMOncoTreeApp" target="_blank">LLMOncoTreeApp</a> and <a href="https://github.com/HuntsmanCancerInstitute/OncoTree/tree/master" target="_blank">OncoTree</a></small></p>
     </div>
     """,
     unsafe_allow_html=True,
@@ -169,7 +155,7 @@ st.markdown(
 with st.expander("What can I upload?", expanded=False):
     st.markdown(
         """
-        - PDF, TXT, or DOCX pathology reports (parsed into OncoTree input JSON before classification using [LLMPathReportParser](https://github.com/GabrielaFort/LLMPathReportParser)).
+        - PDF, TXT, or DOCX pathology reports or molecular test results (parsed into OncoTree input JSON before classification using [LLMPathReportParser](https://github.com/GabrielaFort/LLMPathReportParser)).
         - OncoTree classifier input JSON (sent directly to the classifier).
         - Tempus v3.3+ report JSON (parsed into OncoTree input JSON before classification using [TempusPathoPrinter](https://github.com/HuntsmanCancerInstitute/USeq))
         """
@@ -314,27 +300,27 @@ def get_classification_json(output_files, file_prefix):
     return None
 
 
-def confidence_style(confidence):
+def confidence_class(confidence):
     normalized = str(confidence).strip().lower()
 
     if normalized.startswith("high"):
-        return "#dcfce7", "#166534"
+        return "confidence-high"
     if normalized.startswith("med"):
-        return "#fef9c3", "#854d0e"
+        return "confidence-medium"
     if normalized.startswith("low"):
-        return "#fee2e2", "#991b1b"
+        return "confidence-low"
 
-    return "#f1f5f9", "#334155"
+    return ""
 
 
 def render_confidence_box(confidence):
-    background, color = confidence_style(confidence)
     safe_confidence = html.escape(str(confidence))
+    css_class = confidence_class(confidence)
 
     st.markdown(
         f"""
-        <div style="font-size:0.875rem;color:#64748b;margin-bottom:0.25rem;">Confidence</div>
-        <div style="background:{background};color:{color};border:1px solid {color};border-radius:6px;padding:0.45rem 0.65rem;font-weight:700;text-align:center;">
+        <div class="confidence-label">Confidence</div>
+        <div class="confidence-box {css_class}">
             {safe_confidence}
         </div>
         """,
@@ -640,7 +626,7 @@ def uploaded_file_to_oncotree_input(
 # File upload tab
 with file_tab:
     st.subheader("Classify from uploaded file")
-    st.caption("Use this for one pathology report, one OncoTree input JSON, or one Tempus v3.3+ report JSON.")
+    st.caption("Use this for one pathology report, molecular test result, OncoTree input JSON, or Tempus v3.3+ report JSON.")
 
     file_cloud_confirmed = cloud_uploads_allowed("file_cloud_phi_confirm")
     uploaded_file = st.file_uploader("Upload pathology report or test result",
