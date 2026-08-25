@@ -6,7 +6,7 @@ Streamlit app for running the [LLM OncoTree classifier](https://github.com/Hunts
 
 The app accepts pathology reports/molecular testing results (`.pdf`, `.txt`, `.docx`), OncoTree input JSON, Tempus v3.3+ JSON, and manual form entry. Report-style inputs are parsed with utilities from [LLMPathReportParser](https://github.com/GabrielaFort/LLMPathReportParser) before classification.
 
-A freely available version of the app is hosted at http://tanlab.utah.edu:8094/. This version is limited to Ollama cloud model use and requires an API key from Ollama to access cloud models. This version also has a batch submission limit of 10 files at a time. 
+A freely available version of the app is hosted at https://oncotree.ai.tanlab.org. This version is limited to Ollama cloud model use and requires an API key from Ollama to access cloud models. This version also has a batch submission limit of 10 files at a time. 
 
 ## Repository Layout
 
