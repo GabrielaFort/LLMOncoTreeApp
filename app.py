@@ -4,14 +4,24 @@ import requests
 import base64
 import io
 import logging
+import warnings
 import os
 from pathlib import Path
 import html
 import json
 import uuid
+from types import SimpleNamespace
 from urllib.parse import urlencode
 from pypdf import PdfReader, PdfWriter
 from app_logging import setup_vm_logging
+
+os.environ.setdefault("TRANSFORMERS_VERBOSITY", "error")
+logging.getLogger("pypdf").setLevel(logging.ERROR)
+logging.getLogger("transformers").setLevel(logging.ERROR)
+logging.getLogger("RapidOCR").setLevel(logging.ERROR)
+logging.getLogger("rapidocr").setLevel(logging.ERROR)
+warnings.filterwarnings("ignore", message=r".*Accessing `__path__` from `\.models\..*")
+
 from oncotree_runner import (
     APP_DIR,
     build_oncotree_input_json,
@@ -41,10 +51,6 @@ except ValueError:
 
 RECOMMENDED_CLOUD_MODELS = ["glm-5.2", "gemma4:31b"]
 RECOMMENDED_LOCAL_MODELS = ["gemma4:e4b", "gemma4:26b"]
-logging.getLogger("pypdf").setLevel(logging.ERROR)
-logging.getLogger("transformers").setLevel(logging.ERROR)
-logging.getLogger("RapidOCR").setLevel(logging.ERROR)
-logging.getLogger("rapidocr").setLevel(logging.ERROR)
 try:
     LOCAL_OLLAMA_DISCOVERY_TIMEOUT = float(os.environ.get("LOCAL_OLLAMA_DISCOVERY_TIMEOUT", "2"))
 except ValueError:
@@ -58,6 +64,9 @@ DEMO_FORM_INPUT = {
     "icd_code_descriptions": "Carcinoma, Squamous Cell, NOS",
     "other_comments": "Invasive, poorly differentiated squamous cell carcinoma with cellular and nuclear atypia. p40 positive by IHC.",
 }
+
+EXAMPLE_TCGA_PDF_PATH = Path("test_files/TCGA-AA-3680.0cec2f9e-19b2-4d7f-8ecf-1545393b9a3b.pdf")
+EXAMPLE_ONCOTREE_JSON_PATH = Path("test_files/oncotree_input.json")
 
 JSON_INPUT_TYPE_OPTIONS = {
     "Auto-detect": JSON_INPUT_AUTO,
@@ -493,6 +502,15 @@ def upload_widget_disabled(cloud_confirmed):
     return st.session_state.selected_model_source == "cloud" and not cloud_confirmed
 
 
+def load_example_uploaded_file(path):
+    data = path.read_bytes()
+    return SimpleNamespace(
+        name=path.name,
+        size=len(data),
+        getvalue=lambda: data,
+    )
+
+
 # LLM settings sidebar
 st.sidebar.header("LLM Settings")
 if IS_VM_ENVIRONMENT:
@@ -686,10 +704,24 @@ with file_tab:
     st.caption("Use this for one pathology report, molecular test result, OncoTree input JSON, or Tempus v3.3+ report JSON.")
 
     file_cloud_confirmed = cloud_uploads_allowed("file_cloud_phi_confirm")
-    uploaded_file = st.file_uploader("Upload pathology report or test result",
-                                     type = ["txt", "pdf", "docx", "json"],
-                                     key = upload_widget_key("uploaded_report_file", file_cloud_confirmed),
-                                     disabled = upload_widget_disabled(file_cloud_confirmed))
+
+    upload_col, example_col = st.columns([3, 1])
+    with upload_col:
+        uploaded_file = st.file_uploader("Upload pathology report or test result",
+                                         type = ["txt", "pdf", "docx", "json"],
+                                         key = upload_widget_key("uploaded_report_file", file_cloud_confirmed),
+                                         disabled = upload_widget_disabled(file_cloud_confirmed))
+    with example_col:
+        if st.button("Use example TCGA pathology report PDF"):
+            st.session_state.example_file_path = EXAMPLE_TCGA_PDF_PATH
+        if st.button("Use example OncoTree input JSON"):
+            st.session_state.example_file_path = EXAMPLE_ONCOTREE_JSON_PATH
+
+    if uploaded_file is not None:
+        st.session_state.example_file_path = None
+    elif st.session_state.get("example_file_path") is not None:
+        uploaded_file = load_example_uploaded_file(st.session_state.example_file_path)
+
     file_json_input_type = JSON_INPUT_AUTO
     file_pdf_page_limit = DEFAULT_PDF_PAGE_LIMIT
     if uploaded_file is not None:
@@ -774,7 +806,7 @@ with file_tab:
                     st.error(f"Error loading JSON file: {e}")
                 
         
-    if st.button("Classify", key = "classify_file"):
+    if st.button("Classify", key = "classify_file", type="primary", use_container_width=True):
         input_record = None
 
         if not validate_model_selection():
@@ -782,7 +814,7 @@ with file_tab:
         elif not file_cloud_confirmed:
             st.error("Please confirm there is no PHI present before using a cloud model.")
         elif uploaded_file is None:
-            st.error("Please upload a file before running classification.")
+            st.error("Please upload a file or choose an example before running classification.")
         else:
             try:
                 with st.spinner("Preparing uploaded file..."):
@@ -882,7 +914,7 @@ with form_tab:
     )
 
 
-    submit_form = st.button("Classify", key = "classify_form")
+    submit_form = st.button("Classify", key = "classify_form", type="primary", use_container_width=True)
     submit_demo_form = st.session_state.pop("submit_demo_form", False)
 
     if submit_form or submit_demo_form:
@@ -978,7 +1010,7 @@ with batch_tab:
             key="batch_pdf_page_limit",
         )
 
-    if st.button("Run batch classification", key="classify_batch"):
+    if st.button("Run batch classification", key="classify_batch", type="primary", use_container_width=True):
         if not validate_model_selection():
             pass
         elif not batch_cloud_confirmed:

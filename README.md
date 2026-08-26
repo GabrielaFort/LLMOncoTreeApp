@@ -17,6 +17,7 @@ batch_classify.py              Batch command-line classifier runner
 full_oncotree.json             OncoTree display data used by the app
 scripts/setup_external_deps.py Fetches external runtime dependencies
 docker/                        Dockerfile and Compose config
+test_files/                    Example files for testing 
 local_test/USeq/               Tracked USeq runtime files used during setup
 ```
 
