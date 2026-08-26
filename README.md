@@ -45,13 +45,23 @@ For manual source installs, use Python 3.10+ and Java 21+.
 
 The easiest way to run the app locally is to pull the prebuilt container image from GitHub Container Registry. The image includes the Streamlit app, Java 21 runtime, Python dependencies, [LLMPathReportParser](https://github.com/GabrielaFort/LLMPathReportParser), OncoTree resources, the [OncoTree classifier app](https://github.com/HuntsmanCancerInstitute/OncoTree/tree/master), and the TempusPathoPrinter ([USeq Repo](https://github.com/HuntsmanCancerInstitute/USeq)) for parsing Tempus JSON reports.
 
-Install Docker, then run:
+Install Docker, then run the command for your operating system.
+
+For Mac or Windows Docker Desktop:
 
 ```bash
 docker run --rm \
   -p 8501:8501 \
   -e OLLAMA_HOST=http://host.docker.internal:11434 \
-  --add-host=host.docker.internal:host-gateway \
+  ghcr.io/gabrielafort/llm-oncotree-app:latest
+```
+
+For Linux:
+
+```bash
+docker run --rm \
+  --network=host \
+  -e OLLAMA_HOST=http://127.0.0.1:11434 \
   ghcr.io/gabrielafort/llm-oncotree-app:latest
 ```
 
@@ -68,7 +78,8 @@ To stop the app, press `Ctrl+C` in the terminal running Docker.
 The container does not run Ollama itself. For local models, keep Ollama running on the host machine. The Docker command above sets the host Ollama address:
 
 ```text
-OLLAMA_HOST=http://host.docker.internal:11434
+OLLAMA_HOST=http://host.docker.internal:11434  # Mac or Windows Docker Desktop
+OLLAMA_HOST=http://127.0.0.1:11434            # Linux with --network=host
 ```
 
 You only need to change `OLLAMA_HOST` if Ollama is running on a different host or port.
@@ -77,10 +88,8 @@ For Ollama on the same Linux host with a custom port:
 
 ```bash
 docker run --rm \
-  -p 8501:8501 \
-  -e OLLAMA_HOST=http://host.docker.internal:28641 \
-  -e RUN_ENVIRONMENT=LOCAL \
-  --add-host=host.docker.internal:host-gateway \
+  --network=host \
+  -e OLLAMA_HOST=http://127.0.0.1:28641 \
   ghcr.io/gabrielafort/llm-oncotree-app:latest
 ```
 
@@ -90,14 +99,13 @@ For Ollama on another reachable machine, use that machine's IP address or hostna
 docker run --rm \
   -p 8501:8501 \
   -e OLLAMA_HOST=http://192.168.1.25:11434 \
-  -e RUN_ENVIRONMENT=LOCAL \
   ghcr.io/gabrielafort/llm-oncotree-app:latest
 ```
 
 Use one of these patterns:
 
 - **Mac or Windows Docker Desktop, Ollama on the same computer:** use `http://host.docker.internal:11434`.
-- **Linux Docker, Ollama on the same computer:** use `http://host.docker.internal:<port>` and keep `--add-host=host.docker.internal:host-gateway`.
+- **Linux Docker, Ollama on the same computer:** use `--network=host` and `http://127.0.0.1:<port>`.
 - **Ollama on another server:** use that server's IP address or hostname, such as `http://192.168.1.25:11434`.
 
 Ollama Cloud models do not require a local Ollama server, but the app still requires an Ollama Cloud API key before cloud model classification.

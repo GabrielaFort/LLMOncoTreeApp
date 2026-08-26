@@ -1,9 +1,9 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import ollama
 import requests
 import base64
 import io
+import logging
 import os
 from pathlib import Path
 import html
@@ -41,6 +41,14 @@ except ValueError:
 
 RECOMMENDED_CLOUD_MODELS = ["glm-5.2", "gemma4:31b"]
 RECOMMENDED_LOCAL_MODELS = ["gemma4:e4b", "gemma4:26b"]
+logging.getLogger("pypdf").setLevel(logging.ERROR)
+logging.getLogger("transformers").setLevel(logging.ERROR)
+logging.getLogger("RapidOCR").setLevel(logging.ERROR)
+logging.getLogger("rapidocr").setLevel(logging.ERROR)
+try:
+    LOCAL_OLLAMA_DISCOVERY_TIMEOUT = float(os.environ.get("LOCAL_OLLAMA_DISCOVERY_TIMEOUT", "2"))
+except ValueError:
+    LOCAL_OLLAMA_DISCOVERY_TIMEOUT = 2.0
 
 DEMO_FORM_INPUT = {
     "test_order_id": "12345",
@@ -181,16 +189,21 @@ if IS_VM_ENVIRONMENT:
         )
 
 # Function to auto-detect local LLMs on machine, assuming Ollama is running
-def discover_local_ollama_models():
+@st.cache_data(ttl=30, show_spinner=False)
+def discover_local_ollama_models(ollama_host, timeout):
     """
-    Return a sorted list of model names from ollama.list()
+    Return local Ollama model names and a warning if Ollama is unavailable.
     """
+    tags_url = f"{ollama_host.rstrip('/')}/api/tags"
     try:
-        models = ollama.Client(host=get_ollama_base_url()).list()["models"]
+        response = requests.get(tags_url, timeout=timeout)
+        response.raise_for_status()
+        models = response.json().get("models", [])
     except Exception as e:
-        # Ollama client not available or not running
-        # Return an empty list
-        return []
+        return [], (
+            f"Could not connect to local Ollama at `{ollama_host}` within {timeout:g}s. "
+            "Local models are unavailable, but cloud models can still be loaded."
+        )
     
     names = []
     for model in models:
@@ -199,8 +212,10 @@ def discover_local_ollama_models():
             names.append(model.model)
         elif isinstance(model, dict) and "model" in model:
             names.append(model["model"])
+        elif isinstance(model, dict) and "name" in model:
+            names.append(model["name"])
 
-    return sorted(set(names))
+    return sorted(set(names)), None
 
 
 # Function to return all available ollama cloud models
@@ -413,6 +428,38 @@ def validate_model_selection():
         st.error("Please enter an Ollama Cloud API key before using a cloud model.")
         return False
 
+    if st.session_state.selected_model_source == "cloud":
+        try:
+            requests.post(
+                "https://ollama.com/api/chat",
+                headers={"Authorization": f"Bearer {st.session_state.ollama_cloud_api_key}"},
+                json={
+                    "model": st.session_state.selected_model,
+                    "messages": [{"role": "user", "content": "OK"}],
+                    "stream": False,
+                    "options": {"num_predict": 1},
+                },
+                timeout=10,
+            ).raise_for_status()
+        except requests.HTTPError as e:
+            status_code = e.response.status_code if e.response is not None else None
+            if status_code == 401:
+                st.error("The Ollama Cloud API key was rejected. Please check the key and try again.")
+            elif status_code == 403:
+                st.error(f"Your Ollama Cloud API key is valid, but it does not have access to `{st.session_state.selected_model}`. Choose a different model or check your Ollama subscription.")
+            elif status_code == 404:
+                st.error(f"Ollama Cloud could not find `{st.session_state.selected_model}`. Choose a different cloud model.")
+            elif status_code == 429:
+                st.error("Ollama Cloud rate limit exceeded. Please wait and try again.")
+            elif status_code == 502:
+                st.error(f"Ollama Cloud could not reach `{st.session_state.selected_model}`. Please try again or choose a different model.")
+            else:
+                st.error(f"Could not validate the Ollama Cloud API key before parsing. Status code: {status_code}")
+            return False
+        except requests.RequestException as e:
+            st.error(f"Could not validate the Ollama Cloud API key before parsing: {e}")
+            return False
+
     return True
 
 
@@ -467,10 +514,20 @@ else:
             """
         )
 
-available_local_models = [] if IS_VM_ENVIRONMENT else discover_local_ollama_models()
+local_ollama_warning = None
+if IS_VM_ENVIRONMENT:
+    available_local_models = []
+else:
+    ollama_base_url = get_ollama_base_url()
+    available_local_models, local_ollama_warning = discover_local_ollama_models(
+        ollama_base_url,
+        LOCAL_OLLAMA_DISCOVERY_TIMEOUT,
+    )
 
 # Show sidebar message if no local models are found
-if not IS_VM_ENVIRONMENT and not available_local_models:
+if local_ollama_warning:
+    st.sidebar.warning(local_ollama_warning)
+elif not IS_VM_ENVIRONMENT and not available_local_models:
     st.sidebar.warning("No local LLMs detected. Ensure Ollama is running and models are available.")
 
 # Initialize cloud model storage and settings
