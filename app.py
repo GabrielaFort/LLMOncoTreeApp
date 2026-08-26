@@ -624,12 +624,16 @@ if "file_classifier_result" not in st.session_state:
     st.session_state.file_classifier_result = None
 if "file_input_record" not in st.session_state:
     st.session_state.file_input_record = None
+if "file_current_upload_token" not in st.session_state:
+    st.session_state.file_current_upload_token = None
 if "form_classifier_result" not in st.session_state:
     st.session_state.form_classifier_result = None
 if "form_input_record" not in st.session_state:
     st.session_state.form_input_record = None
 if "batch_results" not in st.session_state:
     st.session_state.batch_results = None
+if "batch_current_upload_token" not in st.session_state:
+    st.session_state.batch_current_upload_token = None
 
 # Tabs for file, form, or batch upload
 file_tab, form_tab, batch_tab = st.tabs(["File Upload", "Manual Entry", "Batch File Upload"])
@@ -726,6 +730,11 @@ with file_tab:
     file_pdf_page_limit = DEFAULT_PDF_PAGE_LIMIT
     if uploaded_file is not None:
         upload_token = f"{uploaded_file.name}:{getattr(uploaded_file, 'size', '')}"
+        if st.session_state.file_current_upload_token != upload_token:
+            st.session_state.file_current_upload_token = upload_token
+            st.session_state.file_classifier_result = None
+            st.session_state.file_input_record = None
+
         if st.session_state.get("file_logged_upload_token") != upload_token:
             st.session_state.file_logged_upload_token = upload_token
             logger.info(
@@ -804,6 +813,10 @@ with file_tab:
                         type(e).__name__,
                     )
                     st.error(f"Error loading JSON file: {e}")
+    elif st.session_state.file_current_upload_token is not None:
+        st.session_state.file_current_upload_token = None
+        st.session_state.file_classifier_result = None
+        st.session_state.file_input_record = None
                 
         
     if st.button("Classify", key = "classify_file", type="primary", use_container_width=True):
@@ -990,6 +1003,20 @@ with batch_tab:
     )
     batch_json_input_type = JSON_INPUT_AUTO
     batch_pdf_page_limit = DEFAULT_PDF_PAGE_LIMIT
+
+    if batch_files:
+        batch_upload_token = tuple(
+            f"{file.name}:{getattr(file, 'size', '')}"
+            for file in batch_files
+        )
+        if st.session_state.batch_current_upload_token != batch_upload_token:
+            st.session_state.batch_current_upload_token = batch_upload_token
+            st.session_state.batch_results = None
+            st.session_state.selected_batch_result = 0
+    elif st.session_state.batch_current_upload_token is not None:
+        st.session_state.batch_current_upload_token = None
+        st.session_state.batch_results = None
+        st.session_state.selected_batch_result = 0
 
     if batch_files and any(file.name.lower().endswith(".json") for file in batch_files):
         batch_json_label = st.selectbox(
