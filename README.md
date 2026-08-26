@@ -102,12 +102,6 @@ docker run --rm \
   ghcr.io/gabrielafort/llm-oncotree-app:latest
 ```
 
-Use one of these patterns:
-
-- **Mac or Windows Docker Desktop, Ollama on the same computer:** use `http://host.docker.internal:11434`.
-- **Linux Docker, Ollama on the same computer:** use `--network=host` and `http://127.0.0.1:<port>`.
-- **Ollama on another server:** use that server's IP address or hostname, such as `http://192.168.1.25:11434`.
-
 Ollama Cloud models do not require a local Ollama server, but the app still requires an Ollama Cloud API key before cloud model classification.
 
 <details>
@@ -139,7 +133,6 @@ Run the locally built image:
 docker run --rm \
   -p 8501:8501 \
   -e OLLAMA_HOST=http://host.docker.internal:11434 \
-  --add-host=host.docker.internal:host-gateway \
   llm-oncotree-app:local
 ```
 
@@ -203,8 +196,8 @@ Use `python -m streamlit` so the app runs with the same Python environment where
 The Streamlit app has three input modes:
 
 - **File Upload** for one document or JSON case at a time.
-- **Form Upload** for manually entering one case without uploading a file.
-- **Batch Upload** for processing multiple uploaded files in one run.
+- **Manual Entry** for manually entering one case without uploading a file.
+- **Batch File Upload** for processing multiple uploaded files in one run.
 
 ### File Upload
 
@@ -234,9 +227,9 @@ If uploading long PDFs where the majority of the diagnosis information is in the
 
 For a single JSON upload, the app lets users choose the JSON type or use auto-detection. Batch uploads auto-detect each JSON file by default, with an option to force all JSON files to one type.
 
-### Form Upload
+### Manual Entry
 
-Form Upload creates one OncoTree input JSON record from manual entries:
+The form creates one OncoTree input JSON record from manual entries:
 
 - `Case ID / test order ID`: optional; a random case ID is generated if left blank.
 - `Sample site`: where the tumor sample was collected.
@@ -247,9 +240,9 @@ Form Upload creates one OncoTree input JSON record from manual entries:
 
 At least one of `Diagnosis`, `Other Classification Information`, or `Comments` is required.
 
-### Batch Upload
+### Batch File Upload
 
-Batch Upload accepts multiple files with these extensions:
+Batch upload accepts multiple files with these extensions:
 
 - `.pdf`
 - `.txt`

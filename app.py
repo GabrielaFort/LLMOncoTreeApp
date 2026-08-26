@@ -614,7 +614,7 @@ if "batch_results" not in st.session_state:
     st.session_state.batch_results = None
 
 # Tabs for file, form, or batch upload
-file_tab, form_tab, batch_tab = st.tabs(["File Upload", "Form Upload", "Batch Upload"])
+file_tab, form_tab, batch_tab = st.tabs(["File Upload", "Manual Entry", "Batch File Upload"])
 
 # PDF viewer function 
 def render_pdf(pdf_bytes, height=700):
