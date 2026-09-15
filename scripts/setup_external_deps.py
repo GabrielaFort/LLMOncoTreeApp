@@ -19,7 +19,7 @@ ONCOTREE_REPO = "https://github.com/HuntsmanCancerInstitute/OncoTree.git"
 
 PARSER_DIR = EXTERNAL_DIR / "LLMPathReportParser"
 ONCOTREE_DIR = EXTERNAL_DIR / "OncoTree"
-LOCAL_USEQ_DIR = APP_DIR / "local_test" / "USeq"
+#LOCAL_USEQ_DIR = APP_DIR / "local_test" / "USeq"
 
 
 def clone_or_update(repo_url, destination):
@@ -102,24 +102,24 @@ def remove_if_exists(path):
         path.unlink()
 
 
-def install_useq_runtime():
-    tempus_patho_printer = LOCAL_USEQ_DIR / "Apps" / "TempusPathoPrinter"
-    bio_tools_library = LOCAL_USEQ_DIR / "LibraryJars" / "bioToolsCodeLibrary.jar"
+# def install_useq_runtime():
+#     tempus_patho_printer = LOCAL_USEQ_DIR / "Apps" / "TempusPathoPrinter"
+#     bio_tools_library = LOCAL_USEQ_DIR / "LibraryJars" / "bioToolsCodeLibrary.jar"
 
-    if not tempus_patho_printer.exists():
-        raise RuntimeError(
-            f"Missing TempusPathoPrinter: {tempus_patho_printer}. "
-            "The tracked local_test/USeq runtime files are required for Tempus JSON uploads."
-        )
-    if not bio_tools_library.exists():
-        raise RuntimeError(
-            f"Missing bioToolsCodeLibrary.jar: {bio_tools_library}. "
-            "The tracked local_test/USeq runtime files are required for Tempus JSON uploads."
-        )
+#     if not tempus_patho_printer.exists():
+#         raise RuntimeError(
+#             f"Missing TempusPathoPrinter: {tempus_patho_printer}. "
+#             "The tracked local_test/USeq runtime files are required for Tempus JSON uploads."
+#         )
+#     if not bio_tools_library.exists():
+#         raise RuntimeError(
+#             f"Missing bioToolsCodeLibrary.jar: {bio_tools_library}. "
+#             "The tracked local_test/USeq runtime files are required for Tempus JSON uploads."
+#         )
 
-    useq_runtime_dir = RUNTIME_DIR / "USeq"
-    remove_if_exists(useq_runtime_dir)
-    shutil.copytree(LOCAL_USEQ_DIR, useq_runtime_dir)
+#     useq_runtime_dir = RUNTIME_DIR / "USeq"
+#     remove_if_exists(useq_runtime_dir)
+#     shutil.copytree(LOCAL_USEQ_DIR, useq_runtime_dir)
 
 
 def main():
@@ -133,7 +133,7 @@ def main():
     if not resources_dir.exists():
         raise RuntimeError(f"Missing OncoTree resources directory: {resources_dir}")
 
-    resources_archive = resources_dir / "OTResources13July2026.zip"
+    resources_archive = resources_dir / "OTResources14Aug2026.zip"
     resources_runtime_dir = RUNTIME_DIR / "OTResources"
     if not resources_archive.exists():
         raise RuntimeError(f"Missing OncoTree resources archive: {resources_archive}")
@@ -148,33 +148,33 @@ def main():
     download(oncotree_jar_url, oncotree_jar_download)
     replace_file(oncotree_jar_download, RUNTIME_DIR / "OT.jar")
 
-    ####################################################################
-    #### TEMPORARILY USING TRACKED USEQ FILES UNTIL RELEASE IS UPDATED ##
-    ####################################################################
-    # _, useq_asset_name, useq_asset_url = latest_asset_url(
-    #     "HuntsmanCancerInstitute",
-    #     "USeq",
-    #     r"USeq.*\.(zip|tar\.gz|tgz)$",
-    # )
-    # useq_archive = EXTERNAL_DIR / "downloads" / useq_asset_name
-    # useq_extract_dir = EXTERNAL_DIR / "USeq"
-    # download(useq_asset_url, useq_archive)
-    # extract_archive(useq_archive, useq_extract_dir)
-    # tempus_patho_printer = find_app(useq_extract_dir, "TempusPathoPrinter")
-    # useq_runtime_dir = RUNTIME_DIR / "USeq"
-    # remove_if_exists(useq_runtime_dir)
-    # (useq_runtime_dir / "Apps").mkdir(parents=True)
-    # (useq_runtime_dir / "LibraryJars").mkdir()
-    # replace_file(tempus_patho_printer, useq_runtime_dir / "Apps" / "TempusPathoPrinter")
-    # replace_file(
-    #     tempus_patho_printer.parent.parent / "LibraryJars" / "bioToolsCodeLibrary.jar",
-    #     useq_runtime_dir / "LibraryJars" / "bioToolsCodeLibrary.jar",
-    # )
-    # remove_if_exists(RUNTIME_DIR / "TempusPathoPrinter")
-    install_useq_runtime()
+    ###################################################################
+    ### TEMPORARILY USING TRACKED USEQ FILES UNTIL RELEASE IS UPDATED ##
+    ###################################################################
+    _, useq_asset_name, useq_asset_url = latest_asset_url(
+        "HuntsmanCancerInstitute",
+        "USeq",
+        r"USeq.*\.(zip|tar\.gz|tgz)$",
+    )
+    useq_archive = EXTERNAL_DIR / "downloads" / useq_asset_name
+    useq_extract_dir = EXTERNAL_DIR / "USeq"
+    download(useq_asset_url, useq_archive)
+    extract_archive(useq_archive, useq_extract_dir)
+    tempus_patho_printer = find_app(useq_extract_dir, "TempusPathoPrinter")
+    useq_runtime_dir = RUNTIME_DIR / "USeq"
+    remove_if_exists(useq_runtime_dir)
+    (useq_runtime_dir / "Apps").mkdir(parents=True)
+    (useq_runtime_dir / "LibraryJars").mkdir()
+    replace_file(tempus_patho_printer, useq_runtime_dir / "Apps" / "TempusPathoPrinter")
+    replace_file(
+        tempus_patho_printer.parent.parent / "LibraryJars" / "bioToolsCodeLibrary.jar",
+        useq_runtime_dir / "LibraryJars" / "bioToolsCodeLibrary.jar",
+    )
+    remove_if_exists(RUNTIME_DIR / "TempusPathoPrinter")
+    #install_useq_runtime()
 
     remove_if_exists(ONCOTREE_DIR)
-    # remove_if_exists(useq_extract_dir)
+    remove_if_exists(useq_extract_dir)
     remove_if_exists(EXTERNAL_DIR / "downloads")
 
     print("External dependencies ready:")

@@ -38,7 +38,7 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip \
 
 COPY . /opt/LLMOncoTreeApp
 RUN python3 scripts/setup_external_deps.py \
-    && rm -rf local_test __pycache__ scripts/__pycache__
+    && rm -rf __pycache__ scripts/__pycache__
 
 EXPOSE 8501
 

@@ -30,9 +30,9 @@ from report_input_parser import (
 
 OT_JAR_PATH = RUNTIME_DIR / "OT.jar"
 TEMPUS_PATHO_PRINTER_PATH = RUNTIME_DIR / "USeq" / "Apps" / "TempusPathoPrinter"
-OT_RESOURCES_DIR = RUNTIME_DIR / "OTResources" / "OTResources13July2026"
+OT_RESOURCES_DIR = RUNTIME_DIR / "OTResources" / "OTResources14Aug2026"
 
-PROMPT_TISSUE_PATH = OT_RESOURCES_DIR / "promptTissue.txt"
+PROMPT_TISSUE_PATH = OT_RESOURCES_DIR / "tissuePrompt.txt"
 TISSUE_NODE_CODES_PATH = OT_RESOURCES_DIR / "tissueCodeNodeCodes.txt"
 TISSUE_NODE_CATALOG_PATH = OT_RESOURCES_DIR / "TissueNodeCatalog"
 ICD_DIAGNOSIS_PATH = OT_RESOURCES_DIR / "ICD" / "ICD-10_Diagnosis.txt"
@@ -287,7 +287,10 @@ def run_oncotree_classifier(
         if selected_model_source == "cloud":
             if not api_key:
                 raise ValueError("Ollama Cloud API key is required for cloud models.")
-            command.extend(["-k", api_key])
+            api_key_path = temp_dir / "ollama_api_key.txt"
+            api_key_path.write_text(api_key.strip(), encoding="utf-8")
+
+            command.extend(["-k", str(api_key_path)])
 
         result = subprocess.run(command, capture_output=True, text=True, check=False)
 

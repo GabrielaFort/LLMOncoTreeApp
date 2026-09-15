@@ -454,6 +454,8 @@ def validate_model_selection():
             status_code = e.response.status_code if e.response is not None else None
             if status_code == 401:
                 st.error("The Ollama Cloud API key was rejected. Please check the key and try again.")
+            elif status_code == 402:
+                st.error("Ollama Cloud rejected the request because this account does not have available paid access or usage credits. Check the account's Ollama subscription, billing, or credits, then try again.")
             elif status_code == 403:
                 st.error(f"Your Ollama Cloud API key is valid, but it does not have access to `{st.session_state.selected_model}`. Choose a different model or check your Ollama subscription.")
             elif status_code == 404:
