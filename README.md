@@ -18,7 +18,6 @@ full_oncotree.json             OncoTree display data used by the app
 scripts/setup_external_deps.py Fetches external runtime dependencies
 docker/                        Dockerfile and Compose config
 test_files/                    Example files for testing 
-local_test/USeq/               Tracked USeq runtime files used during setup
 ```
 
 External dependencies downloaded during setup:
@@ -28,10 +27,10 @@ External dependencies downloaded during setup:
   LLMPathReportParser/    Cloned from GabrielaFort/LLMPathReportParser
   runtime/
     OT.jar                Downloaded from latest OncoTree release
-    USeq/                 Copied from tracked local_test/USeq runtime files
+    USeq/                 Downloaded from latest USeq release
       Apps/TempusPathoPrinter
       LibraryJars/
-    OTResources/          Extracted from OncoTree/Resources/OTResources13July2026.zip
+    OTResources/          Extracted from OncoTree/Resources/OTResources14Aug2026.zip
 ```
 
 ## Requirements
