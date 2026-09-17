@@ -1,3 +1,10 @@
+"""
+Streamlit interface for preparing and classifying pathology reports.
+
+The app supports single-file, manual entry, and batch workflows; connects to
+local or cloud Ollama models; and displays downloadable OncoTree results.
+"""
+
 import streamlit as st
 import streamlit.components.v1 as components
 import requests
@@ -37,11 +44,15 @@ from oncotree_runner import (
     zip_batch_output_files,
     zip_output_files,
 )
-
+# For embedding the oncotree webpage with results
 ONCOTREE_BASE_URL = "https://oncotree.mskcc.org/"
+# Downloaded from OncoTree API - newest version
 FULL_ONCOTREE_JSON_PATH = APP_DIR / "full_oncotree.json"
+# warning for cloud models
 CLOUD_PHI_WARNING = "Warning: You are about to submit your file(s) to a cloud hosted AI model. Please ensure there is no PHI present before submission"
+# Only process first n pages for PDFs
 DEFAULT_PDF_PAGE_LIMIT = 5
+# if RUN_ENVIRONMENT is set to VM, set this variable to dictate some downstream behavior
 RUN_ENVIRONMENT = os.environ.get("RUN_ENVIRONMENT", "LOCAL").strip().upper()
 IS_VM_ENVIRONMENT = RUN_ENVIRONMENT == "VM"
 try:
@@ -49,13 +60,17 @@ try:
 except ValueError:
     VM_BATCH_FILE_LIMIT = 10
 
+# Set some recommended models that we tested
 RECOMMENDED_CLOUD_MODELS = ["glm-5.2", "gemma4:31b"]
 RECOMMENDED_LOCAL_MODELS = ["gemma4:e4b", "gemma4:26b"]
+
+# Set timeout for finding local models 
 try:
     LOCAL_OLLAMA_DISCOVERY_TIMEOUT = float(os.environ.get("LOCAL_OLLAMA_DISCOVERY_TIMEOUT", "2"))
 except ValueError:
     LOCAL_OLLAMA_DISCOVERY_TIMEOUT = 2.0
 
+# Define what example form/manual input example will look like
 DEMO_FORM_INPUT = {
     "test_order_id": "12345",
     "sample_site": "Lung, lower lobe",
@@ -183,7 +198,7 @@ st.warning("**Warning:** Do not upload any PHI/PII to cloud-hosted AI models or 
 # Initiate logging
 logger = setup_vm_logging(IS_VM_ENVIRONMENT)
 
-# Log new sessions in VM mode
+# Log new sessions in VM mode only
 if IS_VM_ENVIRONMENT:
     if "session_id" not in st.session_state:
         st.session_state["session_id"] = str(uuid.uuid4())
@@ -200,9 +215,7 @@ if IS_VM_ENVIRONMENT:
 # Function to auto-detect local LLMs on machine, assuming Ollama is running
 @st.cache_data(ttl=30, show_spinner=False)
 def discover_local_ollama_models(ollama_host, timeout):
-    """
-    Return local Ollama model names and a warning if Ollama is unavailable.
-    """
+    """Return local Ollama model names and a warning if Ollama is unavailable."""
     tags_url = f"{ollama_host.rstrip('/')}/api/tags"
     try:
         response = requests.get(tags_url, timeout=timeout)
@@ -216,7 +229,6 @@ def discover_local_ollama_models(ollama_host, timeout):
     
     names = []
     for model in models:
-        # each m has attribute model
         if hasattr(model, "model"):
             names.append(model.model)
         elif isinstance(model, dict) and "model" in model:
@@ -229,9 +241,7 @@ def discover_local_ollama_models(ollama_host, timeout):
 
 # Function to return all available ollama cloud models
 def discover_ollama_cloud_models():
-    """
-    Return a sorted list of model names from ollama cloud
-    """
+    """Return the model names currently available through Ollama Cloud."""
     try:
         response = requests.get("https://ollama.com/api/tags", timeout=15)
         response.raise_for_status()
@@ -253,7 +263,7 @@ def discover_ollama_cloud_models():
     
     return sorted(set(names))
 
-# Helper function to display results in a user-friendly way
+# Helper function to display results in a nice way
 def display_classifier_result(
     result,
     key_prefix="result",
@@ -262,6 +272,7 @@ def display_classifier_result(
     show_download_zip=True,
     show_output_files=True,
 ):
+    """Render classifier status, summaries, downloads, and output files."""
     if result["returncode"] != 0:
         st.error("Classifier failed.")
 
@@ -315,6 +326,7 @@ def display_classifier_result(
 
 
 def get_classification_json(output_files, file_prefix):
+    """Return parsed JSON from the first text output matching a path prefix."""
     for filename, contents in output_files.items():
         if filename.startswith(file_prefix) and isinstance(contents, str):
             try:
@@ -325,6 +337,7 @@ def get_classification_json(output_files, file_prefix):
 
 
 def confidence_class(confidence):
+    """Map a confidence label to the corresponding CSS class to add color to the labels."""
     normalized = str(confidence).strip().lower()
 
     if normalized.startswith("high"):
@@ -338,6 +351,7 @@ def confidence_class(confidence):
 
 
 def render_confidence_box(confidence):
+    """Render a color-coded confidence value."""
     safe_confidence = html.escape(str(confidence))
     css_class = confidence_class(confidence)
 
@@ -353,6 +367,7 @@ def render_confidence_box(confidence):
 
 
 def display_classification_summary(output_files):
+    """Render tissue and node classifications found in classifier outputs."""
     summary_specs = [
         ("TissueClassified", "TissueClassified/", "oncotree_tissue_code"),
         ("NodeClassified", "NodeClassified/", "oncotree_code"),
@@ -381,6 +396,7 @@ def display_classification_summary(output_files):
 
 
 def get_oncotree_result_code(output_files):
+    """Return the most specific OncoTree code available in classifier outputs."""
     tissue_result = get_classification_json(output_files, "TissueClassified/")
     node_result = get_classification_json(output_files, "NodeClassified/")
 
@@ -391,6 +407,7 @@ def get_oncotree_result_code(output_files):
 
 @st.cache_data
 def load_oncotree_code_names():
+    """Load a mapping of OncoTree codes to display names."""
     nodes = json.loads(FULL_ONCOTREE_JSON_PATH.read_text(encoding="utf-8"))
     return {
         node["code"]: node["name"]
@@ -400,6 +417,7 @@ def load_oncotree_code_names():
 
 
 def get_oncotree_url(output_files):
+    """Build an OncoTree browser URL for the classified code, if available."""
     result_code = get_oncotree_result_code(output_files)
     if not result_code:
         return None
@@ -412,6 +430,7 @@ def get_oncotree_url(output_files):
 
 
 def display_oncotree_tree(output_files, key_prefix):
+    """Embed the OncoTree browser at the classification result."""
     oncotree_url = get_oncotree_url(output_files)
 
     if not oncotree_url:
@@ -426,6 +445,7 @@ def display_oncotree_tree(output_files, key_prefix):
 
 # Model validation helper
 def validate_model_selection():
+    """Validate the selected model and, for cloud models, its API access."""
     if st.session_state.selected_model is None:
         st.error("Please select a model before running classification.")
         return False
@@ -475,6 +495,7 @@ def validate_model_selection():
 
 
 def confirm_cloud_submission(key):
+    """Require confirmation that cloud inputs contain no PHI."""
     if st.session_state.selected_model_source != "cloud":
         return True
 
@@ -505,6 +526,7 @@ def upload_widget_disabled(cloud_confirmed):
 
 
 def load_example_uploaded_file(path):
+    """Wrap an example file with the interface expected by upload handlers."""
     data = path.read_bytes()
     return SimpleNamespace(
         name=path.name,
@@ -583,6 +605,7 @@ model_options.extend(
 )
 
 def format_model_option(option):
+    """Format a model selector option and mark recommended models."""
     label, model, source = option
     if (
         (source == "local" and model in RECOMMENDED_LOCAL_MODELS)
@@ -603,6 +626,7 @@ selected_model_option = st.sidebar.selectbox(
 )
 
 if IS_VM_ENVIRONMENT:
+    # only cloud models available in public (VM mode) instance
     st.sidebar.caption(f"Recommended Cloud Models: {', '.join(RECOMMENDED_CLOUD_MODELS)}")
 else:
     st.sidebar.caption(
@@ -642,6 +666,7 @@ file_tab, form_tab, batch_tab = st.tabs(["File Upload", "Manual Entry", "Batch F
 
 # PDF viewer function 
 def render_pdf(pdf_bytes, height=700):
+    """Embed PDF bytes in the Streamlit page."""
     base64_pdf = base64.b64encode(pdf_bytes).decode("utf-8")
     pdf_display = f"""
         <iframe
@@ -654,6 +679,7 @@ def render_pdf(pdf_bytes, height=700):
     st.markdown(pdf_display, unsafe_allow_html=True)
 
 def first_pdf_pages(pdf_bytes, page_limit=DEFAULT_PDF_PAGE_LIMIT):
+    """Return a PDF containing at most the first ``page_limit`` pages."""
     if page_limit < 1:
         raise ValueError("PDF page limit must be at least 1.")
 
@@ -671,10 +697,12 @@ def first_pdf_pages(pdf_bytes, page_limit=DEFAULT_PDF_PAGE_LIMIT):
 
 
 def count_pdf_pages(pdf_bytes):
+    """Return the number of pages in a PDF."""
     return len(PdfReader(io.BytesIO(pdf_bytes)).pages)
 
 
 def get_uploaded_pdf_md(uploaded_file, page_limit=DEFAULT_PDF_PAGE_LIMIT):
+    """Convert an uploaded PDF to Markdown."""
     cache_key = f"{uploaded_file.name}:{getattr(uploaded_file, 'size', '')}:{page_limit}"
 
     if st.session_state.get("uploaded_pdf_md_key") != cache_key:
@@ -692,6 +720,7 @@ def uploaded_file_to_oncotree_input(
     json_input_type=JSON_INPUT_AUTO,
     pdf_page_limit=None,
 ):
+    """Convert an upload using the model and credentials selected in the UI."""
     pdf_page_limit = pdf_page_limit or DEFAULT_PDF_PAGE_LIMIT
 
     return runner_uploaded_file_to_oncotree_input(

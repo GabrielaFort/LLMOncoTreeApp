@@ -1,3 +1,11 @@
+"""
+Batch-classify pathology reports, molecular testing results, Tempus report JSON, or other inputs
+with the OncoTree.AI classifier.
+
+Accepts a supported file or directory, converts each report to OncoTree Input,
+runs the classifier using a local or cloud Ollama model.
+"""
+
 import argparse
 from pathlib import Path
 
@@ -9,7 +17,7 @@ from oncotree_runner import (
     run_oncotree_classifier,
 )
 
-
+# Find all files within the path that and in allowed suffixes
 def iter_input_files(input_path):
     input_path = Path(input_path)
     allowed_suffixes = {".json", ".txt", ".docx", ".pdf"}
@@ -55,6 +63,7 @@ def main():
     model_source = normalize_model_source(args.model_source)
 
     api_key = None
+    # Read api key from file if exists
     if args.api_key_file:
         api_key = Path(args.api_key_file).read_text(encoding="utf-8").strip()
     if model_source == "cloud" and not api_key:

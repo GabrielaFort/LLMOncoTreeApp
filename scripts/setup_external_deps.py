@@ -14,6 +14,8 @@ APP_DIR = Path(__file__).resolve().parents[1]
 EXTERNAL_DIR = APP_DIR / ".external"
 RUNTIME_DIR = EXTERNAL_DIR / "runtime"
 
+# Repositories are cloned only as setup inputs. The runtime files copied out below
+# are the pieces the app actually needs after this script finishes.
 PARSER_REPO = "https://github.com/GabrielaFort/LLMPathReportParser.git"
 ONCOTREE_REPO = "https://github.com/HuntsmanCancerInstitute/OncoTree.git"
 
@@ -22,6 +24,7 @@ ONCOTREE_DIR = EXTERNAL_DIR / "OncoTree"
 
 
 def clone_or_update(repo_url, destination):
+    # Existing checkouts are updated with a fast-forward-only pull. Missing checkouts are cloned fresh.
     if destination.exists():
         print(f"Updating {destination.name}")
         subprocess.run(["git", "-C", str(destination), "pull", "--ff-only"], check=True)
@@ -40,6 +43,7 @@ def latest_asset_url(owner, repo, asset_pattern):
     release = latest_release(owner, repo)
     pattern = re.compile(asset_pattern)
 
+    # Match by asset name so new release tags can be picked up without changing this script
     for asset in release.get("assets", []):
         if pattern.search(asset["name"]):
             return release["tag_name"], asset["name"], asset["browser_download_url"]
@@ -105,6 +109,9 @@ def main():
     EXTERNAL_DIR.mkdir(exist_ok=True)
     RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
 
+    # Clone or fast-forward update the source repositories. Keep the parser
+    # checkout available because the app imports/runs it from .external; the
+    # OncoTree checkout is temporary and removed after copying its resources.
     clone_or_update(PARSER_REPO, PARSER_DIR)
     clone_or_update(ONCOTREE_REPO, ONCOTREE_DIR)
 
@@ -112,12 +119,14 @@ def main():
     if not resources_dir.exists():
         raise RuntimeError(f"Missing OncoTree resources directory: {resources_dir}")
 
-    resources_archive = resources_dir / "OTResources14Aug2026.zip"
+    resources_archive = resources_dir / "OTResources15Sept2026.zip"
     resources_runtime_dir = RUNTIME_DIR / "OTResources"
     if not resources_archive.exists():
         raise RuntimeError(f"Missing OncoTree resources archive: {resources_archive}")
     extract_archive(resources_archive, resources_runtime_dir)
 
+    # The OncoTree jar is released separately from the repository resources, so
+    # pull the latest GitHub release asset and normalize the runtime filename.
     _, oncotree_jar_name, oncotree_jar_url = latest_asset_url(
         "HuntsmanCancerInstitute",
         "OncoTree",
@@ -128,6 +137,7 @@ def main():
     replace_file(oncotree_jar_download, RUNTIME_DIR / "OT.jar")
 
 
+    # TempusPathoPrinter lives inside USeq. Copy only the app binary and the required support jar
     _, useq_asset_name, useq_asset_url = latest_asset_url(
         "HuntsmanCancerInstitute",
         "USeq",
@@ -149,6 +159,8 @@ def main():
     )
     remove_if_exists(RUNTIME_DIR / "TempusPathoPrinter")
 
+    # Drop setup-only artifacts. The parser checkout is intentionally kept, while
+    # OncoTree/USeq downloads and extracted source trees are rebuilt on demand.
     remove_if_exists(ONCOTREE_DIR)
     remove_if_exists(useq_extract_dir)
     remove_if_exists(EXTERNAL_DIR / "downloads")

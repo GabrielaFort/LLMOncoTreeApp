@@ -4,6 +4,12 @@ from pathlib import Path
 
 
 def setup_vm_logging(is_vm_environment: bool) -> logging.Logger:
+    """
+    Configure file logging in the VM and stay silent during local runs.
+
+    VM logging writes to LOG_FILE, defaulting to /app/logs/app.log, at the
+    LOG_LEVEL environment setting. 
+    """
     logger = logging.getLogger("llm_oncotree_app")
 
     if not is_vm_environment:

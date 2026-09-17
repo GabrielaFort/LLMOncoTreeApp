@@ -1,3 +1,10 @@
+"""
+Prepare pathology reports, run OncoTree, and package classifier results.
+
+This module connects the external report parser, TempusPathoPrinter, and the
+OncoTree Java classifier.
+"""
+
 import io
 import json
 import os
@@ -30,7 +37,7 @@ from report_input_parser import (
 
 OT_JAR_PATH = RUNTIME_DIR / "OT.jar"
 TEMPUS_PATHO_PRINTER_PATH = RUNTIME_DIR / "USeq" / "Apps" / "TempusPathoPrinter"
-OT_RESOURCES_DIR = RUNTIME_DIR / "OTResources" / "OTResources14Aug2026"
+OT_RESOURCES_DIR = RUNTIME_DIR / "OTResources" / "OTResources15Sept2026"
 
 PROMPT_TISSUE_PATH = OT_RESOURCES_DIR / "tissuePrompt.txt"
 TISSUE_NODE_CODES_PATH = OT_RESOURCES_DIR / "tissueCodeNodeCodes.txt"
@@ -57,6 +64,7 @@ def normalize_model_source(model_source=None):
 
 
 def safe_case_id(case_id):
+    """Replace characters that are unsafe in result paths with underscores."""
     return "".join(
         char if char.isalnum() or char in ["_", "-", "."] else "_"
         for char in str(case_id)
@@ -64,10 +72,12 @@ def safe_case_id(case_id):
 
 
 def is_tempus_v33_json(parsed):
+    """Return whether a parsed object has markers used by Tempus v3.3+ reports."""
     return isinstance(parsed, dict) and any(field in parsed for field in TEMPUS_V33_MARKER_FIELDS)
 
 
 def describe_json_input_type(parsed):
+    """Identify parsed JSON as OncoTree input, Tempus input, or unknown."""
     if is_oncotree_input_json(parsed):
         return JSON_INPUT_ONCOTREE
     if is_tempus_v33_json(parsed):
@@ -76,6 +86,7 @@ def describe_json_input_type(parsed):
 
 
 def get_ollama_base_url(ollama_host=None):
+    """Resolve and normalize the Ollama server URL."""
     base_url = (
         ollama_host
         or os.environ.get("OLLAMA_HOST")
@@ -89,6 +100,7 @@ def get_ollama_base_url(ollama_host=None):
 
 
 def tempus_json_to_oncotree_input(file_bytes, filename):
+    """Convert a Tempus JSON report into normalized OncoTree input."""
     if not TEMPUS_PATHO_PRINTER_PATH.exists():
         raise FileNotFoundError(
             f"TempusPathoPrinter not found: {TEMPUS_PATHO_PRINTER_PATH}. "
@@ -135,6 +147,7 @@ def tempus_json_to_oncotree_input(file_bytes, filename):
 
 
 def read_json_bytes(file_bytes, filename, json_input_type=JSON_INPUT_AUTO):
+    """Parse JSON bytes according to an explicit or automatically detected type."""
     if json_input_type not in JSON_INPUT_TYPES:
         raise ValueError(f"Unknown JSON input type: {json_input_type}")
 
@@ -170,6 +183,7 @@ def uploaded_file_to_oncotree_input(
     json_input_type=JSON_INPUT_AUTO,
     pdf_page_limit=None,
 ):
+    """Convert an uploaded report into normalized OncoTree input."""
     if Path(uploaded_file.name).suffix.lower() == ".json":
         return read_json_bytes(uploaded_file.getvalue(), uploaded_file.name, json_input_type)
 
@@ -195,6 +209,7 @@ def bytes_to_oncotree_input(
     json_input_type=JSON_INPUT_AUTO,
     pdf_page_limit=None,
 ):
+    """Convert in-memory report into normalized OncoTree input."""
     suffix = Path(filename).suffix.lower()
 
     if suffix == ".json":
@@ -221,6 +236,7 @@ def file_path_to_oncotree_input(
     json_input_type=JSON_INPUT_AUTO,
     pdf_page_limit=None,
 ):
+    """Convert a report on disk into normalized OncoTree input."""
     path = Path(path)
     if path.suffix.lower() == ".json":
         return read_json_bytes(path.read_bytes(), path.name, json_input_type)
@@ -244,6 +260,12 @@ def run_oncotree_classifier(
     persist_results=False,
     ollama_host=None,
 ):
+    """
+    Run the Java classifier and return its status, logs, and output files.
+
+    Results are always returned in memory. When ``persist_results`` is true,
+    they are also retained under the application's results directory.
+    """
     selected_model_source = normalize_model_source(selected_model_source)
     ollama_host = get_ollama_base_url(ollama_host)
     case_id = input_record.get("test_order_id") or f"case_{uuid.uuid4().hex[:8]}"
@@ -313,6 +335,7 @@ def run_oncotree_classifier(
 
 
 def zip_output_files(output_files, case_id="oncotree_results"):
+    """Package one case's output files in a ZIP archive."""
     buffer = io.BytesIO()
     safe_id = safe_case_id(case_id or "oncotree_results")
 
@@ -326,6 +349,7 @@ def zip_output_files(output_files, case_id="oncotree_results"):
 
 
 def zip_batch_output_files(batch_results):
+    """Package successful cases from a batch into a ZIP."""
     buffer = io.BytesIO()
 
     with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as zip_file:

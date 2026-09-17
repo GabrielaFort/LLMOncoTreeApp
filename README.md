@@ -30,7 +30,7 @@ External dependencies downloaded during setup:
     USeq/                 Downloaded from latest USeq release
       Apps/TempusPathoPrinter
       LibraryJars/
-    OTResources/          Extracted from OncoTree/Resources/OTResources14Aug2026.zip
+    OTResources/          Extracted from OncoTree/Resources/OTResources15Sept2026.zip
 ```
 
 ## Requirements
